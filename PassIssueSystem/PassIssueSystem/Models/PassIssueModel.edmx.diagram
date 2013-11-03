@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bbd7f7168cae4da481fcd8e2f2ad40f6" Name="Diagram1">
+        <EntityTypeShape EntityType="PassIssueSystemModel.C__MigrationHistory" Width="1.5" PointX="10.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.CardDetail" Width="1.5" PointX="10" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.CheckInPerson" Width="1.5" PointX="8" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.CheckInVehicle" Width="1.5" PointX="8" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.Company" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.CompanyLogin" Width="1.5" PointX="10.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.GenerateRefNo" Width="1.5" PointX="10.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.Module" Width="1.5" PointX="12.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.PassIssueDet" Width="1.5" PointX="5.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.PassIssueHed" Width="1.5" PointX="12.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.PassIssueVehicle" Width="1.5" PointX="5.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.PassRequestDet" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.PassRequestHed" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.PassReqVehicle" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.PassType" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.PaymentDetail" Width="1.5" PointX="7.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.UserAccess" Width="1.5" PointX="5.75" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.VehicleType" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <AssociationConnector Association="PassIssueSystemModel.FK_CARDDETAIL_PAYMENTDETAIL" ManuallyRouted="false" />
+        <AssociationConnector Association="PassIssueSystemModel.FK_checkedin_PASSISSUEDET" ManuallyRouted="false" />
+        <AssociationConnector Association="PassIssueSystemModel.FK_CHECKINVEHICLE_PASSISSUEVEHICLE" ManuallyRouted="false" />
+        <AssociationConnector Association="PassIssueSystemModel.FK_PASSREQUESTHED_COMPANY" ManuallyRouted="false" />
+        <AssociationConnector Association="PassIssueSystemModel.FK_PASSISSUEDET_PASSISSUEDET" ManuallyRouted="false" />
+        <AssociationConnector Association="PassIssueSystemModel.FK_PASSREQUESTDET_PASSREQUESTHED" ManuallyRouted="false" />
+        <AssociationConnector Association="PassIssueSystemModel.FK_PASSREQUESTDET_PASSTYPE" ManuallyRouted="false" />
+        <AssociationConnector Association="PassIssueSystemModel.FK_PASSREQVEHICLE_PASSREQUESTHED" ManuallyRouted="false" />
+        <AssociationConnector Association="PassIssueSystemModel.FK_PASSREQVEHICLE_VEHICLETYPE" ManuallyRouted="false" />
+        <AssociationConnector Association="PassIssueSystemModel.FK_PassIssueHed_PassRequestHed" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

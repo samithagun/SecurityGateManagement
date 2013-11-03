@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Pass Issue System";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+                Welcome to Pass Issuing Portal...
+            </p>
+        </div>
+    </section>
+}
+<h3>Main Menu</h3>
+<ol class="round">
+    <li class="one">
+        <h5>Administrator</h5>
+        @Html.ActionLink("Create Company", "Create", "Company")
+        <br />
+        @Html.ActionLink("Create Pass Type", "Create", "PassType")
+        <br />
+        @Html.ActionLink("Create Vehicle Type", "Create", "VehicleType")
+    </li>
+
+    <li class="two">
+        <h5>Pass Office</h5>
+    </li>
+
+    <li class="three">
+        <h5>Company</h5>
+    </li>
+</ol>
