@@ -1,50 +1,69 @@
 ﻿@model PassIssueSystem.Models.VehicleType
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Vehicle Type Details";
 }
 
-<h2>Details</h2>
+<html>
+<head>
+    <title>Vehicle Type Details</title>
+</head>
+<body class='contrast-red'>
+    <header></header>
+    <section id='content'>
+        <div class='row' id='content-wrapper'>
+            <div class='col-sm-12'>
+                <div class='row'>
+                    <div class='col-sm-12'>
+                        <div class='box bordered-box blue-border'>
+                            
+                            <fieldset>
+                                <legend>VehicleType</legend>
 
-<fieldset>
-    <legend>VehicleType</legend>
+                                <div class="display-label">
+                                    @Html.DisplayNameFor(model => model.Description)
+                                </div>
+                                <div class="display-field">
+                                    @Html.DisplayFor(model => model.Description)
+                                </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Description)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Description)
-    </div>
+                                <div class="display-label">
+                                    @Html.DisplayNameFor(model => model.VehicleFee)
+                                </div>
+                                <div class="display-field">
+                                    @Html.DisplayFor(model => model.VehicleFee)
+                                </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.VehicleFee)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.VehicleFee)
-    </div>
+                                <div class="display-label">
+                                    @Html.DisplayNameFor(model => model.Status)
+                                </div>
+                                <div class="display-field">
+                                    @Html.DisplayFor(model => model.Status)
+                                </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Status)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Status)
-    </div>
+                                <div class="display-label">
+                                    @Html.DisplayNameFor(model => model.AddDate)
+                                </div>
+                                <div class="display-field">
+                                    @Html.DisplayFor(model => model.AddDate)
+                                </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.AddDate)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.AddDate)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.AddUser)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.AddUser)
-    </div>
-</fieldset>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.VehicleCode }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                                <div class="display-label">
+                                    @Html.DisplayNameFor(model => model.AddUser)
+                                </div>
+                                <div class="display-field">
+                                    @Html.DisplayFor(model => model.AddUser)
+                                </div>
+                            </fieldset>
+                            <p>
+                                @Html.ActionLink("Edit", "Edit", new { id = Model.VehicleCode }) |
+                                @Html.ActionLink("Back to List", "Index")
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

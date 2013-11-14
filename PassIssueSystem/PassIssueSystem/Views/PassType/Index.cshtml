@@ -4,54 +4,72 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<html>
+<head>
+    <title>Vehicle Type Details</title>
+</head>
+<body class='contrast-red'>
+    <header></header>
+    <section id='content'>
+        <div class='row' id='content-wrapper'>
+            <div class='col-sm-12'>
+                <div class='row'>
+                    <div class='col-sm-12'>
+                        <div class='box bordered-box blue-border'>
+                            <p>
+                                @Html.ActionLink("Create New Pass Type", "Create")
+                            </p>
+                            <table>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Description)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.PassFee)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Status)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.AddDate)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.AddUser)
+                                    </th>
+                                    <th></th>
+                                </tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PassFee)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AddDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AddUser)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PassFee)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AddDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AddUser)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PassCode }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PassCode }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PassCode })
-        </td>
-    </tr>
-}
-
-</table>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Description)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.PassFee)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Status)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.AddDate)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.AddUser)
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink("Edit", "Edit", new { id = item.PassCode }) |
+            @Html.ActionLink("Details", "Details", new { id = item.PassCode }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.PassCode })
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
