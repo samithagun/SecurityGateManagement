@@ -286,6 +286,9 @@
       <DependentUpon>PassIssueModel.edmx</DependentUpon>
       <LastGenOutput>PassIssueModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Content\Fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Fonts\montserrat-bold-webfont.woff" />
+    <Content Include="Content\Fonts\montserrat-regular-webfont.woff" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap-daterangepicker.js" />

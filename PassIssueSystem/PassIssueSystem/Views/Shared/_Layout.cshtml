@@ -107,7 +107,7 @@
                 </li>
                 <li class='dropdown dark user-menu'>
                     <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
-                        <img width="23" height="23" alt="Samitha" src="assets/images/avatar.jpg" />
+                        <img width="23" height="23" alt="Samitha" src="Images/logo_xs.png" />
                         <span class='user-name'>Samitha Gunarathna</span>
                         <b class='caret'></b>
                     </a>
@@ -155,8 +155,11 @@
                     </form>
                 </div>
                 <ul class='nav nav-stacked'>
-                    <li class='active'>
-                            @Html.ActionLink("Dashboard", "Index", "Home")
+                    <li class=''>
+                        <a href="@Url.Action("Index", "Home")">
+                            <i class='icon-dashboard'></i>
+                            <span>Dashboard</span>
+                        </a>
                     </li>
                     <li class=''>
                         <a class="dropdown-collapse" href="#"><i class='icon-edit'></i>
@@ -165,13 +168,22 @@
                         </a>
                         <ul class='nav nav-stacked'>
                             <li class=''>
-                                @Html.ActionLink("Create Company", "Create", "Company")
+                                <a href="@Url.Action("Create", "Company")">
+                                    <i class='icon-caret-right'></i>
+                                    <span>Create Company</span>
+                                </a>
                             </li>
                             <li class=''>
-                                @Html.ActionLink("Create Pass Type", "Create", "PassType")
+                                <a href="@Url.Action("Create", "PassType")">
+                                    <i class='icon-caret-right'></i>
+                                    <span>Create Pass Type</span>
+                                </a>
                             </li>
                             <li class=''>
-                                @Html.ActionLink("Create Vehicle Type", "Create", "VehicleType")
+                                <a href="@Url.Action("Create", "VehicleType")">
+                                    <i class='icon-caret-right'></i>
+                                    <span>Create Vehicle Type</span>
+                                </a>
                             </li>
                         </ul>
                     </li>
