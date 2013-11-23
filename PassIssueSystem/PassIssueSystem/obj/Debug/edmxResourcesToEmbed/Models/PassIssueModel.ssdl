@@ -18,7 +18,12 @@
     <EntitySet Name="PassType" EntityType="PassIssueSystemModel.Store.PassType" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PaymentDetail" EntityType="PassIssueSystemModel.Store.PaymentDetail" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserAccess" EntityType="PassIssueSystemModel.Store.UserAccess" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserProfile" EntityType="PassIssueSystemModel.Store.UserProfile" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="VehicleType" EntityType="PassIssueSystemModel.Store.VehicleType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="webpages_Membership" EntityType="PassIssueSystemModel.Store.webpages_Membership" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="webpages_OAuthMembership" EntityType="PassIssueSystemModel.Store.webpages_OAuthMembership" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="webpages_Roles" EntityType="PassIssueSystemModel.Store.webpages_Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="webpages_UsersInRoles" EntityType="PassIssueSystemModel.Store.webpages_UsersInRoles" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK_CARDDETAIL_PAYMENTDETAIL" Association="PassIssueSystemModel.Store.FK_CARDDETAIL_PAYMENTDETAIL">
       <End Role="PaymentDetail" EntitySet="PaymentDetail" />
       <End Role="CardDetail" EntitySet="CardDetail" />
@@ -58,6 +63,14 @@
     <AssociationSet Name="FK_PASSREQVEHICLE_VEHICLETYPE" Association="PassIssueSystemModel.Store.FK_PASSREQVEHICLE_VEHICLETYPE">
       <End Role="VehicleType" EntitySet="VehicleType" />
       <End Role="PassReqVehicle" EntitySet="PassReqVehicle" />
+    </AssociationSet>
+    <AssociationSet Name="fk_RoleId" Association="PassIssueSystemModel.Store.fk_RoleId">
+      <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+      <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="fk_UserId" Association="PassIssueSystemModel.Store.fk_UserId">
+      <End Role="UserProfile" EntitySet="UserProfile" />
+      <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="__MigrationHistory">
@@ -242,6 +255,13 @@
     <Property Name="UserName" Type="char" Nullable="false" MaxLength="15" />
     <Property Name="Authorize" Type="bit" Nullable="false" />
   </EntityType>
+  <EntityType Name="UserProfile">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="nvarchar(max)" />
+  </EntityType>
   <EntityType Name="VehicleType">
     <Key>
       <PropertyRef Name="VehicleCode" />
@@ -252,6 +272,46 @@
     <Property Name="Status" Type="numeric" Nullable="false" Precision="1" />
     <Property Name="AddDate" Type="datetime" Nullable="false" />
     <Property Name="AddUser" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="webpages_Membership">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="ConfirmationToken" Type="nvarchar" MaxLength="128" />
+    <Property Name="IsConfirmed" Type="bit" />
+    <Property Name="LastPasswordFailureDate" Type="datetime" />
+    <Property Name="PasswordFailuresSinceLastSuccess" Type="int" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="PasswordChangedDate" Type="datetime" />
+    <Property Name="PasswordSalt" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="PasswordVerificationToken" Type="nvarchar" MaxLength="128" />
+    <Property Name="PasswordVerificationTokenExpirationDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="webpages_OAuthMembership">
+    <Key>
+      <PropertyRef Name="Provider" />
+      <PropertyRef Name="ProviderUserId" />
+    </Key>
+    <Property Name="Provider" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="ProviderUserId" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="webpages_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="webpages_UsersInRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FK_CARDDETAIL_PAYMENTDETAIL">
     <End Role="PaymentDetail" Type="PassIssueSystemModel.Store.PaymentDetail" Multiplicity="1" />
@@ -376,6 +436,30 @@
       </Principal>
       <Dependent Role="PassReqVehicle">
         <PropertyRef Name="VehicleCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_RoleId">
+    <End Role="webpages_Roles" Type="PassIssueSystemModel.Store.webpages_Roles" Multiplicity="1" />
+    <End Role="webpages_UsersInRoles" Type="PassIssueSystemModel.Store.webpages_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="webpages_Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="webpages_UsersInRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_UserId">
+    <End Role="UserProfile" Type="PassIssueSystemModel.Store.UserProfile" Multiplicity="1" />
+    <End Role="webpages_UsersInRoles" Type="PassIssueSystemModel.Store.webpages_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="webpages_UsersInRoles">
+        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

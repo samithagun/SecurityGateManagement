@@ -26,11 +26,16 @@ namespace PassIssueSystem.Controllers
 
         public ActionResult Details(string id = null)
         {
+            TempData.Keep("");
             Company company = db.Companies.Find(id);
+            
             if (company == null)
             {
                 return HttpNotFound();
             }
+
+            ViewData["currentcompany"] = company;
+            TempData["currentcompany"] = company;
             return View(company);
         }
 

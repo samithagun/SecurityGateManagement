@@ -97,7 +97,7 @@
                                         <i class='icon-user text-success'></i>
                                     </div>
                                     <div class='pull-left text'>
-                                        New Pass Request from Lumiere
+                                        New Pass Request from Lumiere Textiles
                       <small class='text-muted'>just now</small>
                                     </div>
                                 </div>
@@ -105,8 +105,19 @@
                         </li>
                     </ul>
                 </li>
-                <li class='dropdown dark user-menu'>
-                    <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
+                <li>
+                    <a href="@Url.Action("Login", "Account")">
+                        <span>Log In</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Register", "Account")">
+                        <span>Register</span>
+                    </a>
+                </li>
+
+                @* <li class='dropdown dark user-menu'>
+                   <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
                         <img width="23" height="23" alt="Samitha" src="Images/logo_xs.png" />
                         <span class='user-name'>Samitha Gunarathna</span>
                         <b class='caret'></b>
@@ -132,7 +143,7 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li>*@
             </ul>
             <form action='search_results.html' class='navbar-form navbar-right hidden-xs' method='get'>
                 <button class='btn btn-link icon-search' name='button' type='submit'></button>
@@ -185,6 +196,12 @@
                                     <span>Create Vehicle Type</span>
                                 </a>
                             </li>
+                            <li class=''>
+                                <a href='user_profile.html'>
+                                    <i class='icon-caret-right'></i>
+                                    <span>User profile</span>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -216,39 +233,27 @@
                     </li>
                     <li>
                         <a class='dropdown-collapse ' href='#'>
-                            <i class='icon-book'></i>
+                            <i class='icon-building'></i>
                             <span>Client Company</span>
                             <i class='icon-angle-down angle-down'></i>
                         </a>
                         <ul class='nav nav-stacked'>
                             <li class=''>
-                                <a href='invoice.html'>
-                                    <i class='icon-money'></i>
+                                <a href="@Url.Action("Create", "PassRequest")">
+                                    <i class='icon-caret-right'></i>
                                     <span>New Pass Request</span>
                                 </a>
                             </li>
                             <li class=''>
                                 <a href='gallery.html'>
-                                    <i class='icon-picture'></i>
+                                    <i class='icon-caret-right'></i>
                                     <span>Make Payments</span>
                                 </a>
                             </li>
                             <li class=''>
                                 <a href='timeline.html'>
-                                    <i class='icon-time'></i>
-                                    <span>View Issued Passes</span>
-                                </a>
-                            </li>
-                            <li class=''>
-                                <a href='pricing_tables.html'>
-                                    <i class='icon-table'></i>
-                                    <span>Reports</span>
-                                </a>
-                            </li>
-                            <li class=''>
-                                <a href='user_profile.html'>
-                                    <i class='icon-user'></i>
-                                    <span>User profile</span>
+                                    <i class='icon-caret-right'></i>
+                                    <span>View Requested Passes</span>
                                 </a>
                             </li>
                         </ul>
@@ -276,7 +281,7 @@
                         <div class='alert alert-info alert-dismissable'>
                             <a class='close' data-dismiss='alert' href='#'>&times;</a>
                             Welcome to
-                <strong>Pass Issuing Portal...</strong>
+                <strong>Pass Issuing Portal</strong>
                         </div>
                         <div class='row box box-transparent'>
                             <div class='col-xs-4 col-sm-2'>

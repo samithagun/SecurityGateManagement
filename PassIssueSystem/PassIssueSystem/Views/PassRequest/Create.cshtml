@@ -1,12 +1,12 @@
-﻿@model PassIssueSystem.Models.PassType
+﻿@model PassIssueSystem.Models.PassRequestHed
 
 @{
-    ViewBag.Title = "Create Pass Type";
+    ViewBag.Title = "New Pass Request";
 }
 
 <html>
 <head>
-    <title>Create Pass Type</title>
+    <title>New Pass Request</title>
 </head>
 <body class='contrast-red'>
     <header></header>
@@ -23,38 +23,39 @@
                                 @Html.ValidationSummary(true)
 
                                 <fieldset>
-                                    <legend class='box-header blue-background'>Pass Type Details</legend>
+                                    <legend class='box-header blue-background'>New Pass Request</legend>
 
                                     <div class="editor-label">
-                                        @Html.LabelFor(model => model.PassCode)
-                                    </div>
+                                        @Html.LabelFor(model => model.CompanyID, "Company")
+                                    </div>                                      
                                     <div class="editor-field">
-                                        @Html.EditorFor(model => model.PassCode)
-                                        @Html.ValidationMessageFor(model => model.PassCode)
-                                    </div>
-
-                                    <div class="editor-label">
-                                        @Html.LabelFor(model => model.Description)
-                                    </div>
-                                    <div class="editor-field">
-                                        @Html.EditorFor(model => model.Description)
-                                        @Html.ValidationMessageFor(model => model.Description)
+                                                                                  
+                                        @Html.DropDownList("CompanyID", String.Empty)
+                                        @Html.ValidationMessageFor(model => model.CompanyID)
                                     </div>
 
                                     <div class="editor-label">
-                                        @Html.LabelFor(model => model.PassFee)
+                                        @Html.LabelFor(model => model.RequiredFrom)
                                     </div>
                                     <div class="editor-field">
-                                        @Html.EditorFor(model => model.PassFee)
-                                        @Html.ValidationMessageFor(model => model.PassFee)
+                                        @Html.EditorFor(model => model.RequiredFrom)
+                                        @Html.ValidationMessageFor(model => model.RequiredFrom)
                                     </div>
 
                                     <div class="editor-label">
-                                        @Html.LabelFor(model => model.Status)
+                                        @Html.LabelFor(model => model.RequiredTo)
                                     </div>
                                     <div class="editor-field">
-                                        @Html.EditorFor(model => model.Status)
-                                        @Html.ValidationMessageFor(model => model.Status)
+                                        @Html.EditorFor(model => model.RequiredTo)
+                                        @Html.ValidationMessageFor(model => model.RequiredTo)
+                                    </div>
+
+                                    <div class="editor-label">
+                                        @Html.LabelFor(model => model.Comments)
+                                    </div>
+                                    <div class="editor-field">
+                                        @Html.EditorFor(model => model.Comments)
+                                        @Html.ValidationMessageFor(model => model.Comments)
                                     </div>
 
                                     <div class="editor-label">

@@ -1,0 +1,78 @@
+﻿@model PassIssueSystem.Models.PassRequestHed
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>PassRequestHed</legend>
+
+        @Html.HiddenFor(model => model.PassReqNo)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CompanyID, "Company")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("CompanyID", String.Empty)
+            @Html.ValidationMessageFor(model => model.CompanyID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RequiredFrom)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RequiredFrom)
+            @Html.ValidationMessageFor(model => model.RequiredFrom)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RequiredTo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RequiredTo)
+            @Html.ValidationMessageFor(model => model.RequiredTo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Comments)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Comments)
+            @Html.ValidationMessageFor(model => model.Comments)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AddDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AddDate)
+            @Html.ValidationMessageFor(model => model.AddDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AddUser)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AddUser)
+            @Html.ValidationMessageFor(model => model.AddUser)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

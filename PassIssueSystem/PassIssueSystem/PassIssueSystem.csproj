@@ -186,6 +186,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PassRequestController.cs" />
     <Compile Include="Controllers\PassTypeController.cs" />
     <Compile Include="Controllers\VehicleTypeController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -322,7 +323,9 @@
     <Content Include="Scripts\retina.js" />
     <Content Include="Scripts\theme.js" />
     <Content Include="Scripts\wysihtml5.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -376,6 +379,11 @@
     <Content Include="Views\VehicleType\Create.cshtml" />
     <Content Include="Views\VehicleType\Edit.cshtml" />
     <Content Include="Views\VehicleType\Delete.cshtml" />
+    <Content Include="Views\PassRequest\Index.cshtml" />
+    <Content Include="Views\PassRequest\Details.cshtml" />
+    <Content Include="Views\PassRequest\Create.cshtml" />
+    <Content Include="Views\PassRequest\Edit.cshtml" />
+    <Content Include="Views\PassRequest\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

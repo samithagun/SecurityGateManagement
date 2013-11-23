@@ -9,6 +9,10 @@
 <fieldset>
     <legend>Company</legend>
 
+    @{
+        var c1 = (PassIssueSystem.Models.Company)ViewData["currentcompany"];
+        var c2= (PassIssueSystem.Models.Company)TempData["currentcompany"];
+      }
     <div class="display-label">
          @Html.DisplayNameFor(model => model.CompanyName)
     </div>

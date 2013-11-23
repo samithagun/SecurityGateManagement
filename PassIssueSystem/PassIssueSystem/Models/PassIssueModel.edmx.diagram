@@ -33,6 +33,11 @@
         <AssociationConnector Association="PassIssueSystemModel.FK_PASSREQVEHICLE_PASSREQUESTHED" ManuallyRouted="false" />
         <AssociationConnector Association="PassIssueSystemModel.FK_PASSREQVEHICLE_VEHICLETYPE" ManuallyRouted="false" />
         <AssociationConnector Association="PassIssueSystemModel.FK_PassIssueHed_PassRequestHed" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.UserProfile" Width="1.5" PointX="5.5423142265259813" PointY="18.224575900577278" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.webpages_Membership" Width="1.5" PointX="11.406771685651863" PointY="16.241045020632932" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.webpages_OAuthMembership" Width="1.5" PointX="8.25" PointY="14.125" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.webpages_Roles" Width="1.5" PointX="2.375" PointY="1.25" />
+        <AssociationConnector Association="PassIssueSystemModel.webpages_UsersInRoles" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
