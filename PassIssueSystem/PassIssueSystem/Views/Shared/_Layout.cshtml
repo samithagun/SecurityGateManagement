@@ -39,7 +39,6 @@
                             <div class='color-title'>Change contrast color</div>
                             <a data-change-to="contrast-red" href="#"><i class='icon-cog text-red'></i>
                                 Red
-                <small>(default)</small>
                             </a>
                             <a data-change-to="contrast-blue" href="#"><i class='icon-cog text-blue'></i>
                                 Blue
@@ -80,7 +79,6 @@
                             <a data-change-to="contrast-brown" href="#"><i class='icon-cog text-brown'></i>
                                 Brown
                             </a>
-
                         </li>
                     </ul>
                 </li>
@@ -105,45 +103,24 @@
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <a href="@Url.Action("Login", "Account")">
-                        <span>Log In</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="@Url.Action("Register", "Account")">
-                        <span>Register</span>
-                    </a>
-                </li>
-
-                @* <li class='dropdown dark user-menu'>
-                   <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
-                        <img width="23" height="23" alt="Samitha" src="Images/logo_xs.png" />
-                        <span class='user-name'>Samitha Gunarathna</span>
+                <li class='dropdown dark user-menu'>
+                    <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
+                        <span class='user-name'>Hi @User.Identity.Name</span>
                         <b class='caret'></b>
                     </a>
                     <ul class='dropdown-menu'>
-                        <li>
-                            <a href='user_profile.html'>
-                                <i class='icon-user'></i>
-                                Profile
-                            </a>
-                        </li>
-                        <li>
-                            <a href='user_profile.html'>
-                                <i class='icon-cog'></i>
-                                Settings
-                            </a>
-                        </li>
-                        <li class='divider'></li>
-                        <li>
-                            <a href='sign_in.html'>
-                                <i class='icon-signout'></i>
-                                Sign out
-                            </a>
-                        </li>
+                        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <li>
+                                <a href="javascript:document.getElementById('logoutForm').submit()">
+                                    <span>Log off</span>
+                                    <i class='icon-signout'></i>
+                                </a>
+                            </li>                      
+                        }
                     </ul>
-                </li>*@
+                </li>
             </ul>
             <form action='search_results.html' class='navbar-form navbar-right hidden-xs' method='get'>
                 <button class='btn btn-link icon-search' name='button' type='submit'></button>
@@ -197,9 +174,9 @@
                                 </a>
                             </li>
                             <li class=''>
-                                <a href='user_profile.html'>
+                                <a href="@Url.Action("Register", "Account")">
                                     <i class='icon-caret-right'></i>
-                                    <span>User profile</span>
+                                    <span>New User</span>
                                 </a>
                             </li>
                         </ul>
@@ -226,7 +203,7 @@
                         </ul>
                     </li>
                     <li class=''>
-                        <a href='buttons_and_icons.html'>
+                        <a href='#'>
                             <i class='icon-star'></i>
                             <span>Reports</span>
                         </a>
@@ -446,49 +423,6 @@
 
         }).call(this);
     </script>
-    <script>
-        $(".todo-list .new-todo").live('submit', function (e) {
-            var li, todo_name;
-            todo_name = $(this).find("#todo_name").val();
-            $(this).find("#todo_name").val("");
-            if (todo_name.length !== 0) {
-                li = $(this).parents(".todo-list").find("li.item").first().clone();
-                li.find("input[type='checkbox']").attr("checked", false);
-                li.removeClass("important").removeClass("done");
-                li.find("label.todo span").text(todo_name);
-                $(".todo-list ul").first().prepend(li);
-                li.effect("highlight", {}, 500);
-            }
-            return e.preventDefault();
-        });
-
-        $(".todo-list .actions .remove").live("click", function (e) {
-            $(this).tooltip("hide");
-            $(this).parents("li").fadeOut(500, function () {
-                return $(this).remove();
-            });
-            e.stopPropagation();
-            e.preventDefault();
-            return false;
-        });
-
-        $(".todo-list .actions .important").live("click", function (e) {
-            $(this).parents("li").toggleClass("important");
-            e.stopPropagation();
-            e.preventDefault();
-            return false;
-        });
-
-        $(".todo-list .check").live("click", function () {
-            var checkbox;
-            checkbox = $(this).find("input[type='checkbox']");
-            if (checkbox.is(":checked")) {
-                return $(this).parents("li").addClass("done");
-            } else {
-                return $(this).parents("li").removeClass("done");
-            }
-        });
-    </script>
 
     <div id="body">
         @RenderSection("featured", required: false)
@@ -496,14 +430,6 @@
             @RenderBody()
         </section>
     </div>
-
-    <footer>
-        <div class="content-wrapper">
-            <div class="float-left">
-                <p>&copy; @DateTime.Now.Year - Samitha Gunarathna</p>
-            </div>
-        </div>
-    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrapjs")

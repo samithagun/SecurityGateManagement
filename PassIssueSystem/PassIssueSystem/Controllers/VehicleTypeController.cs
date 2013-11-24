@@ -9,8 +9,9 @@ using PassIssueSystem.Models;
 
 namespace PassIssueSystem.Controllers
 {
+    [Authorize]
     public class VehicleTypeController : Controller
-    {
+    {        
         private PassIssueSystemEntities db = new PassIssueSystemEntities();
 
         //

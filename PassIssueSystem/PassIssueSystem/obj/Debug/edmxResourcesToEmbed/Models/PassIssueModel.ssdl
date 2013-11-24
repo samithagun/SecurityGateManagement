@@ -8,7 +8,6 @@
     <EntitySet Name="Company" EntityType="PassIssueSystemModel.Store.Company" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="CompanyLogin" EntityType="PassIssueSystemModel.Store.CompanyLogin" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="GenerateRefNo" EntityType="PassIssueSystemModel.Store.GenerateRefNo" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Module" EntityType="PassIssueSystemModel.Store.Module" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PassIssueDet" EntityType="PassIssueSystemModel.Store.PassIssueDet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PassIssueHed" EntityType="PassIssueSystemModel.Store.PassIssueHed" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PassIssueVehicle" EntityType="PassIssueSystemModel.Store.PassIssueVehicle" store:Type="Tables" Schema="dbo" />
@@ -17,7 +16,6 @@
     <EntitySet Name="PassReqVehicle" EntityType="PassIssueSystemModel.Store.PassReqVehicle" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PassType" EntityType="PassIssueSystemModel.Store.PassType" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PaymentDetail" EntityType="PassIssueSystemModel.Store.PaymentDetail" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="UserAccess" EntityType="PassIssueSystemModel.Store.UserAccess" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserProfile" EntityType="PassIssueSystemModel.Store.UserProfile" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="VehicleType" EntityType="PassIssueSystemModel.Store.VehicleType" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="webpages_Membership" EntityType="PassIssueSystemModel.Store.webpages_Membership" store:Type="Tables" Schema="dbo" />
@@ -150,13 +148,6 @@
     <Property Name="TRPrefix" Type="char" Nullable="false" MaxLength="2" />
     <Property Name="TRVal" Type="numeric" Nullable="false" Precision="10" />
   </EntityType>
-  <EntityType Name="Module">
-    <Key>
-      <PropertyRef Name="ModuleID" />
-    </Key>
-    <Property Name="ModuleID" Type="char" Nullable="false" MaxLength="10" />
-    <Property Name="ModuleName" Type="varchar" Nullable="false" MaxLength="50" />
-  </EntityType>
   <EntityType Name="PassIssueDet">
     <Key>
       <PropertyRef Name="PassNo" />
@@ -244,23 +235,12 @@
     <Property Name="AddDate" Type="datetime" Nullable="false" />
     <Property Name="AddUser" Type="varchar" Nullable="false" MaxLength="50" />
   </EntityType>
-  <EntityType Name="UserAccess">
-    <Key>
-      <PropertyRef Name="ModuleID" />
-      <PropertyRef Name="CompanyID" />
-      <PropertyRef Name="UserName" />
-    </Key>
-    <Property Name="ModuleID" Type="char" Nullable="false" MaxLength="10" />
-    <Property Name="CompanyID" Type="char" Nullable="false" MaxLength="10" />
-    <Property Name="UserName" Type="char" Nullable="false" MaxLength="15" />
-    <Property Name="Authorize" Type="bit" Nullable="false" />
-  </EntityType>
   <EntityType Name="UserProfile">
     <Key>
       <PropertyRef Name="UserId" />
     </Key>
     <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="UserName" Type="nvarchar(max)" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="56" />
   </EntityType>
   <EntityType Name="VehicleType">
     <Key>

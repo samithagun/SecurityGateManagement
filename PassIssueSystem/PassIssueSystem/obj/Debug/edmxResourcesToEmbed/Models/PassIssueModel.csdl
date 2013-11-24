@@ -8,7 +8,6 @@
     <EntitySet Name="Companies" EntityType="PassIssueSystemModel.Company" />
     <EntitySet Name="CompanyLogins" EntityType="PassIssueSystemModel.CompanyLogin" />
     <EntitySet Name="GenerateRefNoes" EntityType="PassIssueSystemModel.GenerateRefNo" />
-    <EntitySet Name="Modules" EntityType="PassIssueSystemModel.Module" />
     <EntitySet Name="PassIssueDets" EntityType="PassIssueSystemModel.PassIssueDet" />
     <EntitySet Name="PassIssueHeds" EntityType="PassIssueSystemModel.PassIssueHed" />
     <EntitySet Name="PassIssueVehicles" EntityType="PassIssueSystemModel.PassIssueVehicle" />
@@ -17,7 +16,6 @@
     <EntitySet Name="PassReqVehicles" EntityType="PassIssueSystemModel.PassReqVehicle" />
     <EntitySet Name="PassTypes" EntityType="PassIssueSystemModel.PassType" />
     <EntitySet Name="PaymentDetails" EntityType="PassIssueSystemModel.PaymentDetail" />
-    <EntitySet Name="UserAccesses" EntityType="PassIssueSystemModel.UserAccess" />
     <EntitySet Name="VehicleTypes" EntityType="PassIssueSystemModel.VehicleType" />
     <AssociationSet Name="FK_CARDDETAIL_PAYMENTDETAIL" Association="PassIssueSystemModel.FK_CARDDETAIL_PAYMENTDETAIL">
       <End Role="PaymentDetail" EntitySet="PaymentDetails" />
@@ -149,13 +147,6 @@
     <Property Name="TRPrefix" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="true" />
     <Property Name="TRVal" Type="Decimal" Nullable="false" Precision="10" Scale="0" />
   </EntityType>
-  <EntityType Name="Module">
-    <Key>
-      <PropertyRef Name="ModuleID" />
-    </Key>
-    <Property Name="ModuleID" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="true" />
-    <Property Name="ModuleName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-  </EntityType>
   <EntityType Name="PassIssueDet">
     <Key>
       <PropertyRef Name="PassNo" />
@@ -257,17 +248,6 @@
     <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="AddUser" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="CardDetail" Relationship="PassIssueSystemModel.FK_CARDDETAIL_PAYMENTDETAIL" FromRole="PaymentDetail" ToRole="CardDetail" />
-  </EntityType>
-  <EntityType Name="UserAccess">
-    <Key>
-      <PropertyRef Name="ModuleID" />
-      <PropertyRef Name="CompanyID" />
-      <PropertyRef Name="UserName" />
-    </Key>
-    <Property Name="ModuleID" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="true" />
-    <Property Name="CompanyID" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="true" />
-    <Property Name="UserName" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="true" />
-    <Property Name="Authorize" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="VehicleType">
     <Key>
@@ -412,7 +392,7 @@
       <PropertyRef Name="UserId" />
     </Key>
     <Property Type="Int32" Name="UserId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="UserName" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UserName" MaxLength="56" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="webpages_Roles" Relationship="PassIssueSystemModel.webpages_UsersInRoles" FromRole="UserProfile" ToRole="webpages_Roles" />
   </EntityType>
   <EntityType Name="webpages_Membership">

@@ -43,6 +43,26 @@ namespace PassIssueSystem.Controllers
             // If we got this far, something failed, redisplay form
             ModelState.AddModelError("", "The user name or password provided is incorrect.");
             return View(model);
+
+            //if (Membership.ValidateUser(model.UserName, model.Password))
+            //{
+            //    FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
+            //    if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
+            //        && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+            //    {
+            //        return Redirect(returnUrl);
+            //    }
+            //    else
+            //    {
+            //        return RedirectToAction("Index", "Home");
+            //    }
+            //}
+            //else
+            //{
+            //    ModelState.AddModelError("", "The user name or password provided is incorrect.");
+            //}
+
+            //return View(model);
         }
 
         //

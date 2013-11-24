@@ -82,14 +82,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Modules">
-      <EntityTypeMapping TypeName="PassIssueSystemModel.Module">
-        <MappingFragment StoreEntitySet="Module">
-          <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
-          <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="PassIssueDets">
       <EntityTypeMapping TypeName="PassIssueSystemModel.PassIssueDet">
         <MappingFragment StoreEntitySet="PassIssueDet">
@@ -177,16 +169,6 @@
           <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
           <ScalarProperty Name="AddDate" ColumnName="AddDate" />
           <ScalarProperty Name="AddUser" ColumnName="AddUser" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="UserAccesses">
-      <EntityTypeMapping TypeName="PassIssueSystemModel.UserAccess">
-        <MappingFragment StoreEntitySet="UserAccess">
-          <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
-          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="Authorize" ColumnName="Authorize" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

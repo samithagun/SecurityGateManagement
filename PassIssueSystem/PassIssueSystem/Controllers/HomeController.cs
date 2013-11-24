@@ -6,8 +6,9 @@ using System.Web.Mvc;
 
 namespace PassIssueSystem.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
-    {
+    {        
         public ActionResult Index()
         {
             ViewBag.Message = "";

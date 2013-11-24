@@ -9,8 +9,9 @@ using PassIssueSystem.Models;
 
 namespace PassIssueSystem.Controllers
 {
+    [Authorize]
     public class CompanyController : Controller
-    {
+    {        
         private PassIssueSystemEntities db = new PassIssueSystemEntities();
 
         //
