@@ -27,11 +27,9 @@
                         <li class='color-settings-body-color'>
                             <div class='color-title'>Change body color</div>
                             <a data-change-to='Content/Theme/light-theme.css' href='#'>Light
-                  <small>(default)</small>
+                            <small>(default)</small>
                             </a>
                             <a data-change-to='Content/Theme/dark-theme.css' href='#'>Dark
-                            </a>
-                            <a data-change-to='Content/Theme/dark-blue-theme.css' href='#'>Dark blue
                             </a>
                         </li>
                         <li class='divider'></li>
@@ -39,6 +37,7 @@
                             <div class='color-title'>Change contrast color</div>
                             <a data-change-to="contrast-red" href="#"><i class='icon-cog text-red'></i>
                                 Red
+                                <small>(default)</small>
                             </a>
                             <a data-change-to="contrast-blue" href="#"><i class='icon-cog text-blue'></i>
                                 Blue
@@ -52,9 +51,6 @@
                             <a data-change-to="contrast-green" href="#"><i class='icon-cog text-green'></i>
                                 Green
                             </a>
-                            <a data-change-to="contrast-muted" href="#"><i class='icon-cog text-muted'></i>
-                                Muted
-                            </a>
                             <a data-change-to="contrast-fb" href="#"><i class='icon-cog text-fb'></i>
                                 Facebook
                             </a>
@@ -64,17 +60,8 @@
                             <a data-change-to="contrast-pink" href="#"><i class='icon-cog text-pink'></i>
                                 Pink
                             </a>
-                            <a data-change-to="contrast-grass-green" href="#"><i class='icon-cog text-grass-green'></i>
-                                Grass green
-                            </a>
-                            <a data-change-to="contrast-sea-blue" href="#"><i class='icon-cog text-sea-blue'></i>
-                                Sea blue
-                            </a>
                             <a data-change-to="contrast-banana" href="#"><i class='icon-cog text-banana'></i>
                                 Banana
-                            </a>
-                            <a data-change-to="contrast-dark-orange" href="#"><i class='icon-cog text-dark-orange'></i>
-                                Dark orange
                             </a>
                             <a data-change-to="contrast-brown" href="#"><i class='icon-cog text-brown'></i>
                                 Brown
@@ -176,7 +163,7 @@
                             <li class=''>
                                 <a href="@Url.Action("Register", "Account")">
                                     <i class='icon-caret-right'></i>
-                                    <span>New User</span>
+                                    <span>Create User Login</span>
                                 </a>
                             </li>
                         </ul>
@@ -324,48 +311,6 @@
             </div>
         </section>
     </div>
-    <script>
-        $(".chat .new-message").live('submit', function (e) {
-            var chat, date, li, message, months, reply, scrollable, sender, timeago;
-            date = new Date();
-            months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-            chat = $(this).parents(".chat");
-            message = $(this).find("#message_body").val();
-            $(this).find("#message_body").val("");
-            if (message.length !== 0) {
-                li = chat.find("li.message").first().clone();
-                li.find(".body").text(message);
-                timeago = li.find(".timeago");
-                timeago.removeClass("in");
-                var month = (date.getMonth() + 1);
-                var date_day = (date.getDate());
-                timeago.attr("title", "" + (date.getFullYear()) + "-" + (month < 10 ? '0' : '') + month + "-" + (date_day < 10 ? '0' : '') + date_day + " " + (date.getHours()) + ":" + (date.getMinutes()) + ":" + (date.getSeconds()) + " +0200");
-                timeago.text("" + months[date.getMonth()] + " " + (date.getDate()) + ", " + (date.getFullYear()) + " " + (date.getHours()) + ":" + (date.getMinutes()));
-                setTimeAgo(timeago);
-                sender = li.find(".name").text().trim();
-                chat.find("ul").append(li);
-                scrollable = li.parents(".scrollable");
-                $(scrollable).slimScroll({
-                    scrollTo: scrollable.prop('scrollHeight') + "px"
-                });
-                li.effect("highlight", {}, 500);
-                reply = scrollable.find("li").not(":contains('" + sender + "')").first().clone();
-                setTimeout((function () {
-                    date = new Date();
-                    timeago = reply.find(".timeago");
-                    timeago.attr("title", "" + (date.getFullYear()) + "-" + (month < 10 ? '0' : '') + month + "-" + (date_day < 10 ? '0' : '') + date_day + " " + (date.getHours()) + ":" + (date.getMinutes()) + ":" + (date.getSeconds()) + " +0200");
-                    timeago.text("" + months[date.getMonth()] + " " + (date.getDate()) + ", " + (date.getFullYear()) + " " + (date.getHours()) + ":" + (date.getMinutes()));
-                    setTimeAgo(timeago);
-                    scrollable.find("ul").append(reply);
-                    $(scrollable).slimScroll({
-                        scrollTo: scrollable.prop('scrollHeight') + "px"
-                    });
-                    return reply.effect("highlight", {}, 500);
-                }), 1000);
-            }
-            return e.preventDefault();
-        });
-    </script>
     <script>
         $(".recent-activity .ok").live("click", function (e) {
             $(this).tooltip("hide");

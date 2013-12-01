@@ -9,14 +9,19 @@
     <title>New Pass Request</title>
 </head>
 <body class='contrast-red'>
-    <header></header>
-    <section id='content'>
-        <div class='row' id='content-wrapper'>
-            <div class='col-sm-12'>
-                <div class='row'>
-                    <div class='col-sm-12'>
-                        <div class='box bordered-box blue-border'>
-
+    <div id="content" class="col-lg-10 col-sm-11" style="">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="box">
+                    <div class="box-header" data-original-title="">
+                        <h2>
+                            <i class="icon-user"></i>
+                            <span class="break"></span>
+                            Create Pass Request
+                        </h2>
+                    </div>
+                    <div class="box-content">
+                        <form class="form form-horizontal" style="margin-bottom: 0;" method="post" action="#" accept-charset="UTF-8">
                             @using (Html.BeginForm())
                             {
                                 @Html.AntiForgeryToken()
@@ -25,53 +30,102 @@
                                 <fieldset>
                                     <legend class='box-header blue-background'>New Pass Request</legend>
 
-                                    <div class="editor-label">
-                                        @Html.LabelFor(model => model.CompanyID, "Company")
-                                    </div>                                      
-                                    <div class="editor-field">
-                                                                                  
-                                        @Html.DropDownList("CompanyID", String.Empty)
-                                        @Html.ValidationMessageFor(model => model.CompanyID)
+                                    <div class="form-group">
+                                        <div class="col-md-2 control-label">
+                                            @Html.LabelFor(model => model.PassReqNo)
+                                        </div>
+                                        <div class="col-md-5">
+                                            @Html.TextBoxFor(model => model.PassReqNo, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.PassReqNo)
+                                        </div>
                                     </div>
 
-                                    <div class="editor-label">
-                                        @Html.LabelFor(model => model.RequiredFrom)
-                                    </div>
-                                    <div class="editor-field">
-                                        @Html.EditorFor(model => model.RequiredFrom)
-                                        @Html.ValidationMessageFor(model => model.RequiredFrom)
-                                    </div>
-
-                                    <div class="editor-label">
-                                        @Html.LabelFor(model => model.RequiredTo)
-                                    </div>
-                                    <div class="editor-field">
-                                        @Html.EditorFor(model => model.RequiredTo)
-                                        @Html.ValidationMessageFor(model => model.RequiredTo)
+                                    <div class="form-group">
+                                        <div class="col-md-2 control-label">
+                                            @Html.LabelFor(model => model.RequiredFrom)
+                                        </div>
+                                        <div class="col-md-5">
+                                            @Html.TextBoxFor(model => model.RequiredFrom, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.RequiredFrom)
+                                        </div>
                                     </div>
 
-                                    <div class="editor-label">
-                                        @Html.LabelFor(model => model.Comments)
-                                    </div>
-                                    <div class="editor-field">
-                                        @Html.EditorFor(model => model.Comments)
-                                        @Html.ValidationMessageFor(model => model.Comments)
-                                    </div>
-
-                                    <div class="editor-label">
-                                        @Html.LabelFor(model => model.AddDate)
-                                    </div>
-                                    <div class="editor-field">
-                                        @Html.EditorFor(model => model.AddDate)
-                                        @Html.ValidationMessageFor(model => model.AddDate)
+                                    <div class="form-group">
+                                        <div class="col-md-2 control-label">
+                                            @Html.LabelFor(model => model.RequiredTo)
+                                        </div>
+                                        <div class="col-md-5">
+                                            @Html.TextBoxFor(model => model.RequiredTo, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.RequiredTo)
+                                        </div>
                                     </div>
 
-                                    <div class="editor-label">
-                                        @Html.LabelFor(model => model.AddUser)
+                                    <div class="form-group">
+                                        <div class="col-md-2 control-label">
+                                            @Html.LabelFor(model => model.Comments)
+                                        </div>
+                                        <div class="col-md-5">
+                                            @Html.TextBoxFor(model => model.Comments, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Comments)
+                                        </div>
                                     </div>
-                                    <div class="editor-field">
-                                        @Html.EditorFor(model => model.AddUser)
-                                        @Html.ValidationMessageFor(model => model.AddUser)
+
+                                    <div class='box bordered-box blue-border' style='margin-bottom: 0;'>
+                                        <div class='box-header blue-background'>
+                                            <div class='title'>Person Details</div>
+                                            <div class='actions'>
+                                                <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class='box-content box-no-padding'>
+                                            <div class='responsive-table'>
+                                                <div class='scrollable-area'>
+                                                    <table class='table' style='margin-bottom: 0;'>
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Name
+                                                                </th>
+                                                                <th>National ID No
+                                                                </th>
+                                                                <th>VIP
+                                                                </th>
+                                                                <th>Mobile No
+                                                                </th>
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="col-md-5">
+                                                                        @Html.TextBox("name")
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="col-md-5">
+                                                                        @Html.TextBox("email")
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <a class='btn btn-success btn-xs' href='#'>
+                                                                        <i class='icon-ok'></i>
+                                                                    </a>
+                                                                    <a class='btn btn-danger btn-xs' href='#'>
+                                                                        <i class='icon-remove'></i>
+                                                                    </a>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="col-md-5">
+                                                                        @Html.TextBox("mobile")
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class='form-actions form-actions-padding-sm'>
@@ -85,21 +139,22 @@
                                             </div>
                                         </div>
                                     </div>
+
                                 </fieldset>
                             }
+                        </form>
 
-                            <div>
-                                @Html.ActionLink("Back to List", "Index")
-                            </div>
-
-                            @section Scripts {
-                                @Scripts.Render("~/bundles/jqueryval")
-                            }
+                        <div>
+                            @Html.ActionLink("Back to List", "Index")
                         </div>
+
+                        @section Scripts {
+                            @Scripts.Render("~/bundles/jqueryval")
+                        }
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 </body>
 </html>
