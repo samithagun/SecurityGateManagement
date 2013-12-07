@@ -3,7 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+
     @Styles.Render("~/Content/bootstrapcss")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrapjs")
+    @RenderSection("scripts", required: false)
 
     <title>Biyagama EPZ</title>
 </head>
@@ -128,46 +132,55 @@
                     </form>
                 </div>
                 <ul class='nav nav-stacked'>
-                    <li class=''>
-                        <a href="@Url.Action("Index", "Home")">
-                            <i class='icon-dashboard'></i>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
-                    <li class=''>
-                        <a class="dropdown-collapse" href="#"><i class='icon-edit'></i>
-                            <span>Administrator</span>
-                            <i class='icon-angle-down angle-down'></i>
-                        </a>
-                        <ul class='nav nav-stacked'>
-                            <li class=''>
-                                <a href="@Url.Action("Index", "Company")">
-                                    <i class='icon-caret-right'></i>
-                                    <span>Company Details</span>
-                                </a>
-                            </li>
-                            <li class=''>
-                                <a href="@Url.Action("Create", "PassType")">
-                                    <i class='icon-caret-right'></i>
-                                    <span>Create Pass Type</span>
-                                </a>
-                            </li>
-                            <li class=''>
-                                <a href="@Url.Action("Create", "VehicleType")">
-                                    <i class='icon-caret-right'></i>
-                                    <span>Create Vehicle Type</span>
-                                </a>
-                            </li>
-                            <li class=''>
-                                <a href="@Url.Action("Register", "Account")">
-                                    <i class='icon-caret-right'></i>
-                                    <span>Create User Login</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                    @if (Roles.IsUserInRole("Administrator"))
+                    {
+                        <li class=''>
+                            <a href="@Url.Action("Admin", "Home")">
+                                <i class='icon-dashboard'></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class=''>
+                            <a class="dropdown-collapse" href="#"><i class='icon-edit'></i>
+                                <span>Administrator</span>
+                                <i class='icon-angle-down angle-down'></i>
+                            </a>
+                            <ul class='nav nav-stacked'>
+                                <li class=''>
+                                    <a href="@Url.Action("Index", "Company")">
+                                        <i class='icon-caret-right'></i>
+                                        <span>Company Details</span>
+                                    </a>
+                                </li>
+                                <li class=''>
+                                    <a href="@Url.Action("Create", "PassType")">
+                                        <i class='icon-caret-right'></i>
+                                        <span>Create Pass Type</span>
+                                    </a>
+                                </li>
+                                <li class=''>
+                                    <a href="@Url.Action("Create", "VehicleType")">
+                                        <i class='icon-caret-right'></i>
+                                        <span>Create Vehicle Type</span>
+                                    </a>
+                                </li>
+                                <li class=''>
+                                    <a href="@Url.Action("Register", "Account")">
+                                        <i class='icon-caret-right'></i>
+                                        <span>Create User Login</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    }
                     @if (Roles.IsUserInRole("Pass Office"))
                     {
+                        <li class=''>
+                            <a href="@Url.Action("Index", "Home")">
+                                <i class='icon-dashboard'></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
                         <li>
                             <a class='dropdown-collapse ' href='#'>
                                 <i class='icon-tint'></i>
@@ -190,39 +203,42 @@
                             </ul>
                         </li>
                     }
-                    <li class=''>
-                        <a href='#'>
-                            <i class='icon-star'></i>
-                            <span>Reports</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class='dropdown-collapse ' href='#'>
-                            <i class='icon-building'></i>
-                            <span>Client Company</span>
-                            <i class='icon-angle-down angle-down'></i>
-                        </a>
-                        <ul class='nav nav-stacked'>
-                            <li class=''>
-                                <a href="@Url.Action("Create", "PassRequest")">
-                                    <i class='icon-caret-right'></i>
-                                    <span>New Pass Request</span>
-                                </a>
-                            </li>
-                            <li class=''>
-                                <a href='gallery.html'>
-                                    <i class='icon-caret-right'></i>
-                                    <span>Make Payments</span>
-                                </a>
-                            </li>
-                            <li class=''>
-                                <a href='timeline.html'>
-                                    <i class='icon-caret-right'></i>
-                                    <span>View Requested Passes</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                    @if (Roles.IsUserInRole("Pass Office"))
+                    {
+                        <li class=''>
+                            <a href="@Url.Action("Index", "Home")">
+                                <i class='icon-dashboard'></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class='dropdown-collapse ' href='#'>
+                                <i class='icon-building'></i>
+                                <span>Client Company</span>
+                                <i class='icon-angle-down angle-down'></i>
+                            </a>
+                            <ul class='nav nav-stacked'>
+                                <li class=''>
+                                    <a href="@Url.Action("Create", "PassRequest")">
+                                        <i class='icon-caret-right'></i>
+                                        <span>New Pass Request</span>
+                                    </a>
+                                </li>
+                                <li class=''>
+                                    <a href='gallery.html'>
+                                        <i class='icon-caret-right'></i>
+                                        <span>Make Payments</span>
+                                    </a>
+                                </li>
+                                <li class=''>
+                                    <a href='timeline.html'>
+                                        <i class='icon-caret-right'></i>
+                                        <span>View Requested Passes</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    }
                 </ul>
             </div>
         </nav>
@@ -248,9 +264,5 @@
             </footer>
         </section>
     </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrapjs")
-    @RenderSection("scripts", required: false)
 </body>
 </html>

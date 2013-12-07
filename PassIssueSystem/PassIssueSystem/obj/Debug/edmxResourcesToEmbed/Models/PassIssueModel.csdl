@@ -112,13 +112,13 @@
     <Key>
       <PropertyRef Name="CompanyID" />
     </Key>
-    <Property Name="CompanyID" Type="String" Nullable="false" MaxLength="8" Unicode="false" FixedLength="false" />
+    <Property Name="CompanyID" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
     <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="80" Unicode="false" FixedLength="false" />
     <Property Name="Address1" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="Address2" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
     <Property Name="Address3" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
     <Property Name="BOIApproveNo" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="true" />
-    <Property Name="BOIApproveDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="BOIApproveDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Telephone1" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="true" />
     <Property Name="Telephone2" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="true" />
     <Property Name="Fax" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="true" />
@@ -200,7 +200,7 @@
       <PropertyRef Name="PassReqNo" />
     </Key>
     <Property Name="PassReqNo" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="true" />
-    <Property Name="CompanyID" Type="String" Nullable="false" MaxLength="8" Unicode="false" FixedLength="false" />
+    <Property Name="CompanyID" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
     <Property Name="RequiredFrom" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="RequiredTo" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Comments" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />

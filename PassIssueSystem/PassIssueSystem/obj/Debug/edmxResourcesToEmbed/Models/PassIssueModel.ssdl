@@ -114,13 +114,13 @@
     <Key>
       <PropertyRef Name="CompanyID" />
     </Key>
-    <Property Name="CompanyID" Type="varchar" Nullable="false" MaxLength="8" />
+    <Property Name="CompanyID" Type="varchar" Nullable="false" MaxLength="15" />
     <Property Name="CompanyName" Type="varchar" Nullable="false" MaxLength="80" />
     <Property Name="Address1" Type="varchar" Nullable="false" MaxLength="50" />
     <Property Name="Address2" Type="varchar" Nullable="false" MaxLength="30" />
     <Property Name="Address3" Type="varchar" Nullable="false" MaxLength="30" />
     <Property Name="BOIApproveNo" Type="char" Nullable="false" MaxLength="10" />
-    <Property Name="BOIApproveDate" Type="date" Nullable="false" />
+    <Property Name="BOIApproveDate" Type="datetime" Nullable="false" />
     <Property Name="Telephone1" Type="char" Nullable="false" MaxLength="10" />
     <Property Name="Telephone2" Type="char" Nullable="false" MaxLength="10" />
     <Property Name="Fax" Type="char" Nullable="false" MaxLength="10" />
@@ -194,7 +194,7 @@
       <PropertyRef Name="PassReqNo" />
     </Key>
     <Property Name="PassReqNo" Type="char" Nullable="false" MaxLength="12" />
-    <Property Name="CompanyID" Type="varchar" Nullable="false" MaxLength="8" />
+    <Property Name="CompanyID" Type="varchar" Nullable="false" MaxLength="15" />
     <Property Name="RequiredFrom" Type="datetime" Nullable="false" />
     <Property Name="RequiredTo" Type="datetime" Nullable="false" />
     <Property Name="Comments" Type="varchar" Nullable="false" MaxLength="100" />

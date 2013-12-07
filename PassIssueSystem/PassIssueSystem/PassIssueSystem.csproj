@@ -293,8 +293,7 @@
     <Content Include="Content\Fonts\montserrat-regular-webfont.woff" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\bootbox.min.js" />
-    <Content Include="Scripts\bootstrap-daterangepicker.js" />
-    <Content Include="Scripts\bootstrap-wysihtml5.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\excanvas.js" />
     <Content Include="Scripts\flot.min.js" />
@@ -386,6 +385,7 @@
     <Content Include="Views\PassRequest\Edit.cshtml" />
     <Content Include="Views\PassRequest\Delete.cshtml" />
     <Content Include="Views\Payment\Create.cshtml" />
+    <Content Include="Views\Home\Admin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

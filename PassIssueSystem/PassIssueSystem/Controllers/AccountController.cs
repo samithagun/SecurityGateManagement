@@ -37,7 +37,22 @@ namespace PassIssueSystem.Controllers
         {
             if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
             {
-                return RedirectToLocal(returnUrl);
+                //return RedirectToLocal(returnUrl);
+
+                if (Roles.IsUserInRole(model.UserName, "Administrator"))
+                {
+                    return RedirectToAction("Admin", "Home");
+                    
+                }
+                else if (Roles.IsUserInRole(model.UserName, "Client User"))
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+
+                else if (Roles.IsUserInRole(model.UserName, "Pass Office"))
+                {
+                    return RedirectToAction("Index", "Home");
+                }
             }
 
             // If we got this far, something failed, redisplay form

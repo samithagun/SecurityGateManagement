@@ -32,7 +32,7 @@
                             @Html.ValidationSummary(true)
                                         
                             <fieldset>
-                                <legend class='box-header fb-background'>Fill Company Details</legend>
+                                <legend class='box-header blue-background'>Fill Company Details</legend>
 
                                 <div class="form-group">
                                     <div class="col-md-2 control-label">
@@ -98,8 +98,13 @@
                                         @Html.LabelFor(model => model.BOIApproveDate)
                                     </div>
                                     <div class="col-md-5">
-                                        @Html.TextBoxFor(model => model.BOIApproveDate, new { @class = "form-control" })
-                                        @Html.ValidationMessageFor(model => model.BOIApproveDate)
+                                        <div class='datetimepicker-input input-group' id='datetimepicker'>
+                                            @Html.TextBoxFor(model => model.BOIApproveDate, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.BOIApproveDate)
+                                            <span class='input-group-addon'>
+                                                <span data-icon-element=''></span>
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -133,7 +138,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
+@*                                <div class="form-group">
                                     <div class="col-md-2 control-label">
                                         @Html.LabelFor(model => model.Status)
                                     </div>
@@ -141,9 +146,9 @@
                                         @Html.TextBoxFor(model => model.Status, new { @class = "form-control" })
                                         @Html.ValidationMessageFor(model => model.Status)
                                     </div>
-                                </div>
+                                </div>*@
 
-                                <div class="form-group">
+@*                                <div class="form-group">
                                     <div class="col-md-2 control-label">
                                         @Html.LabelFor(model => model.AddDate)
                                     </div>
@@ -151,9 +156,9 @@
                                         @Html.TextBoxFor(model => model.AddDate, new { @class = "form-control" })
                                         @Html.ValidationMessageFor(model => model.AddDate)
                                     </div>
-                                </div>
+                                </div>*@
 
-                                <div class="form-group">
+@*                                <div class="form-group">
                                     <div class="col-md-2 control-label">
                                         @Html.LabelFor(model => model.AddUser)
                                     </div>
@@ -161,7 +166,7 @@
                                         @Html.TextBoxFor(model => model.AddUser, new { @class = "form-control" })
                                         @Html.ValidationMessageFor(model => model.AddUser)
                                     </div>
-                                </div>
+                                </div>*@
 
                                 <div class='form-actions form-actions-padding-sm'>
                                     <div class='row'>
