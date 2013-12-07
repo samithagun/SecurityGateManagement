@@ -21,10 +21,19 @@ namespace PassIssueSystem.Models
         }
 
         [Key]
+        [Display(Name = "Vehicle Code")]
         public string VehicleCode { get; set; }
+
+        [Display(Name = "Description")]
         public string Description { get; set; }
+
+        [Display(Name = "Fee")]
+        [Required]
         public decimal VehicleFee { get; set; }
+
+        [Display(Name = "Status")]
         public decimal Status { get; set; }
+
         public System.DateTime AddDate { get; set; }
         public string AddUser { get; set; }
     

@@ -188,6 +188,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PassRequestController.cs" />
     <Compile Include="Controllers\PassTypeController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\VehicleTypeController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -384,6 +385,7 @@
     <Content Include="Views\PassRequest\Create.cshtml" />
     <Content Include="Views\PassRequest\Edit.cshtml" />
     <Content Include="Views\PassRequest\Delete.cshtml" />
+    <Content Include="Views\Payment\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

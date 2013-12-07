@@ -1,6 +1,5 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
@@ -8,8 +7,7 @@
 
     <title>Biyagama EPZ</title>
 </head>
-
-<body class='contrast-red '>
+<body class='contrast-fb'>
     <header>
         <nav class='navbar navbar-default'>
             <a class='navbar-brand' href='index.html'>
@@ -36,11 +34,11 @@
                         <li class='color-settings-contrast-color'>
                             <div class='color-title'>Change contrast color</div>
                             <a data-change-to="contrast-red" href="#"><i class='icon-cog text-red'></i>
-                                Red
-                                <small>(default)</small>
+                                Red                                
                             </a>
                             <a data-change-to="contrast-blue" href="#"><i class='icon-cog text-blue'></i>
                                 Blue
+                                <small>(default)</small>
                             </a>
                             <a data-change-to="contrast-orange" href="#"><i class='icon-cog text-orange'></i>
                                 Orange
@@ -143,9 +141,9 @@
                         </a>
                         <ul class='nav nav-stacked'>
                             <li class=''>
-                                <a href="@Url.Action("Create", "Company")">
+                                <a href="@Url.Action("Index", "Company")">
                                     <i class='icon-caret-right'></i>
-                                    <span>Create Company</span>
+                                    <span>Company Details</span>
                                 </a>
                             </li>
                             <li class=''>
@@ -168,27 +166,30 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a class='dropdown-collapse ' href='#'>
-                            <i class='icon-tint'></i>
-                            <span>Pass Office</span>
-                            <i class='icon-angle-down angle-down'></i>
-                        </a>
-                        <ul class='nav nav-stacked'>
-                            <li class=''>
-                                <a href='ui_elements.html'>
-                                    <i class='icon-caret-right'></i>
-                                    <span>Issue Passes</span>
-                                </a>
-                            </li>
-                            <li class=''>
-                                <a href='widgets.html'>
-                                    <i class='icon-caret-right'></i>
-                                    <span>Get Payments</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                    @if (Roles.IsUserInRole("Pass Office"))
+                    {
+                        <li>
+                            <a class='dropdown-collapse ' href='#'>
+                                <i class='icon-tint'></i>
+                                <span>Pass Office</span>
+                                <i class='icon-angle-down angle-down'></i>
+                            </a>
+                            <ul class='nav nav-stacked'>
+                                <li class=''>
+                                    <a href='ui_elements.html'>
+                                        <i class='icon-caret-right'></i>
+                                        <span>Issue Passes</span>
+                                    </a>
+                                </li>
+                                <li class=''>
+                                    <a href='widgets.html'>
+                                        <i class='icon-caret-right'></i>
+                                        <span>Get Payments</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    }
                     <li class=''>
                         <a href='#'>
                             <i class='icon-star'></i>
@@ -226,153 +227,25 @@
             </div>
         </nav>
         <section id='content'>
-            <div class='container'>
-                <div class='row' id='content-wrapper'>
-                    <div class='col-xs-12'>
-                        <div class='page-header page-header-with-buttons'>
-                            <h1 class='pull-left'>
-                                <i class='icon-dashboard'></i>
-                                <span>Dashboard</span>
-                            </h1>
-                            <div class='pull-right'>
-                                <div class='btn-group'>
-                                    <a class="btn btn-white hidden-xs" href="#">Last month</a>
-                                    <a class="btn btn-white" href="#">Last week</a>
-                                    <a class="btn btn-white " href="#">Today</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class='alert alert-info alert-dismissable'>
-                            <a class='close' data-dismiss='alert' href='#'>&times;</a>
-                            Welcome to
-                <strong>Pass Issuing Portal</strong>
-                        </div>
-                        <div class='row box box-transparent'>
-                            <div class='col-xs-4 col-sm-2'>
-                                <div class='box-quick-link blue-background'>
-                                    <a href='#'>
-                                        <div class='header'>
-                                            <div class='icon-comments'></div>
-                                        </div>
-                                        <div class='content'>Pending Passes</div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class='row'>
-                                <div class='col-sm-6 box'>
-                                    <div class='box-header'>
-                                        <div class='title'>
-                                            <i class='icon-inbox'></i>
-                                            Check In Details
-                                        </div>
-                                        <div class='actions'>
-                                            <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
-                                            </a>
-
-                                            <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class='box-content'>
-                                        <div id='stats-chart1'></div>
-                                    </div>
-                                </div>
-                                <div class='col-sm-6 box'>
-                                    <div class='box-header'>
-                                        <div class='title'>
-                                            <i class='icon-group'></i>
-                                            Users
-                                        </div>
-                                        <div class='actions'>
-                                            <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
-                                            </a>
-
-                                            <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class='box-content'>
-                                        <div id='stats-chart2'></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <footer id='footer'>
-                                <div class='footer-wrapper'>
-                                    <div class='row'>
-                                        <div class='col-sm-6 text'>
-                                            Copyright © 2013 Samitha Gunarathna
-                                        </div>
-                                    </div>
-                                </div>
-                            </footer>
-                        </div>
+            <div class="container">
+                <div id="content-wrapper" class="row">
+                    <div id="body">
+                        @RenderSection("featured", required: false)
+                        <section class="content-wrapper main-contsent clear-fix">
+                            @RenderBody()
+                        </section>
                     </div>
                 </div>
             </div>
-        </section>
-    </div>
-    <script>
-        $(".recent-activity .ok").live("click", function (e) {
-            $(this).tooltip("hide");
-            $(this).parents("li").fadeOut(500, function () {
-                return $(this).remove();
-            });
-            return e.preventDefault();
-        });
-        $(".recent-activity .remove").live("click", function (e) {
-            $(this).tooltip("hide");
-            $(this).parents("li").fadeOut(500, function () {
-                return $(this).remove();
-            });
-            return e.preventDefault();
-        });
-        $("#comments-more-activity").live("click", function (e) {
-            $(this).button("loading");
-            setTimeout((function () {
-                var list;
-                list = $("#comments-more-activity").parent().parent().find("ul");
-                list.append(list.find("li:not(:first)").clone().effect("highlight", {}, 500));
-                return $("#comments-more-activity").button("reset");
-            }), 1000);
-            e.preventDefault();
-            return false;
-        });
-        $("#users-more-activity").live("click", function (e) {
-            $(this).button("loading");
-            setTimeout((function () {
-                var list;
-                list = $("#users-more-activity").parent().parent().find("ul");
-                list.append(list.find("li:not(:first)").clone().effect("highlight", {}, 500));
-                return $("#users-more-activity").button("reset");
-            }), 1000);
-            e.preventDefault();
-            return false;
-        });
-    </script>
-    <script>
-        (function () {
-            $("#daterange").daterangepicker({
-                ranges: {
-                    Yesterday: [moment().subtract("days", 1), moment().subtract("days", 1)],
-                    "Last 30 Days": [moment().subtract("days", 29), moment()],
-                    "This Month": [moment().startOf("month"), moment().endOf("month")]
-                },
-                startDate: moment().subtract("days", 29),
-                endDate: moment(),
-                opens: "left",
-                cancelClass: "btn-danger",
-                buttonClasses: ['btn', 'btn-sm']
-            }, function (start, end) {
-                return $("#daterange span").html(start.format("MMMM D, YYYY") + " - " + end.format("MMMM D, YYYY"));
-            });
-
-        }).call(this);
-    </script>
-
-    <div id="body">
-        @RenderSection("featured", required: false)
-        <section class="content-wrapper main-content clear-fix">
-            @RenderBody()
+            <footer id='footer'>
+                <div class='footer-wrapper'>
+                    <div class='row'>
+                        <div class='col-sm-6 text'>
+                            Copyright © 2013 Samitha Gunarathna
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </section>
     </div>
 

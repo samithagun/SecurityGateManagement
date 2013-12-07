@@ -21,17 +21,42 @@ namespace PassIssueSystem.Models
         }
     
         [Key]
+        [Display(Name = "Company ID")]
         public string CompanyID { get; set; }
+
+        [Display(Name = "Company Name")]
+        [Required]
         public string CompanyName { get; set; }
+        
+        [Display(Name = "Address 1")]
         public string Address1 { get; set; }
+
+        [Display(Name = "Address 2")]
         public string Address2 { get; set; }
+        
+        [Display(Name = "Address 3")]
         public string Address3 { get; set; }
+
+        [Display(Name = "BOI Approval No")]
+        [Required]
         public string BOIApproveNo { get; set; }
+
+        [Display(Name = "BOI Approved Date")]
+        [Required]
         public System.DateTime BOIApproveDate { get; set; }
+
+        [Display(Name = "Telephone 1")]
         public string Telephone1 { get; set; }
+
+        [Display(Name = "Telephone 2")]
         public string Telephone2 { get; set; }
+
+        [Display(Name = "Fax")]
         public string Fax { get; set; }
+
+        [Display(Name = "Status")]
         public decimal Status { get; set; }
+
         public System.DateTime AddDate { get; set; }
         public string AddUser { get; set; }
     

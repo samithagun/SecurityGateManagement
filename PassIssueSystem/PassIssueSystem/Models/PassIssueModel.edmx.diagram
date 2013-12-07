@@ -34,7 +34,7 @@
         <EntityTypeShape EntityType="PassIssueSystemModel.UserProfile" Width="1.5" PointX="5.375" PointY="14.125" />
         <EntityTypeShape EntityType="PassIssueSystemModel.webpages_Membership" Width="1.5" PointX="13.125" PointY="9.25" />
         <EntityTypeShape EntityType="PassIssueSystemModel.webpages_OAuthMembership" Width="1.5" PointX="8.25" PointY="14.125" />
-        <EntityTypeShape EntityType="PassIssueSystemModel.webpages_Roles" Width="1.5" PointX="2.375" PointY="1.25" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.webpages_Roles" Width="1.5" PointX="12.25" PointY="2.375" />
         <AssociationConnector Association="PassIssueSystemModel.webpages_UsersInRoles" />
       </Diagram>
     </edmx:Diagrams>
