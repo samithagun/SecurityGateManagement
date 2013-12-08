@@ -50,6 +50,10 @@ namespace PassIssueSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(VehicleType vehicletype)
         {
+            vehicletype.AddDate = DateTime.Now;
+            vehicletype.AddUser = User.Identity.Name;
+            vehicletype.Status = 1;
+
             if (ModelState.IsValid)
             {
                 db.VehicleTypes.Add(vehicletype);
@@ -80,6 +84,9 @@ namespace PassIssueSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(VehicleType vehicletype)
         {
+            vehicletype.AddDate = DateTime.Now;
+            vehicletype.AddUser = User.Identity.Name;
+
             if (ModelState.IsValid)
             {
                 db.Entry(vehicletype).State = EntityState.Modified;

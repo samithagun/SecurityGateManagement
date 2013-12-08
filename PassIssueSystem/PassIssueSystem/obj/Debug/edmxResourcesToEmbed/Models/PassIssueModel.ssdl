@@ -120,7 +120,7 @@
     <Property Name="Address2" Type="varchar" Nullable="false" MaxLength="30" />
     <Property Name="Address3" Type="varchar" Nullable="false" MaxLength="30" />
     <Property Name="BOIApproveNo" Type="char" Nullable="false" MaxLength="10" />
-    <Property Name="BOIApproveDate" Type="datetime" Nullable="false" />
+    <Property Name="BOIApproveDate" Type="date" Nullable="false" />
     <Property Name="Telephone1" Type="char" Nullable="false" MaxLength="10" />
     <Property Name="Telephone2" Type="char" Nullable="false" MaxLength="10" />
     <Property Name="Fax" Type="char" Nullable="false" MaxLength="10" />

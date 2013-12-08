@@ -153,21 +153,21 @@
                                     </a>
                                 </li>
                                 <li class=''>
-                                    <a href="@Url.Action("Create", "PassType")">
+                                    <a href="@Url.Action("Index", "PassType")">
                                         <i class='icon-caret-right'></i>
-                                        <span>Create Pass Type</span>
+                                        <span>Pass Details</span>
                                     </a>
                                 </li>
                                 <li class=''>
-                                    <a href="@Url.Action("Create", "VehicleType")">
+                                    <a href="@Url.Action("Index", "VehicleType")">
                                         <i class='icon-caret-right'></i>
-                                        <span>Create Vehicle Type</span>
+                                        <span>Vehicle Details</span>
                                     </a>
                                 </li>
                                 <li class=''>
                                     <a href="@Url.Action("Register", "Account")">
                                         <i class='icon-caret-right'></i>
-                                        <span>Create User Login</span>
+                                        <span>User Details</span>
                                     </a>
                                 </li>
                             </ul>
@@ -203,7 +203,7 @@
                             </ul>
                         </li>
                     }
-                    @if (Roles.IsUserInRole("Pass Office"))
+                    @if (Roles.IsUserInRole("Client User"))
                     {
                         <li class=''>
                             <a href="@Url.Action("Index", "Home")">

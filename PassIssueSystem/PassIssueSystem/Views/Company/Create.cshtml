@@ -1,7 +1,7 @@
 ﻿@model PassIssueSystem.Models.Company
 
 @{
-    ViewBag.Title = "Create Company";
+    ViewBag.Title = "Create";
 }
 
 <div class="col-xs-12">
@@ -14,7 +14,7 @@
             <div class='box bordered-box fb-border'>
                 <div class='box-header fb-background'>
                     <div class='title'>
-                        <i class='icon-user'></i>
+                        <i class='icon-building'></i>
                         Create Company
                     </div>
                     <div class='actions'>
@@ -32,7 +32,7 @@
                             @Html.ValidationSummary(true)
                                         
                             <fieldset>
-                                <legend class='box-header blue-background'>Fill Company Details</legend>
+                                <legend class='box-header green-background'>Fill Details</legend>
 
                                 <div class="form-group">
                                     <div class="col-md-2 control-label">
@@ -138,7 +138,7 @@
                                     </div>
                                 </div>
 
-@*                                <div class="form-group">
+                                @*                                <div class="form-group">
                                     <div class="col-md-2 control-label">
                                         @Html.LabelFor(model => model.Status)
                                     </div>
@@ -148,7 +148,7 @@
                                     </div>
                                 </div>*@
 
-@*                                <div class="form-group">
+                                @*                                <div class="form-group">
                                     <div class="col-md-2 control-label">
                                         @Html.LabelFor(model => model.AddDate)
                                     </div>
@@ -158,7 +158,7 @@
                                     </div>
                                 </div>*@
 
-@*                                <div class="form-group">
+                                @*                                <div class="form-group">
                                     <div class="col-md-2 control-label">
                                         @Html.LabelFor(model => model.AddUser)
                                     </div>
@@ -171,23 +171,20 @@
                                 <div class='form-actions form-actions-padding-sm'>
                                     <div class='row'>
                                         <div class='col-md-10 col-md-offset-2'>
-                                            <button class='btn btn-primary' type='submit' value="Create">
+                                            <button class='btn btn-primary' type='submit' value="Create" style="margin-bottom:5px">
                                                 <i class='icon-save'></i>
                                                 Save
                                             </button>
-                                            <button class='btn' type='submit'>Cancel</button>
-                                        </div>
+                                            <a href="@Url.Action("Index", "Company")" class="btn btn-default" style="margin-bottom:5px">
+                                                <i class="icon-undo"></i>
+                                                <span>Cancel</span></a>
+                                            </div>
                                     </div>
                                 </div>
 
                             </fieldset>
                         }
                     </form>
-
-                    <div>
-                        @Html.ActionLink("Back to List", "Index")
-                    </div>
-
                     @section Scripts {
                         @Scripts.Render("~/bundles/jqueryval")
                     }

@@ -55,7 +55,6 @@ namespace PassIssueSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Company company)
         {
-            //company.BOIApproveDate = company.BOIApproveDate.Date;
             company.AddDate = DateTime.Now;
             company.AddUser = User.Identity.Name;
             company.Status = 1;
@@ -92,7 +91,6 @@ namespace PassIssueSystem.Controllers
         {
             company.AddDate = DateTime.Now;
             company.AddUser = User.Identity.Name;
-            company.Status = 1;
 
             if (ModelState.IsValid)
             {

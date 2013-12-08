@@ -4,67 +4,96 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
-
-@using (Html.BeginForm()) {
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
-
-    <fieldset>
-        <legend>PassType</legend>
-
-        @Html.HiddenFor(model => model.PassCode)
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Description)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Description)
-            @Html.ValidationMessageFor(model => model.Description)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.PassFee)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.PassFee)
-            @Html.ValidationMessageFor(model => model.PassFee)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Status)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Status)
-            @Html.ValidationMessageFor(model => model.Status)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.AddDate)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.AddDate)
-            @Html.ValidationMessageFor(model => model.AddDate)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.AddUser)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.AddUser)
-            @Html.ValidationMessageFor(model => model.AddUser)
-        </div>
-
-        <p>
-            <input type="submit" value="Save" />
-        </p>
-    </fieldset>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
+<div class="col-xs-12">
+    <div class="row">
+    </div>
 </div>
+<div class="col-sm-12">
+    <div class='row'>
+        <div class='col-sm-12'>
+            <div class='box bordered-box fb-border'>
+                <div class='box-header fb-background'>
+                    <div class='title'>
+                        <i class='icon-key'></i>
+                        Edit Pass
+                    </div>
+                    <div class='actions'>
+                        <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+                        </a>
+                        <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                        </a>
+                    </div>
+                </div>
+                <div class='box-content box-double-padding'>
+                    <form class="form form-horizontal" style="margin-bottom: 0;" method="post" action="#" accept-charset="UTF-8">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+                            <fieldset>
+                                <legend class='box-header green-background'>Fill Details</legend>
+
+                                @Html.HiddenFor(model => model.PassCode)
+
+                                <div class="form-group">
+                                    <div class="col-md-2 control-label">
+                                        @Html.LabelFor(model => model.Description)
+                                    </div>
+                                    <div class="col-md-5">
+                                        @Html.TextBoxFor(model => model.Description, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Description)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-2 control-label">
+                                        @Html.LabelFor(model => model.PassFee)
+                                    </div>
+                                    <div class="col-md-5">
+                                        @Html.TextBoxFor(model => model.PassFee, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.PassFee)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-2 control-label">
+                                        @Html.LabelFor(model => model.Status)
+                                    </div>
+                                    <div class="col-md-5">
+                                        @Html.DropDownListFor(model => model.Status, new SelectList(new List<Object>{ 
+                       new { value = 1 , text = "Active"  },
+                       new { value = 0 , text = "Inactive" }},
+                       "value", "text", Model.Status), new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Status)
+                                        <span class="select2-arrow">
+                                            <b></b>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class='form-actions form-actions-padding-sm'>
+                                    <div class='row'>
+                                        <div class='col-md-10 col-md-offset-2'>
+                                            <button class='btn btn-primary' type='submit' value="Create" style="margin-bottom: 5px">
+                                                <i class='icon-save'></i>
+                                                Save
+                                            </button>
+                                            <a href="@Url.Action("Index", "PassType")" class="btn btn-default" style="margin-bottom:5px">
+                                                <i class="icon-undo"></i>
+                                                <span>Cancel</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        }
+                    </form>
+
+                    @section Scripts {
+                        @Scripts.Render("~/bundles/jqueryval")
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

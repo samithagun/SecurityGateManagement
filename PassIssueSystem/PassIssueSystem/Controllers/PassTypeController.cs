@@ -50,6 +50,10 @@ namespace PassIssueSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(PassType passtype)
         {
+            passtype.AddDate = DateTime.Now;
+            passtype.AddUser = User.Identity.Name;
+            passtype.Status = 1;
+
             if (ModelState.IsValid)
             {
                 db.PassTypes.Add(passtype);
@@ -80,6 +84,9 @@ namespace PassIssueSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(PassType passtype)
         {
+            passtype.AddDate = DateTime.Now;
+            passtype.AddUser = User.Identity.Name;
+
             if (ModelState.IsValid)
             {
                 db.Entry(passtype).State = EntityState.Modified;

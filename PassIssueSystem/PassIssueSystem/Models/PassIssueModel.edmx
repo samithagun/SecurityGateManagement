@@ -125,7 +125,7 @@
           <Property Name="Address2" Type="varchar" Nullable="false" MaxLength="30" />
           <Property Name="Address3" Type="varchar" Nullable="false" MaxLength="30" />
           <Property Name="BOIApproveNo" Type="char" Nullable="false" MaxLength="10" />
-          <Property Name="BOIApproveDate" Type="datetime" Nullable="false" />
+          <Property Name="BOIApproveDate" Type="date" Nullable="false" />
           <Property Name="Telephone1" Type="char" Nullable="false" MaxLength="10" />
           <Property Name="Telephone2" Type="char" Nullable="false" MaxLength="10" />
           <Property Name="Fax" Type="char" Nullable="false" MaxLength="10" />
@@ -570,7 +570,7 @@
           <Property Name="Address2" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
           <Property Name="Address3" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
           <Property Name="BOIApproveNo" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="true" />
-          <Property Name="BOIApproveDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="BOIApproveDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Telephone1" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="true" />
           <Property Name="Telephone2" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="true" />
           <Property Name="Fax" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="true" />
