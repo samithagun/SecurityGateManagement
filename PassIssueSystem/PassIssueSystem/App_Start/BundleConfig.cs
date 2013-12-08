@@ -12,8 +12,11 @@ namespace PassIssueSystem
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
+                        "~/Scripts/jquery-{version}.min.js",
                         "~/Scripts/jquery-ui.js",
                         "~/Scripts/jquery.min.js",
+                        "~/Scripts/jquery.ui.touch-punch.min.js",
+                        "~/Scripts/jquery.timeago.js",
                         "~/Scripts/jquery.unobtrusive*",
                         "~/Scripts/jquery.validate*"));
 
@@ -22,12 +25,14 @@ namespace PassIssueSystem
                         "~/Scripts/wysihtml5.min.js",
                         "~/Scripts/bootstrap.js",
                         "~/Scripts/bootstrap-datetimepicker.js",
-                        "~/Scripts/fullcalender.js",
+                        "~/Scripts/fullcalender.min.js",
+                        "~/Scripts/modernizr-{version}.js",
                         "~/Scripts/modernizr.min.js",
                         "~/Scripts/moment.min.js",
                         "~/Scripts/flot.min.js",
                         "~/Scripts/excanvas.js",
                         "~/Scripts/retina.js",
+                        "~/Scripts/knockout-{version}.js",
                         "~/Scripts/theme.js"));
 
             bundles.Add(new StyleBundle("~/Content/bootstrapcss").Include(

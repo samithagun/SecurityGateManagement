@@ -23,12 +23,24 @@ namespace PassIssueSystem.Models
         }
 
         [Key]
+        [Display(Name = "Pass Request No")]
         public string PassReqNo { get; set; }
+
         [Required]
+        [Display(Name = "Company ID")]
         public string CompanyID { get; set; }
+
+        [Required]
+        [Display(Name = "Required From")]
         public System.DateTime RequiredFrom { get; set; }
+
+        [Required]
+        [Display(Name = "Required To")]
         public System.DateTime RequiredTo { get; set; }
+
+        [Display(Name = "Comments")]
         public string Comments { get; set; }
+
         public System.DateTime AddDate { get; set; }
         public string AddUser { get; set; }
     

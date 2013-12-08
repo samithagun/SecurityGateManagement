@@ -38,5 +38,12 @@ namespace PassIssueSystem.Controllers
 
             return View();
         }
+
+        public ActionResult Client()
+        {
+            ViewBag.Message = "";
+
+            return View();
+        }
     }
 }

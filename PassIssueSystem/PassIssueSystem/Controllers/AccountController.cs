@@ -46,7 +46,7 @@ namespace PassIssueSystem.Controllers
                 }
                 else if (Roles.IsUserInRole(model.UserName, "Client User"))
                 {
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Client", "Home");
                 }
 
                 else if (Roles.IsUserInRole(model.UserName, "Pass Office"))
