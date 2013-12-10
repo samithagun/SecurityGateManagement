@@ -241,6 +241,7 @@
     </Key>
     <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="56" />
+    <Property Name="CompanyID" Type="varchar" Nullable="false" MaxLength="15" />
   </EntityType>
   <EntityType Name="VehicleType">
     <Key>

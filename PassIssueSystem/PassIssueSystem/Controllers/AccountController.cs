@@ -343,6 +343,14 @@ namespace PassIssueSystem.Controllers
             return PartialView("_RemoveExternalLoginsPartial", externalLogins);
         }
 
+        public ActionResult Index()
+        {
+            UsersContext db = new UsersContext();
+
+            var model = db.UserProfiles.ToList();
+            return View(model);
+        }
+
         #region Helpers
         private ActionResult RedirectToLocal(string returnUrl)
         {

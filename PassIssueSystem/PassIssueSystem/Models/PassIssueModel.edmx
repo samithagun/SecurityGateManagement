@@ -246,6 +246,7 @@
           </Key>
           <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="56" />
+          <Property Name="CompanyID" Type="varchar" Nullable="false" MaxLength="15" />
         </EntityType>
         <EntityType Name="VehicleType">
           <Key>
@@ -846,6 +847,7 @@
           <Property Type="Int32" Name="UserId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="UserName" MaxLength="56" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="webpages_Roles" Relationship="PassIssueSystemModel.webpages_UsersInRoles" FromRole="UserProfile" ToRole="webpages_Roles" />
+          <Property Type="String" Name="CompanyID" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="webpages_Membership">
           <Key>
@@ -1076,6 +1078,7 @@
           <EntitySetMapping Name="UserProfiles">
             <EntityTypeMapping TypeName="PassIssueSystemModel.UserProfile">
               <MappingFragment StoreEntitySet="UserProfile">
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
               </MappingFragment>

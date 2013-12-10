@@ -390,6 +390,7 @@
     <Content Include="Views\Home\Client.cshtml" />
     <Content Include="Views\PassIssue\Create.cshtml" />
     <Content Include="Views\Home\Office.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

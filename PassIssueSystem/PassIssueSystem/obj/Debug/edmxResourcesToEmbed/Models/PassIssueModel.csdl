@@ -394,6 +394,7 @@
     <Property Type="Int32" Name="UserId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Type="String" Name="UserName" MaxLength="56" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="webpages_Roles" Relationship="PassIssueSystemModel.webpages_UsersInRoles" FromRole="UserProfile" ToRole="webpages_Roles" />
+    <Property Type="String" Name="CompanyID" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="webpages_Membership">
     <Key>

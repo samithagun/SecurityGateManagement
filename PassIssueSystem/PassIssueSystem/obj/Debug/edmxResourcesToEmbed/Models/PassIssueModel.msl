@@ -187,6 +187,7 @@
     <EntitySetMapping Name="UserProfiles">
       <EntityTypeMapping TypeName="PassIssueSystemModel.UserProfile">
         <MappingFragment StoreEntitySet="UserProfile">
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
           <ScalarProperty Name="UserName" ColumnName="UserName" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
         </MappingFragment>

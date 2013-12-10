@@ -23,8 +23,14 @@ namespace PassIssueSystem.Models
     {
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        [Display(Name = "User ID")]
         public int UserId { get; set; }
+
+        [Display(Name = "Name")]
         public string UserName { get; set; }
+
+        [Display(Name = "Company")]
+        public string CompanyID { get; set; }
     }
 
     public class RegisterExternalLoginModel
@@ -86,6 +92,10 @@ namespace PassIssueSystem.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "Company")]
+        public string CompanyID { get; set; }
     }
 
     public class ExternalLogin
