@@ -186,6 +186,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PassIssueController.cs" />
     <Compile Include="Controllers\PassRequestController.cs" />
     <Compile Include="Controllers\PassTypeController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
@@ -387,6 +388,8 @@
     <Content Include="Views\Payment\Create.cshtml" />
     <Content Include="Views\Home\Admin.cshtml" />
     <Content Include="Views\Home\Client.cshtml" />
+    <Content Include="Views\PassIssue\Create.cshtml" />
+    <Content Include="Views\Home\Office.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

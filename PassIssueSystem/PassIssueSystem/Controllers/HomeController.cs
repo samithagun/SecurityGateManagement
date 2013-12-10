@@ -45,5 +45,13 @@ namespace PassIssueSystem.Controllers
 
             return View();
         }
+
+        public ActionResult Office()
+        {
+            ViewBag.Message = "";
+            //ViewBag.Company = "";
+
+            return View();
+        }
     }
 }

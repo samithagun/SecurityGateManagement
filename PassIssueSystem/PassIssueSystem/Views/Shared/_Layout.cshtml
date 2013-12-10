@@ -103,8 +103,8 @@
                             @Html.AntiForgeryToken()
                             <li>
                                 <a href="javascript:document.getElementById('logoutForm').submit()">
-                                    <span>Log off</span>
                                     <i class='icon-signout'></i>
+                                    Sign Out
                                 </a>
                             </li>                      
                         }
@@ -176,7 +176,7 @@
                     @if (Roles.IsUserInRole("Pass Office"))
                     {
                         <li class=''>
-                            <a href="@Url.Action("Index", "Home")">
+                            <a href="@Url.Action("Office", "Home")">
                                 <i class='icon-dashboard'></i>
                                 <span>Dashboard</span>
                             </a>
@@ -189,13 +189,13 @@
                             </a>
                             <ul class='nav nav-stacked'>
                                 <li class=''>
-                                    <a href='ui_elements.html'>
+                                    <a href="@Url.Action("Create", "PassIssue")">
                                         <i class='icon-caret-right'></i>
                                         <span>Issue Passes</span>
                                     </a>
                                 </li>
                                 <li class=''>
-                                    <a href='widgets.html'>
+                                    <a href='#'>
                                         <i class='icon-caret-right'></i>
                                         <span>Get Payments</span>
                                     </a>

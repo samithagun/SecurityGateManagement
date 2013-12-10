@@ -22,6 +22,7 @@ namespace PassIssueSystem.Models
     
         [Key]
         [Display(Name = "Company ID")]
+        [StringLength(15)]
         public string CompanyID { get; set; }
 
         [Display(Name = "Company Name")]

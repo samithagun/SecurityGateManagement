@@ -1,0 +1,112 @@
+﻿@model PassIssueSystem.Models.PassIssueHed
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="col-xs-12">
+    <div class="row">
+    </div>
+</div>
+<div class="col-sm-12">
+    <div class='row'>
+        <div class='col-sm-12'>
+            <div class='box bordered-box fb-border'>
+                <div class='box-header fb-background'>
+                    <div class='title'>
+                        <i class='icon-building'></i>
+                        Issue Pass
+                    </div>
+                    <div class='actions'>
+                        <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+                        </a>
+                        <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                        </a>
+                    </div>
+                </div>
+                <div class='box-content box-double-padding'>
+                    <form class="form form-horizontal" style="margin-bottom: 0;" method="post" action="#" accept-charset="UTF-8">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+
+                            <fieldset>
+                                <legend class='box-header green-background'>Fill Details</legend>
+
+                                <div class="form-group">
+                                    <div class="col-md-2 control-label">
+                                        @Html.LabelFor(model => model.PassReqNo)
+                                    </div>
+                                    <div class="col-md-5">
+                                        @Html.TextBoxFor(model => model.PassReqNo, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.PassReqNo)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-2 control-label">
+                                        @Html.LabelFor(model => model.IssueDate)
+                                    </div>
+                                    <div class="col-md-5">
+                                        @Html.TextBoxFor(model => model.IssueDate, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.IssueDate)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-2 control-label">
+                                        @Html.LabelFor(model => model.ValidFrom)
+                                    </div>
+                                    <div class="col-md-5">
+                                        @Html.TextBoxFor(model => model.ValidFrom, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.ValidFrom)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-2 control-label">
+                                        @Html.LabelFor(model => model.ValidTo)
+                                    </div>
+                                    <div class="col-md-5">
+                                        @Html.TextBoxFor(model => model.ValidTo, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.ValidTo)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-2 control-label">
+                                        @Html.LabelFor(model => model.IsVIP)
+                                    </div>
+                                    <div class="col-md-5">
+                                        @Html.TextBoxFor(model => model.IsVIP, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.IsVIP)
+                                    </div>
+                                </div>
+
+                                <div class='form-actions form-actions-padding-sm'>
+                                    <div class='row'>
+                                        <div class='col-md-10 col-md-offset-2'>
+                                            <button class='btn btn-primary' type='submit' value="Create" style="margin-bottom: 5px">
+                                                <i class='icon-save'></i>
+                                                Save
+                                            </button>
+                                            <a href="@Url.Action("Office", "Home")" class="btn btn-default" style="margin-bottom:5px">
+                                                <i class="icon-undo"></i>
+                                                <span>Cancel</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </fieldset>
+                        }
+                    </form>
+                    @section Scripts {
+                        @Scripts.Render("~/bundles/jqueryval")
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

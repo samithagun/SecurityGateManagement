@@ -22,6 +22,7 @@ namespace PassIssueSystem.Models
 
         [Key]
         [Display(Name = "Vehicle Code")]
+        [StringLength(8)]
         public string VehicleCode { get; set; }
 
         [Display(Name = "Description")]

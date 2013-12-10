@@ -21,6 +21,7 @@ namespace PassIssueSystem.Models
         }
 
         [Key]
+        [StringLength(8)]
         [Display(Name = "Pass Type Code")]
         public string PassCode { get; set; }
 
