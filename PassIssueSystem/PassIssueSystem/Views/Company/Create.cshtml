@@ -50,6 +50,7 @@
                                     </div>
                                     <div class='col-md-5'>
                                         @Html.TextBoxFor(model => model.CompanyName, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.CompanyName)
                                     </div>
                                 </div>
 
@@ -99,12 +100,12 @@
                                     </div>
                                     <div class="col-md-5">
                                         <div class='datetimepicker-input input-group' id='datetimepicker'>
-                                            @Html.TextBoxFor(model => model.BOIApproveDate, new { @class = "form-control" })
-                                            @Html.ValidationMessageFor(model => model.BOIApproveDate)
+                                            @Html.TextBoxFor(model => model.BOIApproveDate, new { @class = "form-control" })                                            
                                             <span class='input-group-addon'>
                                                 <span data-icon-element=''></span>
-                                            </span>
+                                            </span>                                            
                                         </div>
+                                        @Html.ValidationMessageFor(model => model.BOIApproveDate)
                                     </div>
                                 </div>
 
@@ -171,14 +172,14 @@
                                 <div class='form-actions form-actions-padding-sm'>
                                     <div class='row'>
                                         <div class='col-md-10 col-md-offset-2'>
-                                            <button class='btn btn-primary' type='submit' value="Create" style="margin-bottom:5px">
+                                            <button class='btn btn-primary' type='submit' value="Create" style="margin-bottom: 5px">
                                                 <i class='icon-save'></i>
                                                 Save
                                             </button>
                                             <a href="@Url.Action("Index", "Company")" class="btn btn-default" style="margin-bottom:5px">
                                                 <i class="icon-undo"></i>
                                                 <span>Cancel</span></a>
-                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 

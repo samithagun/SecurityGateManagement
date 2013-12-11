@@ -21,6 +21,7 @@ namespace PassIssueSystem.Models
         }
 
         [Key]
+        [Required]
         [StringLength(8)]
         [Display(Name = "Pass Type Code")]
         public string PassCode { get; set; }
@@ -28,8 +29,9 @@ namespace PassIssueSystem.Models
         [Display(Name = "Description")]
         public string Description { get; set; }
 
-        [Display(Name = "Fee")]
         [Required]
+        [Display(Name = "Fee")]
+        [DisplayFormat(DataFormatString = "{0:c}")]
         public decimal PassFee { get; set; }
 
         [Display(Name = "Status")]

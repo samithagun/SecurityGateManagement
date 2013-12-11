@@ -21,15 +21,17 @@ namespace PassIssueSystem.Models
         }
 
         [Key]
-        [Display(Name = "Vehicle Code")]
+        [Required]
         [StringLength(8)]
+        [Display(Name = "Vehicle Code")]
         public string VehicleCode { get; set; }
 
         [Display(Name = "Description")]
         public string Description { get; set; }
 
-        [Display(Name = "Fee")]
         [Required]
+        [Display(Name = "Fee")]
+        [DisplayFormat(DataFormatString = "{0:c}")]
         public decimal VehicleFee { get; set; }
 
         [Display(Name = "Status")]

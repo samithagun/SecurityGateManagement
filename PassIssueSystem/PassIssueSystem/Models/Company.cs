@@ -21,12 +21,13 @@ namespace PassIssueSystem.Models
         }
     
         [Key]
+        [Required]
         [Display(Name = "Company ID")]
-        [StringLength(15)]
+        [StringLength(15, MinimumLength = 2)]
         public string CompanyID { get; set; }
 
-        [Display(Name = "Company Name")]
         [Required]
+        [Display(Name = "Company Name")]
         public string CompanyName { get; set; }
         
         [Display(Name = "Address 1")]
@@ -38,21 +39,25 @@ namespace PassIssueSystem.Models
         [Display(Name = "Address 3")]
         public string Address3 { get; set; }
 
-        [Display(Name = "BOI Approval No")]
         [Required]
+        [Display(Name = "BOI Approval No")]
         public string BOIApproveNo { get; set; }
 
-        [Display(Name = "BOI Approved Date")]
         [Required]
+        [Display(Name = "BOI Approved Date")]
+        [DisplayFormat(DataFormatString = "{0:d}")]
         public System.DateTime BOIApproveDate { get; set; }
 
         [Display(Name = "Telephone 1")]
+        [DataType(DataType.PhoneNumber)]
         public string Telephone1 { get; set; }
 
         [Display(Name = "Telephone 2")]
+        [DataType(DataType.PhoneNumber)]
         public string Telephone2 { get; set; }
 
         [Display(Name = "Fax")]
+        [DataType(DataType.PhoneNumber)]
         public string Fax { get; set; }
 
         [Display(Name = "Status")]

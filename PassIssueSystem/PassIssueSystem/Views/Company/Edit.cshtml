@@ -92,12 +92,12 @@
                                     </div>
                                     <div class="col-md-5">
                                         <div class='datetimepicker-input input-group' id='datetimepicker'>
-                                            @Html.TextBoxFor(model => model.BOIApproveDate, new { @class = "form-control" })
-                                            @Html.ValidationMessageFor(model => model.BOIApproveDate)
+                                            @Html.TextBoxFor(model => model.BOIApproveDate, new { @class = "form-control" })                                            
                                             <span class='input-group-addon'>
                                                 <span data-icon-element=''></span>
                                             </span>
                                         </div>
+                                        @Html.ValidationMessageFor(model => model.BOIApproveDate)
                                     </div>
                                 </div>
 
