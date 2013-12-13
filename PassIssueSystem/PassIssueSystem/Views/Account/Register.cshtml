@@ -55,14 +55,25 @@
                                         </div>
                                     </div>
 
+                                    <div class="form-group">
+                                        <div class="col-md-2 control-label">
+                                            @Html.LabelFor(m => m.CompanyID)
+                                        </div>
+                                        <div class="col-md-5">
+                                            @Html.TextBoxFor(m => m.CompanyID, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+
                                     <div class='form-actions form-actions-padding-sm'>
                                         <div class='row'>
                                             <div class='col-md-10 col-md-offset-2'>
-                                                <button class='btn btn-primary' type='submit' value="Register">
+                                                <button class='btn btn-primary' type='submit' value="Create" style="margin-bottom: 5px">
                                                     <i class='icon-save'></i>
                                                     Save
                                                 </button>
-                                                <button class='btn' type='submit'>Cancel</button>
+                                                <a href="@Url.Action("Index", "Account")" class="btn btn-default" style="margin-bottom:5px">
+                                                    <i class="icon-undo"></i>
+                                                    <span>Cancel</span></a>
                                             </div>
                                         </div>
                                     </div>

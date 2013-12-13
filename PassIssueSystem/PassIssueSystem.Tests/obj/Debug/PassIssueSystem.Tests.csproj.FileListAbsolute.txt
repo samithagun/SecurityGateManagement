@@ -185,12 +185,6 @@ C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIss
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem.Tests\bin\Debug\EntityFramework.dll
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem.Tests\bin\Debug\System.Web.Optimization.dll
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem.Tests\bin\Debug\Microsoft.Web.WebPages.OAuth.dll
-C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem.Tests\bin\Debug\DotNetOpenAuth.AspNet.dll
-C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem.Tests\bin\Debug\DotNetOpenAuth.Core.dll
-C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem.Tests\bin\Debug\DotNetOpenAuth.OAuth.Consumer.dll
-C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem.Tests\bin\Debug\DotNetOpenAuth.OAuth.dll
-C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem.Tests\bin\Debug\DotNetOpenAuth.OpenId.RelyingParty.dll
-C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem.Tests\bin\Debug\DotNetOpenAuth.OpenId.dll
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem.Tests\bin\Debug\PassIssueSystem.pdb
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem.Tests\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem.Tests\bin\Debug\System.Net.Http.Formatting.xml
@@ -208,12 +202,6 @@ C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIss
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem.Tests\bin\Debug\System.Spatial.xml
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem.Tests\bin\Debug\EntityFramework.xml
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem.Tests\bin\Debug\Microsoft.Web.WebPages.OAuth.xml
-C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem.Tests\bin\Debug\DotNetOpenAuth.AspNet.xml
-C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem.Tests\bin\Debug\DotNetOpenAuth.Core.xml
-C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem.Tests\bin\Debug\DotNetOpenAuth.OAuth.Consumer.xml
-C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem.Tests\bin\Debug\DotNetOpenAuth.OAuth.xml
-C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem.Tests\bin\Debug\DotNetOpenAuth.OpenId.RelyingParty.xml
-C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem.Tests\bin\Debug\DotNetOpenAuth.OpenId.xml
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem.Tests\bin\Debug\de\Microsoft.Data.Edm.resources.dll
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem.Tests\bin\Debug\es\Microsoft.Data.Edm.resources.dll
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem.Tests\bin\Debug\fr\Microsoft.Data.Edm.resources.dll

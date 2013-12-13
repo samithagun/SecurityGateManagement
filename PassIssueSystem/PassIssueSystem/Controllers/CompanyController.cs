@@ -63,6 +63,7 @@ namespace PassIssueSystem.Controllers
             {
                 db.Companies.Add(company);
                 db.SaveChanges();
+                //TempData["UserMessage"] = "Data Saved Successfully";
                 return RedirectToAction("Index");
             }
 

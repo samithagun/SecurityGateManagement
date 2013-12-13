@@ -4,100 +4,60 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<div class="col-xs-12">
+    <div class="row">
+    </div>
+</div>
+<div class="col-sm-12">
+    <div class='row'>
+        <div class='col-sm-12'>
+            <div class='box bordered-box fb-border'>
+                <div class='box-header fb-background'>
+                    <div class='title'>
+                        <i class='icon-building'></i>
+                        Delete Company
+                    </div>
+                    <div class='actions'>
+                        <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+                        </a>
+                        <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                        </a>
+                    </div>
+                </div>
+                <div class='box-content box-double-padding'>
+                    <fieldset>
+                        <legend>Are you sure you want to Delete this?</legend>
 
-<h3>Are you sure you want to delete this?</h3>
-<fieldset>
-    <legend>Company</legend>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.CompanyName)
+                        <div class="form-group">
+                            <div class="col-md-2 control-label">
+                                @Html.DisplayNameFor(model => model.CompanyName)
+                            </div>
+                            <div class="col-md-5">
+                                @Html.DisplayFor(model => model.CompanyName)
+                            </div>
+                        </div>
+                    </fieldset>
+                    <form class="form form-horizontal" style="margin-bottom: 0;" method="post" action="#" accept-charset="UTF-8">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class='form-actions form-actions-padding-sm'>
+                                <div class='row'>
+                                    <div class='col-md-10 col-md-offset-2'>
+                                        <button class='btn btn-primary' type='submit' value="Delete" style="margin-bottom: 5px">
+                                            <i class='icon-save'></i>
+                                            Delete
+                                        </button>
+                                        <a href="@Url.Action("Index", "Company")" class="btn btn-default" style="margin-bottom:5px">
+                                            <i class="icon-undo"></i>
+                                            <span>Cancel</span></a>
+                                    </div>
+                                </div>
+                            </div>                            
+                        }
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.CompanyName)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Address1)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Address1)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Address2)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Address2)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Address3)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Address3)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.BOIApproveNo)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.BOIApproveNo)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.BOIApproveDate)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.BOIApproveDate)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Telephone1)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Telephone1)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Telephone2)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Telephone2)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Fax)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Fax)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Status)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Status)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.AddDate)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.AddDate)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.AddUser)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.AddUser)
-    </div>
-</fieldset>
-@using (Html.BeginForm()) {
-    @Html.AntiForgeryToken()
-    <p>
-        <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
-}
+</div>

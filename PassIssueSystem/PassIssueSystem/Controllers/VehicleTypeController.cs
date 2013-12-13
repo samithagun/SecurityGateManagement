@@ -91,6 +91,7 @@ namespace PassIssueSystem.Controllers
             {
                 db.Entry(vehicletype).State = EntityState.Modified;
                 db.SaveChanges();
+                //ViewBag.successMessage = "Data Saved Successfully";
                 return RedirectToAction("Index");
             }
             return View(vehicletype);
