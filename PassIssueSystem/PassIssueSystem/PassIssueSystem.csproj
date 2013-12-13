@@ -231,23 +231,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PassIssueModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\PassIssueModel.Designer.cs">
+    <Compile Include="Models\DBModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PassIssueModel.edmx</DependentUpon>
+      <DependentUpon>DBModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\PassIssueVehicle.cs">
       <DependentUpon>PassIssueModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\PassRequestDet.cs">
-      <DependentUpon>PassIssueModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PassRequestHed.cs">
-      <DependentUpon>PassIssueModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PassReqVehicle.cs">
-      <DependentUpon>PassIssueModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\PassRequestModel.cs" />
     <Compile Include="Models\PassType.cs">
       <DependentUpon>PassIssueModel.tt</DependentUpon>
     </Compile>
@@ -271,22 +263,22 @@
     <Content Include="Content\Theme\theme-colors.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <EntityDeploy Include="Models\PassIssueModel.edmx">
+    <EntityDeploy Include="Models\DBModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PassIssueModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>DBModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <Content Include="Images\logo_xs.png" />
     <Content Include="Models\PassIssueModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PassIssueModel.edmx</DependentUpon>
+      <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>PassIssueModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\PassIssueModel.edmx.diagram">
-      <DependentUpon>PassIssueModel.edmx</DependentUpon>
+    <Content Include="Models\DBModel.edmx.diagram">
+      <DependentUpon>DBModel.edmx</DependentUpon>
     </Content>
     <Content Include="Models\PassIssueModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PassIssueModel.edmx</DependentUpon>
+      <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>PassIssueModel.cs</LastGenOutput>
     </Content>
     <Content Include="Content\Fonts\fontawesome-webfont.woff" />

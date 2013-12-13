@@ -5,7 +5,6 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="bbd7f7168cae4da481fcd8e2f2ad40f6" Name="Diagram1">
-        <EntityTypeShape EntityType="PassIssueSystemModel.C__MigrationHistory" Width="1.5" PointX="10.75" PointY="5.875" IsExpanded="true" />
         <EntityTypeShape EntityType="PassIssueSystemModel.CardDetail" Width="1.5" PointX="10" PointY="2.125" IsExpanded="true" />
         <EntityTypeShape EntityType="PassIssueSystemModel.CheckInPerson" Width="1.5" PointX="8" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="PassIssueSystemModel.CheckInVehicle" Width="1.5" PointX="8" PointY="11" IsExpanded="true" />
@@ -31,10 +30,10 @@
         <AssociationConnector Association="PassIssueSystemModel.FK_PASSREQVEHICLE_PASSREQUESTHED" ManuallyRouted="false" />
         <AssociationConnector Association="PassIssueSystemModel.FK_PASSREQVEHICLE_VEHICLETYPE" ManuallyRouted="false" />
         <AssociationConnector Association="PassIssueSystemModel.FK_PassIssueHed_PassRequestHed" />
-        <EntityTypeShape EntityType="PassIssueSystemModel.UserProfile" Width="1.5" PointX="5.375" PointY="14.125" />
         <EntityTypeShape EntityType="PassIssueSystemModel.webpages_Membership" Width="1.5" PointX="13.125" PointY="9.25" />
-        <EntityTypeShape EntityType="PassIssueSystemModel.webpages_OAuthMembership" Width="1.5" PointX="8.25" PointY="14.125" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.webpages_OAuthMembership" Width="1.5" PointX="10.25" PointY="6.75" />
         <EntityTypeShape EntityType="PassIssueSystemModel.webpages_Roles" Width="1.5" PointX="12.25" PointY="2.375" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.UserProfile" Width="1.5" PointX="6.125" PointY="13.75" />
         <AssociationConnector Association="PassIssueSystemModel.webpages_UsersInRoles" />
       </Diagram>
     </edmx:Diagrams>

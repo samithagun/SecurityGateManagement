@@ -6,7 +6,6 @@
     <edmx:StorageModels>
     <Schema Namespace="PassIssueSystemModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="PassIssueSystemModelStoreContainer">
-          <EntitySet Name="__MigrationHistory" EntityType="PassIssueSystemModel.Store.__MigrationHistory" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="CardDetail" EntityType="PassIssueSystemModel.Store.CardDetail" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="CheckInPerson" EntityType="PassIssueSystemModel.Store.CheckInPerson" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="CheckInVehicle" EntityType="PassIssueSystemModel.Store.CheckInVehicle" store:Type="Tables" Schema="dbo" />
@@ -76,14 +75,6 @@
             <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="__MigrationHistory">
-          <Key>
-            <PropertyRef Name="MigrationId" />
-          </Key>
-          <Property Name="MigrationId" Type="nvarchar" Nullable="false" MaxLength="255" />
-          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
-          <Property Name="ProductVersion" Type="nvarchar" Nullable="false" MaxLength="32" />
-        </EntityType>
         <EntityType Name="CardDetail">
           <Key>
             <PropertyRef Name="PaymentNo" />
@@ -454,7 +445,6 @@
     <edmx:ConceptualModels>
       <Schema Namespace="PassIssueSystemModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="PassIssueSystemEntities" p1:LazyLoadingEnabled="true">
-          <EntitySet Name="C__MigrationHistory" EntityType="PassIssueSystemModel.C__MigrationHistory" />
           <EntitySet Name="CardDetails" EntityType="PassIssueSystemModel.CardDetail" />
           <EntitySet Name="CheckInPersons" EntityType="PassIssueSystemModel.CheckInPerson" />
           <EntitySet Name="CheckInVehicles" EntityType="PassIssueSystemModel.CheckInVehicle" />
@@ -510,23 +500,15 @@
             <End Role="PassRequestHed" EntitySet="PassRequestHeds" />
             <End Role="PassIssueHed" EntitySet="PassIssueHeds" />
           </AssociationSet>
-          <EntitySet Name="UserProfiles" EntityType="PassIssueSystemModel.UserProfile" />
           <EntitySet Name="webpages_Membership" EntityType="PassIssueSystemModel.webpages_Membership" />
           <EntitySet Name="webpages_OAuthMembership" EntityType="PassIssueSystemModel.webpages_OAuthMembership" />
           <EntitySet Name="webpages_Roles" EntityType="PassIssueSystemModel.webpages_Roles" />
+          <EntitySet Name="UserProfiles" EntityType="PassIssueSystemModel.UserProfile" />
           <AssociationSet Name="webpages_UsersInRoles" Association="PassIssueSystemModel.webpages_UsersInRoles">
             <End Role="webpages_Roles" EntitySet="webpages_Roles" />
             <End Role="UserProfile" EntitySet="UserProfiles" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="C__MigrationHistory">
-          <Key>
-            <PropertyRef Name="MigrationId" />
-          </Key>
-          <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
-          <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
-          <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" Unicode="true" FixedLength="false" />
-        </EntityType>
         <EntityType Name="CardDetail">
           <Key>
             <PropertyRef Name="PaymentNo" />
@@ -840,15 +822,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="UserProfile">
-          <Key>
-            <PropertyRef Name="UserId" />
-          </Key>
-          <Property Type="Int32" Name="UserId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="UserName" MaxLength="56" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="webpages_Roles" Relationship="PassIssueSystemModel.webpages_UsersInRoles" FromRole="UserProfile" ToRole="webpages_Roles" />
-          <Property Type="String" Name="CompanyID" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="webpages_Membership">
           <Key>
             <PropertyRef Name="UserId" />
@@ -882,6 +855,15 @@
           <Property Type="String" Name="RoleName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="UserProfiles" Relationship="PassIssueSystemModel.webpages_UsersInRoles" FromRole="webpages_Roles" ToRole="UserProfile" />
         </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Type="Int32" Name="UserId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="56" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CompanyID" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="webpages_Roles" Relationship="PassIssueSystemModel.webpages_UsersInRoles" FromRole="UserProfile" ToRole="webpages_Roles" />
+        </EntityType>
         <Association Name="webpages_UsersInRoles">
           <End Type="PassIssueSystemModel.webpages_Roles" Role="webpages_Roles" Multiplicity="*" />
           <End Type="PassIssueSystemModel.UserProfile" Role="UserProfile" Multiplicity="*" />
@@ -892,15 +874,6 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="PassIssueSystemModelStoreContainer" CdmEntityContainer="PassIssueSystemEntities">
-          <EntitySetMapping Name="C__MigrationHistory">
-            <EntityTypeMapping TypeName="PassIssueSystemModel.C__MigrationHistory">
-              <MappingFragment StoreEntitySet="__MigrationHistory">
-                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
-                <ScalarProperty Name="Model" ColumnName="Model" />
-                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="CardDetails">
             <EntityTypeMapping TypeName="PassIssueSystemModel.CardDetail">
               <MappingFragment StoreEntitySet="CardDetail">
@@ -1075,15 +1048,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="UserProfiles">
-            <EntityTypeMapping TypeName="PassIssueSystemModel.UserProfile">
-              <MappingFragment StoreEntitySet="UserProfile">
-                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="webpages_Membership">
             <EntityTypeMapping TypeName="PassIssueSystemModel.webpages_Membership">
               <MappingFragment StoreEntitySet="webpages_Membership">
@@ -1115,6 +1079,15 @@
               <MappingFragment StoreEntitySet="webpages_Roles">
                 <ScalarProperty Name="RoleName" ColumnName="RoleName" />
                 <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserProfiles">
+            <EntityTypeMapping TypeName="PassIssueSystemModel.UserProfile">
+              <MappingFragment StoreEntitySet="UserProfile">
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
