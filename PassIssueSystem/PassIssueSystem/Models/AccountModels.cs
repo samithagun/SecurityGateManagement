@@ -31,6 +31,8 @@ namespace PassIssueSystem.Models
 
         [Display(Name = "Company")]
         public string CompanyID { get; set; }
+
+        public virtual Company Company { get; set; }
     }
 
     public class RegisterExternalLoginModel

@@ -189,68 +189,40 @@
     <Compile Include="Controllers\PassIssueController.cs" />
     <Compile Include="Controllers\PassRequestController.cs" />
     <Compile Include="Controllers\PassTypeController.cs" />
-    <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\VehicleTypeController.cs" />
+    <Compile Include="DTOs\CardDetail.cs" />
+    <Compile Include="DTOs\CheckInPerson.cs" />
+    <Compile Include="DTOs\CheckInVehicle.cs" />
+    <Compile Include="DTOs\Company.cs" />
+    <Compile Include="DTOs\CompanyLogin.cs" />
+    <Compile Include="DTOs\C__MigrationHistory.cs" />
+    <Compile Include="DTOs\GenerateRefNo.cs" />
+    <Compile Include="DTOs\Module.cs" />
+    <Compile Include="DTOs\PassIssueDet.cs" />
+    <Compile Include="DTOs\PassIssueHed.cs" />
+    <Compile Include="DTOs\PassIssueVehicle.cs" />
+    <Compile Include="DTOs\PassType.cs" />
+    <Compile Include="DTOs\PaymentDetail.cs" />
+    <Compile Include="DTOs\UserAccess.cs" />
+    <Compile Include="DTOs\VehicleType.cs" />
+    <Compile Include="DTOs\webpages_Membership.cs" />
+    <Compile Include="DTOs\webpages_OAuthMembership.cs" />
+    <Compile Include="DTOs\webpages_Roles.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\CardDetail.cs">
-      <DependentUpon>PassIssueModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CheckInPerson.cs">
-      <DependentUpon>PassIssueModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CheckInVehicle.cs">
-      <DependentUpon>PassIssueModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Company.cs">
-      <DependentUpon>PassIssueModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CompanyLogin.cs">
-      <DependentUpon>PassIssueModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\C__MigrationHistory.cs">
-      <DependentUpon>PassIssueModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\GenerateRefNo.cs">
-      <DependentUpon>PassIssueModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Module.cs">
-      <DependentUpon>PassIssueModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PassIssueDet.cs">
-      <DependentUpon>PassIssueModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PassIssueHed.cs">
-      <DependentUpon>PassIssueModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PassIssueModel.Context.cs">
+    <Compile Include="DTOs\PassRequestModel.cs" />
+    <Compile Include="Models\DBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PassIssueModel.Context.tt</DependentUpon>
+      <DependentUpon>DBModel.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DBModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DBModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PassIssueVehicle.cs">
-      <DependentUpon>PassIssueModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PassRequestModel.cs" />
-    <Compile Include="Models\PassType.cs">
-      <DependentUpon>PassIssueModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PaymentDetail.cs">
-      <DependentUpon>PassIssueModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UserAccess.cs">
-      <DependentUpon>PassIssueModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\VehicleType.cs">
-      <DependentUpon>PassIssueModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -263,27 +235,19 @@
     <Content Include="Content\Theme\theme-colors.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\logo_xs.png" />
+    <Content Include="Content\Fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Fonts\montserrat-bold-webfont.woff" />
+    <Content Include="Content\Fonts\montserrat-regular-webfont.woff" />
     <EntityDeploy Include="Models\DBModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DBModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Images\logo_xs.png" />
-    <Content Include="Models\PassIssueModel.Context.tt">
+    <Content Include="Models\DBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DBModel.edmx</DependentUpon>
-      <LastGenOutput>PassIssueModel.Context.cs</LastGenOutput>
+      <LastGenOutput>DBModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\DBModel.edmx.diagram">
-      <DependentUpon>DBModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\PassIssueModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DBModel.edmx</DependentUpon>
-      <LastGenOutput>PassIssueModel.cs</LastGenOutput>
-    </Content>
-    <Content Include="Content\Fonts\fontawesome-webfont.woff" />
-    <Content Include="Content\Fonts\montserrat-bold-webfont.woff" />
-    <Content Include="Content\Fonts\montserrat-regular-webfont.woff" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
@@ -377,7 +341,6 @@
     <Content Include="Views\PassRequest\Create.cshtml" />
     <Content Include="Views\PassRequest\Edit.cshtml" />
     <Content Include="Views\PassRequest\Delete.cshtml" />
-    <Content Include="Views\Payment\Create.cshtml" />
     <Content Include="Views\Home\Admin.cshtml" />
     <Content Include="Views\Home\Client.cshtml" />
     <Content Include="Views\PassIssue\Create.cshtml" />

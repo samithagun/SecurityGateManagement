@@ -185,6 +185,7 @@
     <Property Name="PassFee" Type="Decimal" Nullable="false" Precision="8" Scale="2" />
     <NavigationProperty Name="PassRequestHed" Relationship="PassIssueSystemModel.FK_PASSREQUESTDET_PASSREQUESTHED" FromRole="PassRequestDet" ToRole="PassRequestHed" />
     <NavigationProperty Name="PassType" Relationship="PassIssueSystemModel.FK_PASSREQUESTDET_PASSTYPE" FromRole="PassRequestDet" ToRole="PassType" />
+    <Property Type="String" Name="MobileNo" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
   </EntityType>
   <EntityType Name="PassRequestHed">
     <Key>

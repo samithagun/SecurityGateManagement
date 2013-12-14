@@ -11,8 +11,8 @@ namespace PassIssueSystem.Controllers
 {
     [Authorize]
     public class VehicleTypeController : Controller
-    {        
-        private PassIssueSystemEntities db = new PassIssueSystemEntities();
+    {
+        private Entities db = new Entities();
 
         //
         // GET: /VehicleType/

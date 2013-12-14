@@ -32,7 +32,17 @@
                             @Html.ValidationSummary(true)
 
                             <fieldset>
-                                <legend class='box-header green-background'>Fill Header Details</legend>
+                                <legend class='box-header green-background'>Fill Pass Details</legend>
+
+                                <div class="form-group">
+                                    <div class="col-md-2 control-label">
+                                        @Html.LabelFor(model => model.PassRequestDets.FirstOrDefault().PassType)
+                                    </div>
+                                    <div class="col-md-5">
+                                        @Html.DropDownList("PassCode", (IEnumerable<SelectListItem>)ViewBag.PassCode, new { @class = "form-control"})
+                                        @Html.ValidationMessageFor(model => model.PassRequestDets.FirstOrDefault().PassType)
+                                    </div>
+                                </div>
 
                                 <div class="form-group">
                                     <div class="col-md-2 control-label">
@@ -103,7 +113,8 @@
                                                         <tr>
                                                             <td>
                                                                 <div class="col-md-5">
-                                                                    @Html.TextBox("name")
+                                                                    @Html.TextBoxFor(model => model.PassRequestDets.FirstOrDefault().PersonName, new { @class = "form-control" })
+                                                                    @Html.ValidationMessageFor((model => model.PassRequestDets.FirstOrDefault().PersonName))
                                                                 </div>
                                                             </td>
                                                             <td>
@@ -122,7 +133,8 @@
                                                             </td>
                                                             <td>
                                                                 <div class="col-md-5">
-                                                                    @Html.TextBox("mobile")
+                                                                    @Html.TextBoxFor(model => model.PassRequestDets.FirstOrDefault().MobileNo, new { @class = "form-control" })
+                                                                    @Html.ValidationMessageFor((model => model.PassRequestDets.FirstOrDefault().MobileNo))
                                                                 </div>
                                                             </td>
                                                         </tr>

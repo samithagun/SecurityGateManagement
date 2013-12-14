@@ -11,8 +11,8 @@ namespace PassIssueSystem.Controllers
 {
     [Authorize]
     public class PassRequestController : Controller
-    {        
-        private PassIssueSystemEntities db = new PassIssueSystemEntities();
+    {
+        private Entities db = new Entities();
 
         //
         // GET: /PassRequest/
@@ -41,7 +41,8 @@ namespace PassIssueSystem.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.CompanyID = new SelectList(db.Companies, "CompanyID", "CompanyName");
+            ViewBag.PassCode = new SelectList(db.PassTypes, "PassCode", "Description");
+            //ViewBag.CompanyID = new SelectList(db.Companies, "CompanyID", "CompanyName");
             return View();
         }
 

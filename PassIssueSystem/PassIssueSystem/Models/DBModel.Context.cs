@@ -13,10 +13,10 @@ namespace PassIssueSystem.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PassIssueSystemEntities : DbContext
+    public partial class Entities : DbContext
     {
-        public PassIssueSystemEntities()
-            : base("name=PassIssueSystemEntities")
+        public Entities()
+            : base("name=Entities")
         {
         }
     
@@ -32,7 +32,6 @@ namespace PassIssueSystem.Models
         public DbSet<Company> Companies { get; set; }
         public DbSet<CompanyLogin> CompanyLogins { get; set; }
         public DbSet<GenerateRefNo> GenerateRefNoes { get; set; }
-        public DbSet<Module> Modules { get; set; }
         public DbSet<PassIssueDet> PassIssueDets { get; set; }
         public DbSet<PassIssueHed> PassIssueHeds { get; set; }
         public DbSet<PassIssueVehicle> PassIssueVehicles { get; set; }
@@ -41,7 +40,10 @@ namespace PassIssueSystem.Models
         public DbSet<PassReqVehicle> PassReqVehicles { get; set; }
         public DbSet<PassType> PassTypes { get; set; }
         public DbSet<PaymentDetail> PaymentDetails { get; set; }
-        public DbSet<UserAccess> UserAccesses { get; set; }
+        public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<VehicleType> VehicleTypes { get; set; }
+        public DbSet<webpages_Membership> webpages_Membership { get; set; }
+        public DbSet<webpages_OAuthMembership> webpages_OAuthMembership { get; set; }
+        public DbSet<webpages_Roles> webpages_Roles { get; set; }
     }
 }

@@ -177,6 +177,7 @@
     <Property Name="PassReqNo" Type="char" Nullable="false" MaxLength="12" />
     <Property Name="PersonNIC" Type="char" Nullable="false" MaxLength="10" />
     <Property Name="PersonName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="MobileNo" Type="char" Nullable="false" MaxLength="10" />
     <Property Name="PassCode" Type="varchar" Nullable="false" MaxLength="8" />
     <Property Name="PassFee" Type="numeric" Nullable="false" Precision="8" Scale="2" />
   </EntityType>
