@@ -43,15 +43,18 @@
         [Display(Name = "Pass Request No")]
         public string PassReqNo { get; set; }
 
+        [Required]
         [Display(Name = "NIC No")]
         public string PersonNIC { get; set; }
 
+        [Required]
         [Display(Name = "Name")]
         public string PersonName { get; set; }
 
         [Display(Name = "Mobile No")]
         public string MobileNo { get; set; }
 
+        [Required]
         [Display(Name = "Pass Type")]
         public string PassCode { get; set; }
 

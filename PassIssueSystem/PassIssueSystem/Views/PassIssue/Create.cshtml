@@ -15,6 +15,48 @@
                 <div class='box-header fb-background'>
                     <div class='title'>
                         <i class='icon-building'></i>
+                        Find Pass Request
+                    </div>
+                    <div class='actions'>
+                        <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+                        </a>
+                        <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                        </a>
+                    </div>
+                </div>
+                <div class='box-content box-double-padding'>
+                    <form class="form form-horizontal" style="margin-bottom: 0;" method="post" action="#" accept-charset="UTF-8">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+
+                            <fieldset>
+                                <legend class='box-header green-background'>Enter ID No</legend>
+                                <div class="col-md-2">
+                                    @Html.TextBoxFor(model => model.PassIssueDets.FirstOrDefault().PersonNIC, new { @class = "form-control" })                                    
+                                    <a class='btn btn-primary btn-lg' href='#'>
+                                        <i class='icon-search'></i>
+                                    </a>
+                                    @Html.ValidationMessageFor((model => model.PassIssueDets.FirstOrDefault().PersonNIC))
+                                </div>
+                            </fieldset>
+                        }
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-sm-12">
+    <div class='row'>
+        <div class='col-sm-12'>
+            <div class='box bordered-box fb-border'>
+                <div class='box-header fb-background'>
+                    <div class='title'>
+                        <i class='icon-building'></i>
                         Issue Pass
                     </div>
                     <div class='actions'>
@@ -32,7 +74,7 @@
                             @Html.ValidationSummary(true)
 
                             <fieldset>
-                                <legend class='box-header green-background'>Fill Details</legend>
+                                <legend class='box-header green-background'>Pass DetailsDetails</legend>
 
                                 <div class="form-group">
                                     <div class="col-md-2 control-label">

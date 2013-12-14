@@ -83,6 +83,10 @@
             <End Role="UserProfile" EntitySet="UserProfile" />
             <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
           </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_Company" Association="PassIssueSystemModel.Store.FK_UserProfile_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="__MigrationHistory">
           <Key>
@@ -473,6 +477,18 @@
             </Principal>
             <Dependent Role="webpages_UsersInRoles">
               <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_Company">
+          <End Role="Company" Type="PassIssueSystemModel.Store.Company" Multiplicity="1" />
+          <End Role="UserProfile" Type="PassIssueSystemModel.Store.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="CompanyID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
