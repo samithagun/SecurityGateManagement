@@ -17,6 +17,8 @@ namespace PassIssueSystem.Controllers
     [InitializeSimpleMembership]
     public class AccountController : Controller
     {
+        private Entities db = new Entities();
+
         //
         // GET: /Account/Login
 
@@ -78,6 +80,7 @@ namespace PassIssueSystem.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            ViewBag.CompanyID = new SelectList(db.Companies, "CompanyID", "CompanyName");
             return View();
         }
 
@@ -95,7 +98,7 @@ namespace PassIssueSystem.Controllers
                 try
                 {
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
-                    //WebSecurity.Login(model.UserName, model.Password);
+                    WebSecurity.Login(model.UserName, model.Password);
                     return RedirectToAction("Index", "Home");
                 }
                 catch (MembershipCreateUserException e)

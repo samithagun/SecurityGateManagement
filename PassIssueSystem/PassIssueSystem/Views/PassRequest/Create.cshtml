@@ -39,7 +39,7 @@
                                         @Html.LabelFor(model => model.PassRequestDets.FirstOrDefault().PassType)
                                     </div>
                                     <div class="col-md-5">
-                                        @Html.DropDownList("PassCode", (IEnumerable<SelectListItem>)ViewBag.PassCode, new { @class = "form-control"})
+                                        @Html.DropDownListFor(model => model.PassRequestDets.FirstOrDefault().PassType, (IEnumerable<SelectListItem>)ViewBag.PassCode, new { @class = "form-control" })
                                         @Html.ValidationMessageFor(model => model.PassRequestDets.FirstOrDefault().PassType)
                                     </div>
                                 </div>
@@ -106,7 +106,10 @@
                                                             </th>
                                                             <th>Mobile No
                                                             </th>
-                                                            <th></th>
+                                                            <th>Vehicle Type
+                                                            </th>
+                                                            <th>Vehicle No
+                                                            </th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -137,6 +140,18 @@
                                                                     @Html.ValidationMessageFor((model => model.PassRequestDets.FirstOrDefault().MobileNo))
                                                                 </div>
                                                             </td>
+                                                            <td>
+                                                                <div class="col-md-5">
+                                                                    @Html.DropDownListFor(model => model.PassReqVehicles.FirstOrDefault().VehicleCode, (IEnumerable<SelectListItem>)ViewBag.VehicleCode, new { @class = "form-control" })
+                                                                    @Html.ValidationMessageFor(model => model.PassReqVehicles.FirstOrDefault().VehicleCode)
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="col-md-5">
+                                                                    @Html.TextBoxFor(model => model.PassReqVehicles.FirstOrDefault().VehicleNo, new { @class = "form-control" })
+                                                                    @Html.ValidationMessageFor((model => model.PassReqVehicles.FirstOrDefault().VehicleNo))
+                                                                </div>
+                                                            </td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -148,11 +163,11 @@
                                 <div class='form-actions form-actions-padding-sm'>
                                     <div class='row'>
                                         <div class='col-md-10 col-md-offset-2'>
-                                            <button class='btn btn-primary' type='submit' value="Create">
+                                            <button class='btn btn-primary' type='submit' value="Create" style="margin-bottom: 5px">
                                                 <i class='icon-save'></i>
                                                 Save
                                             </button>
-                                            <a href="@Url.Action("Index", "VehicleType")" class="btn btn-default" style="margin-bottom:5px">
+                                            <a href="@Url.Action("Home", "Client")" class="btn btn-default" style="margin-bottom:5px">
                                                 <i class="icon-undo"></i>
                                                 <span>Cancel</span></a>
                                         </div>

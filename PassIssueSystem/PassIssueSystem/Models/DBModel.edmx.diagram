@@ -10,7 +10,7 @@
         <EntityTypeShape EntityType="PassIssueSystemModel.CheckInPerson" Width="1.5" PointX="7.5" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="PassIssueSystemModel.CheckInVehicle" Width="1.5" PointX="7.5" PointY="6.125" IsExpanded="true" />
         <EntityTypeShape EntityType="PassIssueSystemModel.Company" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="PassIssueSystemModel.CompanyLogin" Width="1.5" PointX="9.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.CompanyLogin" Width="1.5" PointX="9.625" PointY="10.125" IsExpanded="true" />
         <EntityTypeShape EntityType="PassIssueSystemModel.GenerateRefNo" Width="1.5" PointX="11.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PassIssueSystemModel.PassIssueDet" Width="1.5" PointX="7.5" PointY="8.625" IsExpanded="true" />
         <EntityTypeShape EntityType="PassIssueSystemModel.PassIssueHed" Width="1.5" PointX="5.25" PointY="6.625" IsExpanded="true" />

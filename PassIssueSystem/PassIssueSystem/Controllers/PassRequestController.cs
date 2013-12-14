@@ -42,6 +42,7 @@ namespace PassIssueSystem.Controllers
         public ActionResult Create()
         {
             ViewBag.PassCode = new SelectList(db.PassTypes, "PassCode", "Description");
+            ViewBag.VehicleCode = new SelectList(db.VehicleTypes, "VehicleCode", "Description");
             //ViewBag.CompanyID = new SelectList(db.Companies, "CompanyID", "CompanyName");
             return View();
         }
@@ -60,7 +61,7 @@ namespace PassIssueSystem.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CompanyID = new SelectList(db.Companies, "CompanyID", "CompanyName", passrequesthed.CompanyID);
+            //ViewBag.CompanyID = new SelectList(db.Companies, "CompanyID", "CompanyName", passrequesthed.CompanyID);
             return View(passrequesthed);
         }
 
@@ -73,23 +74,6 @@ namespace PassIssueSystem.Controllers
             if (passrequesthed == null)
             {
                 return HttpNotFound();
-            }
-            ViewBag.CompanyID = new SelectList(db.Companies, "CompanyID", "CompanyName", passrequesthed.CompanyID);
-            return View(passrequesthed);
-        }
-
-        //
-        // POST: /PassRequest/Edit/5
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(PassRequestHed passrequesthed)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(passrequesthed).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
             }
             ViewBag.CompanyID = new SelectList(db.Companies, "CompanyID", "CompanyName", passrequesthed.CompanyID);
             return View(passrequesthed);

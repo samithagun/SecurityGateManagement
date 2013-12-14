@@ -213,7 +213,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="DTOs\PassRequestModel.cs" />
+    <Compile Include="DTOs\PassRequest.cs" />
     <Compile Include="Models\DBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -339,7 +339,6 @@
     <Content Include="Views\PassRequest\Index.cshtml" />
     <Content Include="Views\PassRequest\Details.cshtml" />
     <Content Include="Views\PassRequest\Create.cshtml" />
-    <Content Include="Views\PassRequest\Edit.cshtml" />
     <Content Include="Views\PassRequest\Delete.cshtml" />
     <Content Include="Views\Home\Admin.cshtml" />
     <Content Include="Views\Home\Client.cshtml" />

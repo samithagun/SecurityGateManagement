@@ -8,13 +8,6 @@
 
     public partial class PassRequestHed
     {
-        public PassRequestHed()
-        {
-            //this.PassRequestDets = new HashSet<PassRequestDet>();
-            //this.PassReqVehicles = new HashSet<PassReqVehicle>();
-            //this.PassIssueHeds = new HashSet<PassIssueHed>();
-        }
-
         [Key]
         [Display(Name = "Pass Request No")]
         public string PassReqNo { get; set; }

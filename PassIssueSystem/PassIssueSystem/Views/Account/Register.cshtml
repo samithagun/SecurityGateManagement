@@ -60,7 +60,7 @@
                                             @Html.LabelFor(m => m.CompanyID)
                                         </div>
                                         <div class="col-md-5">
-                                            @Html.TextBoxFor(m => m.CompanyID, new { @class = "form-control" })
+                                           @Html.DropDownListFor(m => m.CompanyID, (IEnumerable<SelectListItem>)ViewBag.CompanyID, new { @class = "form-control" })
                                         </div>
                                     </div>
 
