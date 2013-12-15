@@ -252,6 +252,7 @@
     <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\Custom\Request.js" />
     <Content Include="Scripts\excanvas.js" />
     <Content Include="Scripts\flot.min.js" />
     <Content Include="Scripts\flot.resize.js" />

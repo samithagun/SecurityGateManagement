@@ -39,7 +39,7 @@
                                         @Html.LabelFor(model => model.PassRequestDets.FirstOrDefault().PassType)
                                     </div>
                                     <div class="col-md-5">
-                                        @Html.DropDownListFor(model => model.PassRequestDets.FirstOrDefault().PassType, (IEnumerable<SelectListItem>)ViewBag.PassCode, new { @class = "form-control" })
+                                        @Html.DropDownListFor(model => model.PassRequestDets.FirstOrDefault().PassType, (IEnumerable<SelectListItem>)ViewBag.PassCode, new { @class = "form-control", id="company" })
                                         @Html.ValidationMessageFor(model => model.PassRequestDets.FirstOrDefault().PassType)
                                     </div>
                                 </div>
@@ -50,7 +50,7 @@
                                     </div>
                                     <div class="col-md-5">
                                         <div class='datetimepicker-input input-group' id='datepickerfrom'>
-                                            @Html.TextBoxFor(model => model.RequiredFrom, new { @class = "form-control" })
+                                            @Html.TextBoxFor(model => model.RequiredFrom, new { @class = "form-control", id="datefrom" })
                                             @Html.ValidationMessageFor(model => model.RequiredFrom)
                                             <span class='input-group-addon'>
                                                 <span data-icon-element=''></span>
@@ -65,7 +65,7 @@
                                     </div>
                                     <div class="col-md-5">
                                         <div class='datetimepicker-input input-group' id='datepickerto'>
-                                            @Html.TextBoxFor(model => model.RequiredTo, new { @class = "form-control" })
+                                            @Html.TextBoxFor(model => model.RequiredTo, new { @class = "form-control", id="dateto" })
                                             @Html.ValidationMessageFor(model => model.RequiredTo)
                                             <span class='input-group-addon'>
                                                 <span data-icon-element=''></span>
@@ -79,7 +79,7 @@
                                         @Html.LabelFor(model => model.Comments)
                                     </div>
                                     <div class="col-md-5">
-                                        @Html.TextBoxFor(model => model.Comments, new { @class = "form-control" })
+                                        @Html.TextBoxFor(model => model.Comments, new { @class = "form-control", id="comment" })
                                         @Html.ValidationMessageFor(model => model.Comments)
                                     </div>
                                 </div>
@@ -88,6 +88,9 @@
                                     <div class='box-header green-background'>
                                         <div class='title'>Fill Person Details</div>
                                         <div class='actions'>
+                                            <a class="btn btn-inverse btn-xs" onclick="AddDetailRow();"><i class='icon-plus'></i>
+                                                Add Row
+                                            </a>
                                             <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
                                             </a>
                                         </div>
@@ -95,7 +98,7 @@
                                     <div class='box-content box-no-padding'>
                                         <div class='responsive-table'>
                                             <div class='scrollable-area'>
-                                                <table class='responsive-table' style='margin-bottom: auto;'>
+                                                <table class='responsive-table' style='margin-bottom: auto;' id="tblRequest">
                                                     <thead>
                                                         <tr>
                                                             <th>Name
@@ -115,24 +118,24 @@
                                                     <tbody>
                                                         <tr>
                                                             <td>
-                                                                @Html.TextBoxFor(model => model.PassRequestDets.FirstOrDefault().PersonName, new { @class = "form-control" })
+                                                                @Html.TextBoxFor(model => model.PassRequestDets.FirstOrDefault().PersonName, new { @class = "form-control", id="name" })
                                                                 @Html.ValidationMessageFor((model => model.PassRequestDets.FirstOrDefault().PersonName))
                                                             </td>
                                                             <td>
-                                                                @Html.TextBoxFor(model => model.PassRequestDets.FirstOrDefault().PersonNIC, new { @class = "form-control" })
+                                                                @Html.TextBoxFor(model => model.PassRequestDets.FirstOrDefault().PersonNIC, new { @class = "form-control", id="nic" })
                                                                 @Html.ValidationMessageFor((model => model.PassRequestDets.FirstOrDefault().PersonNIC))
                                                             </td>
                                                             <td>
-                                                                @Html.DropDownListFor(model => model.PassReqVehicles.FirstOrDefault().VehicleCode, (IEnumerable<SelectListItem>)ViewBag.VehicleCode, new { @class = "form-control" })
+                                                                @Html.DropDownListFor(model => model.PassReqVehicles.FirstOrDefault().VehicleCode, (IEnumerable<SelectListItem>)ViewBag.VehicleCode, new { @class = "form-control", id="vehitype" })
                                                                 @Html.ValidationMessageFor(model => model.PassReqVehicles.FirstOrDefault().VehicleCode)
                                                             </td>
                                                             <td>
-                                                                @Html.TextBoxFor(model => model.PassReqVehicles.FirstOrDefault().VehicleNo, new { @class = "form-control" })
+                                                                @Html.TextBoxFor(model => model.PassReqVehicles.FirstOrDefault().VehicleNo, new { @class = "form-control", id="vehino" })
                                                                 @Html.ValidationMessageFor((model => model.PassReqVehicles.FirstOrDefault().VehicleNo))
                                                             </td>
 
                                                             <td>
-                                                                @Html.TextBoxFor(model => model.PassRequestDets.FirstOrDefault().MobileNo, new { @class = "form-control" })
+                                                                @Html.TextBoxFor(model => model.PassRequestDets.FirstOrDefault().MobileNo, new { @class = "form-control", id="mobile" })
                                                                 @Html.ValidationMessageFor((model => model.PassRequestDets.FirstOrDefault().MobileNo))
                                                             </td>
                                                             <td>
@@ -173,6 +176,7 @@
 
                     @section Scripts {
                         @Scripts.Render("~/bundles/jqueryval")
+                        @Scripts.Render("~/bundles/Custom")
                     }
                 </div>
             </div>

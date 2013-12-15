@@ -41,6 +41,9 @@ namespace PassIssueSystem
                         "~/Content/Theme/fullcalender.css",
                         "~/Content/Theme/light-theme.css",
                         "~/Content/Theme/theme-colors.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/Custom").Include(
+                       "~/Scripts/Custom/Request.js"));
         }
     }
 }
