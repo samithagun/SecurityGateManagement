@@ -12,35 +12,35 @@ namespace PassIssueSystem
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
-                        "~/Scripts/jquery-{version}.min.js",
-                        "~/Scripts/jquery-ui.js",
-                        "~/Scripts/jquery.min.js",
-                        "~/Scripts/jquery.ui.touch-punch.min.js",
+                        "~/Scripts/jquery-migrate-{version}.js",
+                        "~/Scripts/jquery-ui-{version}.custom.js",
+                        "~/Scripts/jquery.mobile.custom.min.js",
+                        "~/Scripts/jquery.slimscroll.min.js",
+                        "~/Scripts/jquery.unobtrusive-ajax.js",
                         "~/Scripts/jquery.timeago.js",
-                        "~/Scripts/jquery.unobtrusive*",
                         "~/Scripts/jquery.validate*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrapjs").Include(
-                        "~/Scripts/bootbox.min.js",
-                        "~/Scripts/wysihtml5.min.js",
                         "~/Scripts/bootstrap.js",
+                        "~/Scripts/bootbox.min.js",
+                        "~/Scripts/fullcalendar.js",
                         "~/Scripts/bootstrap-datetimepicker.js",
-                        "~/Scripts/fullcalender.min.js",
                         "~/Scripts/modernizr-{version}.js",
-                        "~/Scripts/modernizr.min.js",
+                        "~/Scripts/knockout-{version}.js",                        
+                        "~/Scripts/wysihtml5.min.js",
                         "~/Scripts/moment.min.js",
-                        "~/Scripts/flot.min.js",
                         "~/Scripts/excanvas.js",
                         "~/Scripts/retina.js",
-                        "~/Scripts/knockout-{version}.js",
-                        "~/Scripts/theme.js"));
+                        "~/Scripts/theme.js",
+                        "~/Scripts/flot*"));
 
             bundles.Add(new StyleBundle("~/Content/bootstrapcss").Include(
                         "~/Content/Theme/bootbox.min.css",
-                        "~/Content/Theme/bootstrap*",
                         "~/Content/Theme/fullcalender.css",
+                        "~/Content/Theme/fullcalender.print.css",
                         "~/Content/Theme/light-theme.css",
-                        "~/Content/Theme/theme-colors.css"));
+                        "~/Content/Theme/theme-colors.css",
+                        "~/Content/Theme/bootstrap*"));
 
             bundles.Add(new ScriptBundle("~/bundles/Custom").Include(
                        "~/Scripts/Custom/Request.js"));
