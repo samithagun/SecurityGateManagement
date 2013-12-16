@@ -7,7 +7,7 @@ namespace PassIssueSystem.Models
     public partial class CheckInPerson
     {
         [Key]
-        public string PassNo { get; set; }
+        public int PassNo { get; set; }
         public string PersonNIC { get; set; }
         public System.DateTime InTime { get; set; }
         public System.DateTime OutTime { get; set; }

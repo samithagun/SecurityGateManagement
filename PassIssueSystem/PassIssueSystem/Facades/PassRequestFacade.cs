@@ -22,7 +22,6 @@ namespace PassIssueSystem.Facades
             return Ref;
         }
 
-
         private static PassRequestHed MapModelToHed(PassRequestHed passReq)
         {
             PassRequestHed Obj = new PassRequestHed();
@@ -37,10 +36,10 @@ namespace PassIssueSystem.Facades
 
         public static List<PassRequestDet> MapModelToDet(PassRequestHed passReq)
         {
-            List<PassRequestDet> Det = new List<PassRequestDet>();
+            List<PassRequestDet> Obj = new List<PassRequestDet>();
             foreach (PassRequestDet Item in passReq.PassRequestDets)
             {
-                Det.Add(new PassRequestDet()
+                Obj.Add(new PassRequestDet()
                 {
                     PersonName = Item.PersonName,
                     PersonNIC = Item.PersonNIC,
@@ -50,7 +49,23 @@ namespace PassIssueSystem.Facades
                 });
             }
 
-            return Det;
+            return Obj;
+        }
+
+        public static List<PassReqVehicle> MapModelToVehi(PassRequestHed passReq)
+        {
+            List<PassReqVehicle> Obj = new List<PassReqVehicle>();
+            foreach (PassReqVehicle Item in passReq.PassReqVehicles)
+            {
+                Obj.Add(new PassReqVehicle()
+                {
+                    VehicleCode = Item.VehicleCode,
+                    VehicleNo = Item.VehicleNo,
+                    VehicleFee = Item.VehicleFee
+                });
+            }
+
+            return Obj;
         }
     }
 }

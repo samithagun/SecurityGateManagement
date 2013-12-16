@@ -6,24 +6,17 @@
     <edmx:Diagrams>
       <Diagram DiagramId="acefa2a9b97f409bb5bb65033b468412" Name="DBDiagram">
         <EntityTypeShape EntityType="PassIssueSystemModel.C__MigrationHistory" Width="1.5" PointX="9.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PassIssueSystemModel.CardDetail" Width="1.5" PointX="12" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="PassIssueSystemModel.CheckInPerson" Width="1.5" PointX="7.5" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="PassIssueSystemModel.CheckInVehicle" Width="1.5" PointX="7.5" PointY="6.125" IsExpanded="true" />
         <EntityTypeShape EntityType="PassIssueSystemModel.Company" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
         <EntityTypeShape EntityType="PassIssueSystemModel.CompanyLogin" Width="1.5" PointX="9.625" PointY="10.125" IsExpanded="true" />
         <EntityTypeShape EntityType="PassIssueSystemModel.GenerateRefNo" Width="1.5" PointX="11.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PassIssueSystemModel.PassIssueDet" Width="1.5" PointX="7.5" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="PassIssueSystemModel.PassType" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.PassType" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
         <EntityTypeShape EntityType="PassIssueSystemModel.VehicleType" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="PassIssueSystemModel.PaymentDetail" Width="1.5" PointX="9.625" PointY="4.125" />
-        <EntityTypeShape EntityType="PassIssueSystemModel.PassIssueVehicle" Width="1.5" PointX="0.625" PointY="4.5" />
         <EntityTypeShape EntityType="PassIssueSystemModel.UserProfile" Width="1.5" PointX="0.75" PointY="11" />
-        <EntityTypeShape EntityType="PassIssueSystemModel.webpages_Membership" Width="1.5" PointX="7.5" PointY="11" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.webpages_Membership" Width="1.5" PointX="11.75" PointY="4.125" />
         <EntityTypeShape EntityType="PassIssueSystemModel.webpages_OAuthMembership" Width="1.5" PointX="11.625" PointY="10.125" />
-        <EntityTypeShape EntityType="PassIssueSystemModel.webpages_Roles" Width="1.5" PointX="1" PointY="2.375" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.webpages_Roles" Width="1.5" PointX="0.75" PointY="4.25" />
         <AssociationConnector Association="PassIssueSystemModel.webpages_UsersInRoles" />
         <AssociationConnector Association="PassIssueSystemModel.FK_UserProfile_Company" />
-        <AssociationConnector Association="PassIssueSystemModel.FK_CardDetail_PaymentDetail" />
         <EntityTypeShape EntityType="PassIssueSystemModel.PassRequestDet" Width="1.5" PointX="5.25" PointY="2.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PassIssueSystemModel.PassRequestHed" Width="1.5" PointX="3" PointY="6.25" />
         <EntityTypeShape EntityType="PassIssueSystemModel.PassReqVehicle" Width="1.5" PointX="5.375" PointY="10.375" />
@@ -32,13 +25,20 @@
         <AssociationConnector Association="PassIssueSystemModel.FK_PassRequestDet_PassType" />
         <AssociationConnector Association="PassIssueSystemModel.FK_PassReqVehicle_PassRequestHed" />
         <AssociationConnector Association="PassIssueSystemModel.FK_PassReqVehicle_VehicleType" />
-        <EntityTypeShape EntityType="PassIssueSystemModel.PassIssueHed" Width="1.5" PointX="5.25" PointY="5.75" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.CheckInPerson" Width="1.5" PointX="9.625" PointY="5.25" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.CheckInVehicle" Width="1.5" PointX="7.375" PointY="6.25" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.PassIssueDet" Width="1.5" PointX="7.375" PointY="8.625" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.PassIssueHed" Width="1.5" PointX="5.125" PointY="6.125" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.PaymentDetail" Width="1.5" PointX="7.375" PointY="2.875" />
         <AssociationConnector Association="PassIssueSystemModel.FK_CheckInPerson_PassIssueHed" />
         <AssociationConnector Association="PassIssueSystemModel.FK_CheckInVehicle_PassIssueHed" />
         <AssociationConnector Association="PassIssueSystemModel.FK_PassIssueDet_PassIssueHed" />
         <AssociationConnector Association="PassIssueSystemModel.FK_PassIssueHed_PassRequestHed" />
-        <AssociationConnector Association="PassIssueSystemModel.FK_PassIssueVehicle_PassIssueHed" />
         <AssociationConnector Association="PassIssueSystemModel.FK_PaymentDetail_PassIssueHed" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.CardDetail" Width="1.5" PointX="7.375" PointY="10.75" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.PassIssueVehicle" Width="1.5" PointX="9.625" PointY="3.25" />
+        <AssociationConnector Association="PassIssueSystemModel.FK_CardDetail_PaymentDetail" />
+        <AssociationConnector Association="PassIssueSystemModel.FK_PassIssueVehicle_PassIssueHed" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

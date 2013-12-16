@@ -7,7 +7,7 @@ namespace PassIssueSystem.Models
     public partial class PassIssueHed
     {
         [Key]
-        public string PassNo { get; set; }
+        public int PassNo { get; set; }
 
         [Required]
         [Display(Name = "Pass Request No")]

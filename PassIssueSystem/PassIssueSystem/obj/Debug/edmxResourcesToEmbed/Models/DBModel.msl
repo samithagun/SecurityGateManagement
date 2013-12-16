@@ -10,38 +10,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="CardDetails">
-      <EntityTypeMapping TypeName="PassIssueSystemModel.CardDetail">
-        <MappingFragment StoreEntitySet="CardDetail">
-          <ScalarProperty Name="PaymentNo" ColumnName="PaymentNo" />
-          <ScalarProperty Name="CardNo" ColumnName="CardNo" />
-          <ScalarProperty Name="CardType" ColumnName="CardType" />
-          <ScalarProperty Name="NameOnCard" ColumnName="NameOnCard" />
-          <ScalarProperty Name="AddDate" ColumnName="AddDate" />
-          <ScalarProperty Name="AddUser" ColumnName="AddUser" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="CheckInPersons">
-      <EntityTypeMapping TypeName="PassIssueSystemModel.CheckInPerson">
-        <MappingFragment StoreEntitySet="CheckInPerson">
-          <ScalarProperty Name="PassNo" ColumnName="PassNo" />
-          <ScalarProperty Name="PersonNIC" ColumnName="PersonNIC" />
-          <ScalarProperty Name="InTime" ColumnName="InTime" />
-          <ScalarProperty Name="OutTime" ColumnName="OutTime" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="CheckInVehicles">
-      <EntityTypeMapping TypeName="PassIssueSystemModel.CheckInVehicle">
-        <MappingFragment StoreEntitySet="CheckInVehicle">
-          <ScalarProperty Name="PassNo" ColumnName="PassNo" />
-          <ScalarProperty Name="VehicleNo" ColumnName="VehicleNo" />
-          <ScalarProperty Name="InTime" ColumnName="InTime" />
-          <ScalarProperty Name="OutTime" ColumnName="OutTime" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Companies">
       <EntityTypeMapping TypeName="PassIssueSystemModel.Company">
         <MappingFragment StoreEntitySet="Company">
@@ -82,15 +50,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="PassIssueDets">
-      <EntityTypeMapping TypeName="PassIssueSystemModel.PassIssueDet">
-        <MappingFragment StoreEntitySet="PassIssueDet">
-          <ScalarProperty Name="PassNo" ColumnName="PassNo" />
-          <ScalarProperty Name="PersonNIC" ColumnName="PersonNIC" />
-          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="PassTypes">
       <EntityTypeMapping TypeName="PassIssueSystemModel.PassType">
         <MappingFragment StoreEntitySet="PassType">
@@ -112,27 +71,6 @@
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="AddDate" ColumnName="AddDate" />
           <ScalarProperty Name="AddUser" ColumnName="AddUser" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="PaymentDetails">
-      <EntityTypeMapping TypeName="PassIssueSystemModel.PaymentDetail">
-        <MappingFragment StoreEntitySet="PaymentDetail">
-          <ScalarProperty Name="AddUser" ColumnName="AddUser" />
-          <ScalarProperty Name="AddDate" ColumnName="AddDate" />
-          <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
-          <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
-          <ScalarProperty Name="PassTotal" ColumnName="PassTotal" />
-          <ScalarProperty Name="PassNo" ColumnName="PassNo" />
-          <ScalarProperty Name="PaymentNo" ColumnName="PaymentNo" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="PassIssueVehicles">
-      <EntityTypeMapping TypeName="PassIssueSystemModel.PassIssueVehicle">
-        <MappingFragment StoreEntitySet="PassIssueVehicle">
-          <ScalarProperty Name="VehicleNo" ColumnName="VehicleNo" />
-          <ScalarProperty Name="PassNo" ColumnName="PassNo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -222,6 +160,35 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="CheckInPersons">
+      <EntityTypeMapping TypeName="PassIssueSystemModel.CheckInPerson">
+        <MappingFragment StoreEntitySet="CheckInPerson">
+          <ScalarProperty Name="OutTime" ColumnName="OutTime" />
+          <ScalarProperty Name="InTime" ColumnName="InTime" />
+          <ScalarProperty Name="PersonNIC" ColumnName="PersonNIC" />
+          <ScalarProperty Name="PassNo" ColumnName="PassNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CheckInVehicles">
+      <EntityTypeMapping TypeName="PassIssueSystemModel.CheckInVehicle">
+        <MappingFragment StoreEntitySet="CheckInVehicle">
+          <ScalarProperty Name="OutTime" ColumnName="OutTime" />
+          <ScalarProperty Name="InTime" ColumnName="InTime" />
+          <ScalarProperty Name="VehicleNo" ColumnName="VehicleNo" />
+          <ScalarProperty Name="PassNo" ColumnName="PassNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PassIssueDets">
+      <EntityTypeMapping TypeName="PassIssueSystemModel.PassIssueDet">
+        <MappingFragment StoreEntitySet="PassIssueDet">
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="PersonNIC" ColumnName="PersonNIC" />
+          <ScalarProperty Name="PassNo" ColumnName="PassNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="PassIssueHeds">
       <EntityTypeMapping TypeName="PassIssueSystemModel.PassIssueHed">
         <MappingFragment StoreEntitySet="PassIssueHed">
@@ -232,6 +199,39 @@
           <ScalarProperty Name="ValidFrom" ColumnName="ValidFrom" />
           <ScalarProperty Name="IssueDate" ColumnName="IssueDate" />
           <ScalarProperty Name="PassReqNo" ColumnName="PassReqNo" />
+          <ScalarProperty Name="PassNo" ColumnName="PassNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentDetails">
+      <EntityTypeMapping TypeName="PassIssueSystemModel.PaymentDetail">
+        <MappingFragment StoreEntitySet="PaymentDetail">
+          <ScalarProperty Name="AddUser" ColumnName="AddUser" />
+          <ScalarProperty Name="AddDate" ColumnName="AddDate" />
+          <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+          <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+          <ScalarProperty Name="PassTotal" ColumnName="PassTotal" />
+          <ScalarProperty Name="PassNo" ColumnName="PassNo" />
+          <ScalarProperty Name="PaymentNo" ColumnName="PaymentNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CardDetails">
+      <EntityTypeMapping TypeName="PassIssueSystemModel.CardDetail">
+        <MappingFragment StoreEntitySet="CardDetail">
+          <ScalarProperty Name="AddUser" ColumnName="AddUser" />
+          <ScalarProperty Name="AddDate" ColumnName="AddDate" />
+          <ScalarProperty Name="NameOnCard" ColumnName="NameOnCard" />
+          <ScalarProperty Name="CardType" ColumnName="CardType" />
+          <ScalarProperty Name="CardNo" ColumnName="CardNo" />
+          <ScalarProperty Name="PaymentNo" ColumnName="PaymentNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PassIssueVehicles">
+      <EntityTypeMapping TypeName="PassIssueSystemModel.PassIssueVehicle">
+        <MappingFragment StoreEntitySet="PassIssueVehicle">
+          <ScalarProperty Name="VehicleNo" ColumnName="VehicleNo" />
           <ScalarProperty Name="PassNo" ColumnName="PassNo" />
         </MappingFragment>
       </EntityTypeMapping>

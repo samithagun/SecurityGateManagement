@@ -95,7 +95,7 @@
     <Key>
       <PropertyRef Name="PaymentNo" />
     </Key>
-    <Property Name="PaymentNo" Type="char" Nullable="false" MaxLength="12" />
+    <Property Name="PaymentNo" Type="int" Nullable="false" />
     <Property Name="CardNo" Type="char" Nullable="false" MaxLength="6" />
     <Property Name="CardType" Type="char" Nullable="false" MaxLength="4" />
     <Property Name="NameOnCard" Type="varchar" Nullable="false" MaxLength="50" />
@@ -107,7 +107,7 @@
       <PropertyRef Name="PassNo" />
       <PropertyRef Name="PersonNIC" />
     </Key>
-    <Property Name="PassNo" Type="char" Nullable="false" MaxLength="12" />
+    <Property Name="PassNo" Type="int" Nullable="false" />
     <Property Name="PersonNIC" Type="char" Nullable="false" MaxLength="10" />
     <Property Name="InTime" Type="datetime" Nullable="false" />
     <Property Name="OutTime" Type="datetime" Nullable="false" />
@@ -117,7 +117,7 @@
       <PropertyRef Name="PassNo" />
       <PropertyRef Name="VehicleNo" />
     </Key>
-    <Property Name="PassNo" Type="char" Nullable="false" MaxLength="12" />
+    <Property Name="PassNo" Type="int" Nullable="false" />
     <Property Name="VehicleNo" Type="char" Nullable="false" MaxLength="12" />
     <Property Name="InTime" Type="datetime" Nullable="false" />
     <Property Name="OutTime" Type="datetime" Nullable="false" />
@@ -165,7 +165,7 @@
       <PropertyRef Name="PassNo" />
       <PropertyRef Name="PersonNIC" />
     </Key>
-    <Property Name="PassNo" Type="char" Nullable="false" MaxLength="12" />
+    <Property Name="PassNo" Type="int" Nullable="false" />
     <Property Name="PersonNIC" Type="char" Nullable="false" MaxLength="10" />
     <Property Name="MobileNo" Type="char" Nullable="false" MaxLength="10" />
   </EntityType>
@@ -173,7 +173,7 @@
     <Key>
       <PropertyRef Name="PassNo" />
     </Key>
-    <Property Name="PassNo" Type="char" Nullable="false" MaxLength="12" />
+    <Property Name="PassNo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="PassReqNo" Type="int" Nullable="false" />
     <Property Name="IssueDate" Type="datetime" Nullable="false" />
     <Property Name="ValidFrom" Type="date" Nullable="false" />
@@ -187,7 +187,7 @@
       <PropertyRef Name="PassNo" />
       <PropertyRef Name="VehicleNo" />
     </Key>
-    <Property Name="PassNo" Type="char" Nullable="false" MaxLength="12" />
+    <Property Name="PassNo" Type="int" Nullable="false" />
     <Property Name="VehicleNo" Type="char" Nullable="false" MaxLength="12" />
   </EntityType>
   <EntityType Name="PassRequestDet">
@@ -240,8 +240,8 @@
     <Key>
       <PropertyRef Name="PaymentNo" />
     </Key>
-    <Property Name="PaymentNo" Type="char" Nullable="false" MaxLength="12" />
-    <Property Name="PassNo" Type="char" Nullable="false" MaxLength="12" />
+    <Property Name="PaymentNo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PassNo" Type="int" Nullable="false" />
     <Property Name="PassTotal" Type="numeric" Nullable="false" Precision="12" Scale="2" />
     <Property Name="PaymentDate" Type="datetime" Nullable="false" />
     <Property Name="PaymentType" Type="char" Nullable="false" MaxLength="3" />

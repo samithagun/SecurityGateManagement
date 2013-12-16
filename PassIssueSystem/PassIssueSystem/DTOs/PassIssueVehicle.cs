@@ -7,7 +7,7 @@ namespace PassIssueSystem.Models
     public partial class PassIssueVehicle
     {
         [Key]
-        public string PassNo { get; set; }
+        public int PassNo { get; set; }
         public string VehicleNo { get; set; }
     
         public virtual CheckInVehicle CheckInVehicle { get; set; }

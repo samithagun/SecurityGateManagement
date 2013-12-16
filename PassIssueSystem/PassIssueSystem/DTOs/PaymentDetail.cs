@@ -7,8 +7,8 @@ namespace PassIssueSystem.Models
     public partial class PaymentDetail
     {
         [Key]
-        public string PaymentNo { get; set; }
-        public string PassNo { get; set; }
+        public int PaymentNo { get; set; }
+        public int PassNo { get; set; }
         public decimal PassTotal { get; set; }
         public System.DateTime PaymentDate { get; set; }
         public string PaymentType { get; set; }

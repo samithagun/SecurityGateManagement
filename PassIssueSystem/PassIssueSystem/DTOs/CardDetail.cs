@@ -7,7 +7,7 @@ namespace PassIssueSystem.Models
     public partial class CardDetail
     {
         [Key]
-        public string PaymentNo { get; set; }
+        public int PaymentNo { get; set; }
         public string CardNo { get; set; }
         public string CardType { get; set; }
         public string NameOnCard { get; set; }
