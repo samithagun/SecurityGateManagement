@@ -174,7 +174,7 @@
       <PropertyRef Name="PassNo" />
     </Key>
     <Property Name="PassNo" Type="char" Nullable="false" MaxLength="12" />
-    <Property Name="PassReqNo" Type="char" Nullable="false" MaxLength="12" />
+    <Property Name="PassReqNo" Type="int" Nullable="false" />
     <Property Name="IssueDate" Type="datetime" Nullable="false" />
     <Property Name="ValidFrom" Type="date" Nullable="false" />
     <Property Name="ValidTo" Type="date" Nullable="false" />
@@ -195,7 +195,7 @@
       <PropertyRef Name="PassReqNo" />
       <PropertyRef Name="PersonNIC" />
     </Key>
-    <Property Name="PassReqNo" Type="char" Nullable="false" MaxLength="12" />
+    <Property Name="PassReqNo" Type="int" Nullable="false" />
     <Property Name="PersonNIC" Type="char" Nullable="false" MaxLength="10" />
     <Property Name="PersonName" Type="varchar" Nullable="false" MaxLength="50" />
     <Property Name="MobileNo" Type="char" Nullable="false" MaxLength="10" />
@@ -206,7 +206,7 @@
     <Key>
       <PropertyRef Name="PassReqNo" />
     </Key>
-    <Property Name="PassReqNo" Type="char" Nullable="false" MaxLength="12" />
+    <Property Name="PassReqNo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="CompanyID" Type="varchar" Nullable="false" MaxLength="15" />
     <Property Name="RequiredFrom" Type="datetime" Nullable="false" />
     <Property Name="RequiredTo" Type="datetime" Nullable="false" />
@@ -220,7 +220,7 @@
       <PropertyRef Name="VehicleCode" />
       <PropertyRef Name="VehicleNo" />
     </Key>
-    <Property Name="PassReqNo" Type="char" Nullable="false" MaxLength="12" />
+    <Property Name="PassReqNo" Type="int" Nullable="false" />
     <Property Name="VehicleCode" Type="varchar" Nullable="false" MaxLength="8" />
     <Property Name="VehicleNo" Type="char" Nullable="false" MaxLength="12" />
     <Property Name="VehicleFee" Type="numeric" Nullable="false" Precision="8" Scale="2" />

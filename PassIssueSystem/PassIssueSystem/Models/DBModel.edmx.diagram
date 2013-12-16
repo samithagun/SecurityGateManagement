@@ -13,25 +13,10 @@
         <EntityTypeShape EntityType="PassIssueSystemModel.CompanyLogin" Width="1.5" PointX="9.625" PointY="10.125" IsExpanded="true" />
         <EntityTypeShape EntityType="PassIssueSystemModel.GenerateRefNo" Width="1.5" PointX="11.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PassIssueSystemModel.PassIssueDet" Width="1.5" PointX="7.5" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="PassIssueSystemModel.PassIssueHed" Width="1.5" PointX="5.25" PointY="6.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="PassIssueSystemModel.PassRequestDet" Width="1.5" PointX="5.25" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="PassIssueSystemModel.PassRequestHed" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="PassIssueSystemModel.PassReqVehicle" Width="1.5" PointX="5.25" PointY="11.125" IsExpanded="true" />
         <EntityTypeShape EntityType="PassIssueSystemModel.PassType" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="PassIssueSystemModel.VehicleType" Width="1.5" PointX="3" PointY="11" IsExpanded="true" />
-        <AssociationConnector Association="PassIssueSystemModel.FK_CheckInPerson_PassIssueHed" ManuallyRouted="false" />
-        <AssociationConnector Association="PassIssueSystemModel.FK_CheckInVehicle_PassIssueHed" ManuallyRouted="false" />
-        <AssociationConnector Association="PassIssueSystemModel.FK_PassRequestHed_Company" ManuallyRouted="false" />
-        <AssociationConnector Association="PassIssueSystemModel.FK_PassIssueDet_PassIssueHed" ManuallyRouted="false" />
-        <AssociationConnector Association="PassIssueSystemModel.FK_PassIssueHed_PassRequestHed" ManuallyRouted="false" />
-        <AssociationConnector Association="PassIssueSystemModel.FK_PassRequestDet_PassRequestHed" ManuallyRouted="false" />
-        <AssociationConnector Association="PassIssueSystemModel.FK_PassRequestDet_PassType" ManuallyRouted="false" />
-        <AssociationConnector Association="PassIssueSystemModel.FK_PassReqVehicle_PassRequestHed" ManuallyRouted="false" />
-        <AssociationConnector Association="PassIssueSystemModel.FK_PassReqVehicle_VehicleType1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.VehicleType" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
         <EntityTypeShape EntityType="PassIssueSystemModel.PaymentDetail" Width="1.5" PointX="9.625" PointY="4.125" />
-        <AssociationConnector Association="PassIssueSystemModel.FK_PaymentDetail_PassIssueHed" />
         <EntityTypeShape EntityType="PassIssueSystemModel.PassIssueVehicle" Width="1.5" PointX="0.625" PointY="4.5" />
-        <AssociationConnector Association="PassIssueSystemModel.FK_PassIssueVehicle_PassIssueHed" />
         <EntityTypeShape EntityType="PassIssueSystemModel.UserProfile" Width="1.5" PointX="0.75" PointY="11" />
         <EntityTypeShape EntityType="PassIssueSystemModel.webpages_Membership" Width="1.5" PointX="7.5" PointY="11" />
         <EntityTypeShape EntityType="PassIssueSystemModel.webpages_OAuthMembership" Width="1.5" PointX="11.625" PointY="10.125" />
@@ -39,6 +24,21 @@
         <AssociationConnector Association="PassIssueSystemModel.webpages_UsersInRoles" />
         <AssociationConnector Association="PassIssueSystemModel.FK_UserProfile_Company" />
         <AssociationConnector Association="PassIssueSystemModel.FK_CardDetail_PaymentDetail" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.PassRequestDet" Width="1.5" PointX="5.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.PassRequestHed" Width="1.5" PointX="3" PointY="6.25" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.PassReqVehicle" Width="1.5" PointX="5.375" PointY="10.375" />
+        <AssociationConnector Association="PassIssueSystemModel.FK_PassRequestHed_Company" />
+        <AssociationConnector Association="PassIssueSystemModel.FK_PassRequestDet_PassRequestHed" />
+        <AssociationConnector Association="PassIssueSystemModel.FK_PassRequestDet_PassType" />
+        <AssociationConnector Association="PassIssueSystemModel.FK_PassReqVehicle_PassRequestHed" />
+        <AssociationConnector Association="PassIssueSystemModel.FK_PassReqVehicle_VehicleType" />
+        <EntityTypeShape EntityType="PassIssueSystemModel.PassIssueHed" Width="1.5" PointX="5.25" PointY="5.75" />
+        <AssociationConnector Association="PassIssueSystemModel.FK_CheckInPerson_PassIssueHed" />
+        <AssociationConnector Association="PassIssueSystemModel.FK_CheckInVehicle_PassIssueHed" />
+        <AssociationConnector Association="PassIssueSystemModel.FK_PassIssueDet_PassIssueHed" />
+        <AssociationConnector Association="PassIssueSystemModel.FK_PassIssueHed_PassRequestHed" />
+        <AssociationConnector Association="PassIssueSystemModel.FK_PassIssueVehicle_PassIssueHed" />
+        <AssociationConnector Association="PassIssueSystemModel.FK_PaymentDetail_PassIssueHed" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

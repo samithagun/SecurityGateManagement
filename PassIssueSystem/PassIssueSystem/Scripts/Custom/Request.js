@@ -1,53 +1,57 @@
 ﻿function AddDetailRow() {
-    var Name = $("#Name").val();
-    var NIC = $("#NIC").val();
+    var Name = $("#name").val();
+    var NIC = $("#nic").val();
 
     if (NIC == "") {
         alert('Please fill the details');
     }
     else {
-        var Row = "<tr>" + "<td>" + Name + "</td></tr>";
-        $(Row).appendTo("#tblRequest");
+        var Row = "<tr><td></td><td></td></tr>";
+        $(Row).appendTo("#reqtable");
     }
 }
 
 function SubmitData() {
     var isSaved = false;
-    var passHed = new Object();
+    var passReq = new Object();
 
-    passHed.PassReqNo = 0;
-    passHed.BookTaken = $('#BookTaken').val();
-    passHed.ReturnDate = $('#ReturnDate').val();
+    passReq.RequiredFrom = $('#datefrom').val();
+    passReq.RequiredTo = $('#dateto').val();
+    passReq.Comments = $('#comment').val();
 
-    var reqCollection = [];   
-    $('#BorrowbookTable>tbody>tr>td:nth-child(1)').each(function () {
-        reqCollection.push({
-            BookId: $(this).text(),
-            BorrowBookDetModelID: 0,
-            RefferenceID:0
-        });
+    var PassRequestDet = [];
+    var PassReqVehicle = [];
+
+    $("table#reqtable > tbody > tr").each(function () {
+        PassRequestDet.push({
+            PersonName: $('td:eq(0) input', this).val(),
+            PersonNIC: $('td:eq(1) input', this).val(),
+            MobileNo: $('td:eq(4) input', this).val(),
+            PassCode: $('#passtype').val(),
+        })
+        PassReqVehicle.push({
+            VehicleCode: $('td:eq(2) input', this).val(),
+            VehicleNo: $('td:eq(3) input', this).val(),
+        })
     });
 
-    debugger;
-    hedObj.books = booksCollection;
-    debugger;
+    passReq.PassRequestDets = PassRequestDet;
+    passReq.PassReqVehicles = PassReqVehicle;
+
     $.ajax({
         type: "POST",
-        url: '/BorrowBook/JsonCreateBorrowBook',
-        data: JSON.stringify(hedObj),
+        url: '/PassRequest/JsonCreateRequest',
+        data: JSON.stringify(passReq),
         contentType: "application/json; charset=utf-8",
-        dataType: "json",      
-      
+        dataType: "json",
+
         success: function (msg) {
-            debugger;
-            alert('Saved!')
-            isSaved = msg.isSaved;
+            alert('Request Sent Successfully! Reference No:' + msg.refNo)
+            passReq = [];
+            return isSaved;
         },
         error: function (xhr) {
-            debugger;
             alert(xhr);
         }
-    });
-
-    return isSaved;
+    });    
 }

@@ -10,7 +10,7 @@
     {
         [Key]
         [Display(Name = "Pass Request No")]
-        public string PassReqNo { get; set; }
+        public int PassReqNo { get; set; }
 
         [Required]
         [Display(Name = "Company ID")]
@@ -41,7 +41,7 @@
     {
         [Key]
         [Display(Name = "Pass Request No")]
-        public string PassReqNo { get; set; }
+        public int PassReqNo { get; set; }
 
         [Required]
         [Display(Name = "NIC No")]
@@ -69,7 +69,7 @@
     {
         [Key]
         [Display(Name = "Pass Request No")]
-        public string PassReqNo { get; set; }
+        public int PassReqNo { get; set; }
 
         [Display(Name = "Vehicle Type")]
         public string VehicleCode { get; set; }

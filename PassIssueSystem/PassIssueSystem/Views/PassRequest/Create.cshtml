@@ -39,7 +39,7 @@
                                         @Html.LabelFor(model => model.PassRequestDets.FirstOrDefault().PassType)
                                     </div>
                                     <div class="col-md-5">
-                                        @Html.DropDownListFor(model => model.PassRequestDets.FirstOrDefault().PassType, (IEnumerable<SelectListItem>)ViewBag.PassCode, new { @class = "form-control", id="company" })
+                                        @Html.DropDownListFor(model => model.PassRequestDets.FirstOrDefault().PassType, (IEnumerable<SelectListItem>)ViewBag.PassCode, new { @class = "form-control", id="passtype" })
                                         @Html.ValidationMessageFor(model => model.PassRequestDets.FirstOrDefault().PassType)
                                     </div>
                                 </div>
@@ -50,12 +50,12 @@
                                     </div>
                                     <div class="col-md-5">
                                         <div class='datetimepicker-input input-group' id='datepickerfrom'>
-                                            @Html.TextBoxFor(model => model.RequiredFrom, new { @class = "form-control", id="datefrom" })
-                                            @Html.ValidationMessageFor(model => model.RequiredFrom)
+                                            @Html.TextBoxFor(model => model.RequiredFrom, new { @class = "form-control", id="datefrom" })                                            
                                             <span class='input-group-addon'>
                                                 <span data-icon-element=''></span>
-                                            </span>
+                                            </span>                                            
                                         </div>
+                                        @Html.ValidationMessageFor(model => model.RequiredFrom)
                                     </div>
                                 </div>
 
@@ -65,12 +65,12 @@
                                     </div>
                                     <div class="col-md-5">
                                         <div class='datetimepicker-input input-group' id='datepickerto'>
-                                            @Html.TextBoxFor(model => model.RequiredTo, new { @class = "form-control", id="dateto" })
-                                            @Html.ValidationMessageFor(model => model.RequiredTo)
+                                            @Html.TextBoxFor(model => model.RequiredTo, new { @class = "form-control", id="dateto" })                                            
                                             <span class='input-group-addon'>
                                                 <span data-icon-element=''></span>
-                                            </span>
+                                            </span>                                            
                                         </div>
+                                        @Html.ValidationMessageFor(model => model.RequiredTo)
                                     </div>
                                 </div>
 
@@ -98,7 +98,7 @@
                                     <div class='box-content box-no-padding'>
                                         <div class='responsive-table'>
                                             <div class='scrollable-area'>
-                                                <table class='responsive-table' style='margin-bottom: auto;' id="tblRequest">
+                                                <table class='responsive-table' style='margin-bottom: auto;' id="reqtable">
                                                     <thead>
                                                         <tr>
                                                             <th>Name
@@ -133,7 +133,6 @@
                                                                 @Html.TextBoxFor(model => model.PassReqVehicles.FirstOrDefault().VehicleNo, new { @class = "form-control", id="vehino" })
                                                                 @Html.ValidationMessageFor((model => model.PassReqVehicles.FirstOrDefault().VehicleNo))
                                                             </td>
-
                                                             <td>
                                                                 @Html.TextBoxFor(model => model.PassRequestDets.FirstOrDefault().MobileNo, new { @class = "form-control", id="mobile" })
                                                                 @Html.ValidationMessageFor((model => model.PassRequestDets.FirstOrDefault().MobileNo))
@@ -159,11 +158,11 @@
                                 <div class='form-actions form-actions-padding-sm'>
                                     <div class='row'>
                                         <div class='col-md-10 col-md-offset-2'>
-                                            <button class='btn btn-primary' type='submit' value="Create" style="margin-bottom: 5px">
+                                            <button class='btn btn-primary' value="Create" style="margin-bottom: 5px" onclick="SubmitData();">
                                                 <i class='icon-save'></i>
                                                 Save
                                             </button>
-                                            <a href="@Url.Action("Home", "Client")" class="btn btn-default" style="margin-bottom:5px">
+                                            <a href="@Url.Action("Client", "Home")" class="btn btn-default" style="margin-bottom:5px">
                                                 <i class="icon-undo"></i>
                                                 <span>Cancel</span></a>
                                         </div>
