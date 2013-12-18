@@ -88,13 +88,17 @@ namespace PassIssueSystem.Controllers
         /// <param name="passrequesthed">The passrequesthed.</param>
         /// <returns></returns>
         [HttpPost]
+        //[ValidateAntiForgeryToken]
         public JsonResult JsonCreateRequest(PassRequestHed passReq)
         {
             int Ref = 0;
 
             try
-            {                
-                Ref = PassRequestFacade.SavePassRequest(passReq);
+            {
+                //if (ModelState.IsValid)
+                //{
+                    Ref = PassRequestFacade.SavePassRequest(passReq);
+                //}
             }
             catch (DbEntityValidationException ex)
             {
@@ -124,21 +128,25 @@ namespace PassIssueSystem.Controllers
         /// <param name="passrequestdet">The passrequestdet.</param>
         /// <param name="passreqvehicle">The passreqvehicle.</param>
         /// <returns></returns>
-        //[ValidateAntiForgeryToken]
-        public int SavePassReqHed(PassRequestHed passrequesthed)
+        public int SavePassReqHed(PassRequestHed Hed)
         {
-            passrequesthed.AddDate = DateTime.Now;
-            passrequesthed.AddUser = "Lumiere";
+            Hed.AddDate = DateTime.Now;
+            Hed.AddUser = "Lumiere";
 
             if (ModelState.IsValid)
             {
-                db.PassRequestHeds.Add(passrequesthed);
+                db.PassRequestHeds.Add(Hed);
                 db.SaveChanges();
             }
-            
-            return passrequesthed.PassReqNo;
+
+            return Hed.PassReqNo;
         }
 
+        /// <summary>
+        /// Saves the pass req det.
+        /// </summary>
+        /// <param name="passrequestdet">The passrequestdet.</param>
+        /// <param name="refNo">The reference no.</param>
         public void SavePassReqDet(List<PassRequestDet> passrequestdet, int refNo)
         {
             foreach (PassRequestDet Det in passrequestdet)
@@ -147,6 +155,24 @@ namespace PassIssueSystem.Controllers
                 {
                     Det.PassReqNo = refNo;
                     db.PassRequestDets.Add(Det);
+                    db.SaveChanges();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Saves the pass req vehi.
+        /// </summary>
+        /// <param name="passreqvehicle">The passreqvehicle.</param>
+        /// <param name="refNo">The reference no.</param>
+        public void SavePassReqVehi(List<PassReqVehicle> passreqvehicle, int refNo)
+        {
+            foreach (PassReqVehicle Vehi in passreqvehicle)
+            {
+                if (ModelState.IsValid)
+                {
+                    Vehi.PassReqNo = refNo;
+                    db.PassReqVehicles.Add(Vehi);
                     db.SaveChanges();
                 }
             }

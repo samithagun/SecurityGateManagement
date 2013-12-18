@@ -18,10 +18,12 @@
 
         [Required]
         [Display(Name = "Required From")]
+        [DisplayFormat(DataFormatString = "{0:d}")]
         public System.DateTime RequiredFrom { get; set; }
 
         [Required]
         [Display(Name = "Required To")]
+        [DisplayFormat(DataFormatString = "{0:d}")]
         public System.DateTime RequiredTo { get; set; }
 
         [Display(Name = "Comments")]
@@ -45,6 +47,7 @@
 
         [Required]
         [Display(Name = "NIC No")]
+        [StringLength(10, MinimumLength = 9)]
         public string PersonNIC { get; set; }
 
         [Required]
@@ -52,6 +55,8 @@
         public string PersonName { get; set; }
 
         [Display(Name = "Mobile No")]
+        [DataType(DataType.PhoneNumber)]
+        [StringLength(10, MinimumLength = 9)]
         public string MobileNo { get; set; }
 
         [Required]
@@ -75,6 +80,7 @@
         public string VehicleCode { get; set; }
 
         [Display(Name = "Vehicle No")]
+        [StringLength(12, MinimumLength = 6)]
         public string VehicleNo { get; set; }
 
         [Display(Name = "Vehicle Fee")]

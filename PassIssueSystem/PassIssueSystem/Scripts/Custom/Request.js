@@ -20,14 +20,13 @@ function AddDetailRow() {
     var row = $('#template').clone();                       // Clone the 1st row
     var rowCount = $('#reqtable tr').length;                // No of rows in the table 
     row.id = "reqrow" + rowCount;
-    
+
     $(row).appendTo("#reqtable");                           // Append the row without any details
 
     document.getElementById('template').style.display = "none";
 }
 
 function SubmitData() {
-    var isSaved = false;
     var passReq = new Object();
 
     passReq.RequiredFrom = $('#datefrom').val();
@@ -38,14 +37,16 @@ function SubmitData() {
     var PassReqVehicle = [];
 
     $("table#reqtable > tbody > tr").each(function () {
+
         PassRequestDet.push({
             PersonName: $('td:eq(0) input', this).val(),
             PersonNIC: $('td:eq(1) input', this).val(),
             MobileNo: $('td:eq(4) input', this).val(),
             PassCode: $('#passtype').val(),
         })
+
         PassReqVehicle.push({
-            VehicleCode: $('td:eq(2) input', this).val(),
+            VehicleCode: $(this).find("#vehitype").val(),
             VehicleNo: $('td:eq(3) input', this).val(),
         })
     });
@@ -61,13 +62,17 @@ function SubmitData() {
         dataType: "json",
 
         success: function (msg) {
-            alert('Request Sent Successfully! Reference No:' + msg.refNo)
-            passReq = [];
-            return isSaved;
+            if (msg.refNo == 0) {
+                alert('Request Sending Failed');
+            }
+            else {
+                alert('Request Sent Successfully! Request No:' + msg.refNo);
+                passReq = [];
+            }
         },
 
         error: function (xhr) {
             alert(xhr);
         }
-    });    
+    });
 }

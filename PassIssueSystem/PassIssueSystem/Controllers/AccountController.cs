@@ -81,6 +81,11 @@ namespace PassIssueSystem.Controllers
         public ActionResult Register()
         {
             ViewBag.CompanyID = new SelectList(db.Companies, "CompanyID", "CompanyName");
+
+            //ViewBag.Roles = new SelectList(db.webpages_Roles, "RoleID", "RoleName");
+            var rolesCollection = new List<string> { "Administrator", "Client User", "Pass Office" };
+            ViewBag.Roles = new SelectList(rolesCollection);
+            
             return View();
         }
 
