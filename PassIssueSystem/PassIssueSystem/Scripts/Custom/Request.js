@@ -1,14 +1,29 @@
-﻿function AddDetailRow() {
-    var Name = $("#name").val();
-    var NIC = $("#nic").val();
+﻿//function AddDetailRow() {
+//    var Name = $("#name").val();
+//    var NIC = $("#nic").val();
 
-    if (NIC == "") {
-        alert('Please fill the details');
-    }
-    else {
-        var Row = "<tr><td></td><td></td></tr>";
-        $(Row).appendTo("#reqtable");
-    }
+//    if (NIC == "") {
+//        alert('Please fill the details first');
+//    }
+//    else {
+//        var row = $('#reqrow').clone();
+//        var rowCount = $('#reqtable tr').length;
+//        row.id = "reqrow" + rowCount;
+
+//        $(row).appendTo("#reqtable");
+//    }
+//}
+
+function AddDetailRow() {
+    document.getElementById('template').style.display = "block";
+
+    var row = $('#template').clone();                       // Clone the 1st row
+    var rowCount = $('#reqtable tr').length;                // No of rows in the table 
+    row.id = "reqrow" + rowCount;
+    
+    $(row).appendTo("#reqtable");                           // Append the row without any details
+
+    document.getElementById('template').style.display = "none";
 }
 
 function SubmitData() {
@@ -50,6 +65,7 @@ function SubmitData() {
             passReq = [];
             return isSaved;
         },
+
         error: function (xhr) {
             alert(xhr);
         }

@@ -39,7 +39,7 @@
                                         @Html.LabelFor(model => model.PassRequestDets.FirstOrDefault().PassType)
                                     </div>
                                     <div class="col-md-5">
-                                        @Html.DropDownListFor(model => model.PassRequestDets.FirstOrDefault().PassType, (IEnumerable<SelectListItem>)ViewBag.PassCode, new { @class = "form-control", id="passtype" })
+                                        @Html.DropDownListFor(model => model.PassRequestDets.FirstOrDefault().PassType, (IEnumerable<SelectListItem>)ViewBag.PassCode, new { @class = "form-control", id = "passtype" })
                                         @Html.ValidationMessageFor(model => model.PassRequestDets.FirstOrDefault().PassType)
                                     </div>
                                 </div>
@@ -50,10 +50,10 @@
                                     </div>
                                     <div class="col-md-5">
                                         <div class='datetimepicker-input input-group' id='datepickerfrom'>
-                                            @Html.TextBoxFor(model => model.RequiredFrom, new { @class = "form-control", id="datefrom" })                                            
+                                            @Html.TextBoxFor(model => model.RequiredFrom, new { @class = "form-control", id = "datefrom" })
                                             <span class='input-group-addon'>
                                                 <span data-icon-element=''></span>
-                                            </span>                                            
+                                            </span>
                                         </div>
                                         @Html.ValidationMessageFor(model => model.RequiredFrom)
                                     </div>
@@ -65,10 +65,10 @@
                                     </div>
                                     <div class="col-md-5">
                                         <div class='datetimepicker-input input-group' id='datepickerto'>
-                                            @Html.TextBoxFor(model => model.RequiredTo, new { @class = "form-control", id="dateto" })                                            
+                                            @Html.TextBoxFor(model => model.RequiredTo, new { @class = "form-control", id = "dateto" })
                                             <span class='input-group-addon'>
                                                 <span data-icon-element=''></span>
-                                            </span>                                            
+                                            </span>
                                         </div>
                                         @Html.ValidationMessageFor(model => model.RequiredTo)
                                     </div>
@@ -79,7 +79,7 @@
                                         @Html.LabelFor(model => model.Comments)
                                     </div>
                                     <div class="col-md-5">
-                                        @Html.TextBoxFor(model => model.Comments, new { @class = "form-control", id="comment" })
+                                        @Html.TextBoxFor(model => model.Comments, new { @class = "form-control", id = "comment" })
                                         @Html.ValidationMessageFor(model => model.Comments)
                                     </div>
                                 </div>
@@ -116,25 +116,57 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
+                                                        <tr id="template" style="display:none">
                                                             <td>
-                                                                @Html.TextBoxFor(model => model.PassRequestDets.FirstOrDefault().PersonName, new { @class = "form-control", id="name" })
+                                                                @Html.TextBoxFor(model => model.PassRequestDets.FirstOrDefault().PersonName, new { @class = "form-control", id = "name" })
                                                                 @Html.ValidationMessageFor((model => model.PassRequestDets.FirstOrDefault().PersonName))
                                                             </td>
                                                             <td>
-                                                                @Html.TextBoxFor(model => model.PassRequestDets.FirstOrDefault().PersonNIC, new { @class = "form-control", id="nic" })
+                                                                @Html.TextBoxFor(model => model.PassRequestDets.FirstOrDefault().PersonNIC, new { @class = "form-control", id = "nic" })
                                                                 @Html.ValidationMessageFor((model => model.PassRequestDets.FirstOrDefault().PersonNIC))
                                                             </td>
                                                             <td>
-                                                                @Html.DropDownListFor(model => model.PassReqVehicles.FirstOrDefault().VehicleCode, (IEnumerable<SelectListItem>)ViewBag.VehicleCode, new { @class = "form-control", id="vehitype" })
+                                                                @Html.DropDownListFor(model => model.PassReqVehicles.FirstOrDefault().VehicleCode, (IEnumerable<SelectListItem>)ViewBag.VehicleCode, new { @class = "form-control", id = "vehitype" })
                                                                 @Html.ValidationMessageFor(model => model.PassReqVehicles.FirstOrDefault().VehicleCode)
                                                             </td>
                                                             <td>
-                                                                @Html.TextBoxFor(model => model.PassReqVehicles.FirstOrDefault().VehicleNo, new { @class = "form-control", id="vehino" })
+                                                                @Html.TextBoxFor(model => model.PassReqVehicles.FirstOrDefault().VehicleNo, new { @class = "form-control", id = "vehino" })
                                                                 @Html.ValidationMessageFor((model => model.PassReqVehicles.FirstOrDefault().VehicleNo))
                                                             </td>
                                                             <td>
-                                                                @Html.TextBoxFor(model => model.PassRequestDets.FirstOrDefault().MobileNo, new { @class = "form-control", id="mobile" })
+                                                                @Html.TextBoxFor(model => model.PassRequestDets.FirstOrDefault().MobileNo, new { @class = "form-control", id = "mobile" })
+                                                                @Html.ValidationMessageFor((model => model.PassRequestDets.FirstOrDefault().MobileNo))
+                                                            </td>
+                                                            <td>
+                                                                <div class="col-md-5">
+                                                                    <a class='btn btn-success btn-xs' href='#'>
+                                                                        <i class='icon-ok'></i>
+                                                                    </a>
+                                                                    <a class='btn btn-danger btn-xs' href='#'>
+                                                                        <i class='icon-remove'></i>
+                                                                    </a>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr id="reqrow1">
+                                                            <td>
+                                                                @Html.TextBoxFor(model => model.PassRequestDets.FirstOrDefault().PersonName, new { @class = "form-control", id = "name" })
+                                                                @Html.ValidationMessageFor((model => model.PassRequestDets.FirstOrDefault().PersonName))
+                                                            </td>
+                                                            <td>
+                                                                @Html.TextBoxFor(model => model.PassRequestDets.FirstOrDefault().PersonNIC, new { @class = "form-control", id = "nic" })
+                                                                @Html.ValidationMessageFor((model => model.PassRequestDets.FirstOrDefault().PersonNIC))
+                                                            </td>
+                                                            <td>
+                                                                @Html.DropDownListFor(model => model.PassReqVehicles.FirstOrDefault().VehicleCode, (IEnumerable<SelectListItem>)ViewBag.VehicleCode, new { @class = "form-control", id = "vehitype" })
+                                                                @Html.ValidationMessageFor(model => model.PassReqVehicles.FirstOrDefault().VehicleCode)
+                                                            </td>
+                                                            <td>
+                                                                @Html.TextBoxFor(model => model.PassReqVehicles.FirstOrDefault().VehicleNo, new { @class = "form-control", id = "vehino" })
+                                                                @Html.ValidationMessageFor((model => model.PassReqVehicles.FirstOrDefault().VehicleNo))
+                                                            </td>
+                                                            <td>
+                                                                @Html.TextBoxFor(model => model.PassRequestDets.FirstOrDefault().MobileNo, new { @class = "form-control", id = "mobile" })
                                                                 @Html.ValidationMessageFor((model => model.PassRequestDets.FirstOrDefault().MobileNo))
                                                             </td>
                                                             <td>
