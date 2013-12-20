@@ -33,7 +33,7 @@
 
                             <fieldset>
                                 <legend class='box-header green-background'>Enter ID No</legend>
-                                <div class="col-md-2">
+                                <div class="col-md-5">
                                     @Html.TextBoxFor(model => model.PassIssueDets.FirstOrDefault().PersonNIC, new { @class = "form-control" })                                    
                                     <a class='btn btn-primary btn-lg' href='#'>
                                         <i class='icon-search'></i>
@@ -74,7 +74,7 @@
                             @Html.ValidationSummary(true)
 
                             <fieldset>
-                                <legend class='box-header green-background'>Pass DetailsDetails</legend>
+                                <legend class='box-header green-background'>Pass Details</legend>
 
                                 <div class="form-group">
                                     <div class="col-md-2 control-label">

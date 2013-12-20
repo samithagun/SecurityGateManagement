@@ -40,6 +40,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="RestSharp">
+      <HintPath>..\packages\RestSharp.104.4.0\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -116,6 +119,15 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="Twilio.Api">
+      <HintPath>..\packages\Twilio.3.6.10\lib\3.5\Twilio.Api.dll</HintPath>
+    </Reference>
+    <Reference Include="Twilio.Mvc">
+      <HintPath>..\packages\Twilio.Mvc.3.1.12\lib\3.5\Twilio.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Twilio.Twiml">
+      <HintPath>..\packages\Twilio.TwiML.3.3.3\lib\3.5\Twilio.Twiml.dll</HintPath>
+    </Reference>
     <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\WebMatrix.Data.dll</HintPath>
@@ -189,6 +201,7 @@
     <Compile Include="Controllers\PassIssueController.cs" />
     <Compile Include="Controllers\PassRequestController.cs" />
     <Compile Include="Controllers\PassTypeController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\VehicleTypeController.cs" />
     <Compile Include="DTOs\CardDetail.cs" />
     <Compile Include="DTOs\CheckInPerson.cs" />
@@ -198,9 +211,7 @@
     <Compile Include="DTOs\C__MigrationHistory.cs" />
     <Compile Include="DTOs\GenerateRefNo.cs" />
     <Compile Include="DTOs\Module.cs" />
-    <Compile Include="DTOs\PassIssueDet.cs" />
-    <Compile Include="DTOs\PassIssueHed.cs" />
-    <Compile Include="DTOs\PassIssueVehicle.cs" />
+    <Compile Include="DTOs\PassIssue.cs" />
     <Compile Include="DTOs\PassType.cs" />
     <Compile Include="DTOs\PaymentDetail.cs" />
     <Compile Include="DTOs\UserAccess.cs" />
@@ -208,7 +219,9 @@
     <Compile Include="DTOs\webpages_Membership.cs" />
     <Compile Include="DTOs\webpages_OAuthMembership.cs" />
     <Compile Include="DTOs\webpages_Roles.cs" />
+    <Compile Include="Facades\PassIssueFacade.cs" />
     <Compile Include="Facades\PassRequestFacade.cs" />
+    <Compile Include="Facades\PaymentFacade.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -226,6 +239,8 @@
       <DependentUpon>DBModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Twilio\Core.cs" />
+    <Compile Include="Twilio\Sms.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Theme\bootstrap-daterangepicker.css" />
@@ -345,6 +360,8 @@
     <Content Include="Views\Home\Office.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Views\Payment\Create.cshtml" />
+    <Content Include="Views\Payment\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

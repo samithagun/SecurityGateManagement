@@ -43,12 +43,12 @@ function SubmitData() {
             PersonNIC: $('td:eq(1) input', this).val(),
             MobileNo: $('td:eq(4) input', this).val(),
             PassCode: $('#passtype').val(),
-        })
+        });
 
         PassReqVehicle.push({
             VehicleCode: $(this).find("#vehitype").val(),
             VehicleNo: $('td:eq(3) input', this).val(),
-        })
+        });
     });
 
     passReq.PassRequestDets = PassRequestDet;
@@ -62,7 +62,7 @@ function SubmitData() {
         dataType: "json",
 
         success: function (msg) {
-            if (msg.refNo == 0) {
+            if (msg.refNo === 0) {
                 alert('Request Sending Failed');
             }
             else {

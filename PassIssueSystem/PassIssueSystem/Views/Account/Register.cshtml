@@ -23,84 +23,84 @@
                         </a>
                     </div>
                 </div>
-                    <div class="box-content">
-                        <form class="form form-horizontal" style="margin-bottom: 0;" method="post" action="#" accept-charset="UTF-8">
-                            @using (Html.BeginForm())
-                            {
-                                @Html.AntiForgeryToken()
-                                @Html.ValidationSummary()
+                <div class="box-content">
+                    <form class="form form-horizontal" style="margin-bottom: 0;" method="post" action="#" accept-charset="UTF-8">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary()
 
-                                <fieldset>
-                                    <legend>Create User Login</legend>
-                                    <div class="form-group">
-                                        <div class="col-md-2 control-label">
-                                            @Html.LabelFor(m => m.UserName)
-                                        </div>
-                                        <div class="col-md-5">
-                                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                            <fieldset>
+                                <legend>Create User Login</legend>
+                                <div class="form-group">
+                                    <div class="col-md-2 control-label">
+                                        @Html.LabelFor(m => m.UserName)
+                                    </div>
+                                    <div class="col-md-5">
+                                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-2 control-label">
+                                        @Html.LabelFor(m => m.Password)
+                                    </div>
+                                    <div class="col-md-5">
+                                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-2 control-label">
+                                        @Html.LabelFor(m => m.ConfirmPassword)
+                                    </div>
+                                    <div class="col-md-5">
+                                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-2 control-label">
+                                        @Html.LabelFor(m => m.CompanyID)
+                                    </div>
+                                    <div class="col-md-5">
+                                        @Html.DropDownListFor(m => m.CompanyID, (IEnumerable<SelectListItem>)ViewBag.CompanyID, new { @class = "form-control" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-2 control-label">
+                                        @Html.Label("Role")
+                                    </div>
+                                    <div class="col-md-5">
+                                        @Html.DropDownList("RoleID", (IEnumerable<SelectListItem>)ViewBag.Roles, new { @class = "form-control" })
+                                    </div>
+                                </div>
+
+                                <div class='form-actions form-actions-padding-sm'>
+                                    <div class='row'>
+                                        <div class='col-md-10 col-md-offset-2'>
+                                            <button class='btn btn-primary' type='submit' value="Create" style="margin-bottom: 5px">
+                                                <i class='icon-save'></i>
+                                                Save
+                                            </button>
+                                            <a href="@Url.Action("Index", "Account")" class="btn btn-default" style="margin-bottom:5px">
+                                                <i class="icon-undo"></i>
+                                                <span>Cancel</span></a>
                                         </div>
                                     </div>
-
-                                    <div class="form-group">
-                                        <div class="col-md-2 control-label">
-                                            @Html.LabelFor(m => m.Password)
-                                        </div>
-                                        <div class="col-md-5">
-                                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <div class="col-md-2 control-label">
-                                            @Html.LabelFor(m => m.ConfirmPassword)
-                                        </div>
-                                        <div class="col-md-5">
-                                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <div class="col-md-2 control-label">
-                                            @Html.LabelFor(m => m.CompanyID)
-                                        </div>
-                                        <div class="col-md-5">
-                                           @Html.DropDownListFor(m => m.CompanyID, (IEnumerable<SelectListItem>)ViewBag.CompanyID, new { @class = "form-control" })
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <div class="col-md-2 control-label">
-                                             @Html.Label("Role")
-                                        </div>
-                                        <div class="col-md-5">
-                                           @Html.DropDownList("RoleID", (IEnumerable<SelectListItem>)ViewBag.Roles, new { @class = "form-control" })
-                                        </div>
-                                    </div>
-
-                                    <div class='form-actions form-actions-padding-sm'>
-                                        <div class='row'>
-                                            <div class='col-md-10 col-md-offset-2'>
-                                                <button class='btn btn-primary' type='submit' value="Create" style="margin-bottom: 5px">
-                                                    <i class='icon-save'></i>
-                                                    Save
-                                                </button>
-                                                <a href="@Url.Action("Index", "Account")" class="btn btn-default" style="margin-bottom:5px">
-                                                    <i class="icon-undo"></i>
-                                                    <span>Cancel</span></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </fieldset>
-                            }
-                        </form>
-
-                        @section Scripts {
-                            @Scripts.Render("~/bundles/jqueryval")
+                                </div>
+                            </fieldset>
                         }
-                    </div>
+                    </form>
+
+                    @section Scripts {
+                        @Scripts.Render("~/bundles/jqueryval")
+                    }
                 </div>
             </div>
         </div>
     </div>
+</div>
 </body>
 </html>
