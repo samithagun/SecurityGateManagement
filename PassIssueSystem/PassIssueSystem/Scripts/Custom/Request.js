@@ -1,20 +1,4 @@
-﻿//function AddDetailRow() {
-//    var Name = $("#name").val();
-//    var NIC = $("#nic").val();
-
-//    if (NIC == "") {
-//        alert('Please fill the details first');
-//    }
-//    else {
-//        var row = $('#reqrow').clone();
-//        var rowCount = $('#reqtable tr').length;
-//        row.id = "reqrow" + rowCount;
-
-//        $(row).appendTo("#reqtable");
-//    }
-//}
-
-function AddDetailRow() {
+﻿function AddDetailRow() {
     document.getElementById('template').style.display = "block";
 
     var row = $('#template').clone();                       // Clone the 1st row
@@ -27,6 +11,7 @@ function AddDetailRow() {
 }
 
 function SubmitData() {
+
     var passReq = new Object();
 
     passReq.RequiredFrom = $('#datefrom').val();
@@ -54,6 +39,7 @@ function SubmitData() {
     passReq.PassRequestDets = PassRequestDet;
     passReq.PassReqVehicles = PassReqVehicle;
 
+    //debugger;
     $.ajax({
         type: "POST",
         url: '/PassRequest/JsonCreateRequest',

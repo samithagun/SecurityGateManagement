@@ -4,18 +4,23 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PassIssueSystem.Filters;
+using PassIssueSystem.Models;
 
 namespace PassIssueSystem.Controllers
 {
     [Authorize]
     [InitializeSimpleMembership]
     public class HomeController : Controller
-    {        
+    {
+        private Entities db = new Entities();
+
         public ActionResult Index()
         {
             ViewBag.Message = "";
+            var comid = db.UserProfiles.Where(u => u.UserName == User.Identity.Name).Select(s => s.CompanyID).First();
+            TempData["company"] = db.Companies.Where(c => c.CompanyID == comid).Select(n => n.CompanyName).First().ToString();
 
-            return View();
+            return View();     
         }
 
         public ActionResult About()
@@ -42,6 +47,8 @@ namespace PassIssueSystem.Controllers
         public ActionResult Client()
         {
             ViewBag.Message = "";
+            var comid = db.UserProfiles.Where(u => u.UserName == User.Identity.Name).Select(s => s.CompanyID).First();
+            TempData["company"] = db.Companies.Where(c => c.CompanyID == comid).Select(n => n.CompanyName).First().ToString();
 
             return View();
         }
@@ -49,7 +56,6 @@ namespace PassIssueSystem.Controllers
         public ActionResult Office()
         {
             ViewBag.Message = "";
-            //ViewBag.Company = "";
 
             return View();
         }

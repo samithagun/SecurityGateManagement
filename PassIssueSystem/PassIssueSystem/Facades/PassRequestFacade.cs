@@ -61,6 +61,8 @@ namespace PassIssueSystem.Facades
         public static List<PassRequestDet> MapModelToDet(PassRequestHed passReq)
         {
             List<PassRequestDet> Obj = new List<PassRequestDet>();
+            Entities db = new Entities();
+
             foreach (PassRequestDet Item in passReq.PassRequestDets)
             {
                 if (Item.PersonNIC != null)
@@ -71,7 +73,7 @@ namespace PassIssueSystem.Facades
                         PersonNIC = Item.PersonNIC,
                         PassCode = Item.PassCode,
                         MobileNo = Item.MobileNo,
-                        PassFee = 0
+                        PassFee = db.PassTypes.Where(p => p.PassCode == Item.PassCode).Select(t => t.PassFee).First(),
                     });
                 }
             }
@@ -87,6 +89,8 @@ namespace PassIssueSystem.Facades
         public static List<PassReqVehicle> MapModelToVehi(PassRequestHed passReq)
         {
             List<PassReqVehicle> Obj = new List<PassReqVehicle>();
+            Entities db = new Entities();
+
             foreach (PassReqVehicle Item in passReq.PassReqVehicles)
             {
                 if (Item.VehicleNo != null)
@@ -95,7 +99,7 @@ namespace PassIssueSystem.Facades
                     {
                         VehicleCode = Item.VehicleCode,
                         VehicleNo = Item.VehicleNo,
-                        VehicleFee = Item.VehicleFee
+                        VehicleFee = db.VehicleTypes.Where(v => v.VehicleCode == Item.VehicleCode).Select(t => t.VehicleFee).First(),
                     });
                 }
             }

@@ -48,6 +48,9 @@ namespace PassIssueSystem.Controllers
                 }
                 else if (Roles.IsUserInRole(model.UserName, "Client User"))
                 {
+                    var comid = db.UserProfiles.Where(u => u.UserName == User.Identity.Name).Select(s => s.CompanyID).First();
+                    TempData["company"] = db.Companies.Where(c => c.CompanyID == comid).Select(n => n.CompanyName).First().ToString();
+
                     return RedirectToAction("Client", "Home");
                 }
 
