@@ -7,11 +7,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PassIssueSystem.Facades;
+using PassIssueSystem.Filters;
 using PassIssueSystem.Models;
+using WebMatrix.WebData;
 
 namespace PassIssueSystem.Controllers
 {
     [Authorize]
+    //[InitializeSimpleMembership]
     public class PassRequestController : Controller
     {
         private Entities db = new Entities();
@@ -21,6 +24,9 @@ namespace PassIssueSystem.Controllers
 
         public ActionResult Index()
         {
+            var comid = db.UserProfiles.Where(u => u.UserName == User.Identity.Name).Select(s => s.CompanyID).First();
+            ViewBag.Company = db.Companies.Where(c => c.CompanyID == comid).Select(n => n.CompanyName).First().ToString();
+
             var passrequestheds = db.PassRequestHeds.Include(p => p.Company);
             return View(passrequestheds.ToList());
         }
@@ -45,7 +51,10 @@ namespace PassIssueSystem.Controllers
         {
             ViewBag.PassCode = new SelectList(db.PassTypes, "PassCode", "Description");
             ViewBag.VehicleCode = new SelectList(db.VehicleTypes, "VehicleCode", "Description");
-            //ViewBag.CompanyID = new SelectList(db.Companies, "CompanyID", "CompanyName");
+            
+            var comid = db.UserProfiles.Where(u => u.UserName == User.Identity.Name).Select(s => s.CompanyID).First();
+            ViewBag.Company = db.Companies.Where(c => c.CompanyID == comid).Select(n => n.CompanyName).First().ToString();
+            
             return View();
         }
 
@@ -88,17 +97,13 @@ namespace PassIssueSystem.Controllers
         /// <param name="passrequesthed">The passrequesthed.</param>
         /// <returns></returns>
         [HttpPost]
-        //[ValidateAntiForgeryToken]
         public JsonResult JsonCreateRequest(PassRequestHed passReq)
         {
             int Ref = 0;
 
             try
-            {
-                //if (ModelState.IsValid)
-                //{
-                    Ref = PassRequestFacade.SavePassRequest(passReq);
-                //}
+            { 
+                 Ref = PassRequestFacade.SavePassRequest(passReq);
             }
             catch (DbEntityValidationException ex)
             {
@@ -128,10 +133,14 @@ namespace PassIssueSystem.Controllers
         /// <param name="passrequestdet">The passrequestdet.</param>
         /// <param name="passreqvehicle">The passreqvehicle.</param>
         /// <returns></returns>
+        [ValidateAntiForgeryToken]
         public int SavePassReqHed(PassRequestHed Hed)
         {
             Hed.AddDate = DateTime.Now;
-            Hed.AddUser = "Lumiere";
+            Hed.AddUser = WebSecurity.CurrentUserName;
+            Hed.CompanyID = db.UserProfiles.Where(u => u.UserName == WebSecurity.CurrentUserName).Select(s => s.CompanyID).First();
+            Hed.Issued = false;
+            Hed.Paid = false;
 
             if (ModelState.IsValid)
             {
@@ -176,6 +185,47 @@ namespace PassIssueSystem.Controllers
                     db.SaveChanges();
                 }
             }
+        }
+
+        [HttpGet]
+        public ActionResult Find()
+        {
+            var comid = db.UserProfiles.Where(u => u.UserName == User.Identity.Name).Select(s => s.CompanyID).First();
+            ViewBag.Company = db.Companies.Where(c => c.CompanyID == comid).Select(n => n.CompanyName).First().ToString();
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Find(string NICNo)
+        {
+            try
+            {
+                int Req = PassRequestFacade.GetRequestFromID(NICNo);
+                if (Req == 0)
+                {
+                    ModelState.AddModelError("ErrorMsg", "No Records Found");
+                }
+
+                return RedirectToAction("View", new { ReqNo = Req });
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("ErrorMsg", "No Records Found");
+                return RedirectToAction("Find");
+            }
+        }
+
+        public ActionResult View(int ReqNo)
+        {
+            PassRequestHed PRH = db.PassRequestHeds.Find(ReqNo);
+            
+            if (PRH == null)
+            {
+                return HttpNotFound();
+            }
+            
+            return View(PRH);
         }
     }
 }

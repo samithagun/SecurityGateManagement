@@ -1,0 +1,490 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PassIssueSystemModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="PassIssueSystemModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="PassIssueSystemModel.Store.__MigrationHistory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CardDetail" EntityType="PassIssueSystemModel.Store.CardDetail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CheckInPerson" EntityType="PassIssueSystemModel.Store.CheckInPerson" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CheckInVehicle" EntityType="PassIssueSystemModel.Store.CheckInVehicle" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Company" EntityType="PassIssueSystemModel.Store.Company" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CompanyLogin" EntityType="PassIssueSystemModel.Store.CompanyLogin" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GenerateRefNo" EntityType="PassIssueSystemModel.Store.GenerateRefNo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PassIssueDet" EntityType="PassIssueSystemModel.Store.PassIssueDet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PassIssueHed" EntityType="PassIssueSystemModel.Store.PassIssueHed" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PassIssueVehicle" EntityType="PassIssueSystemModel.Store.PassIssueVehicle" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PassRequestDet" EntityType="PassIssueSystemModel.Store.PassRequestDet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PassRequestHed" EntityType="PassIssueSystemModel.Store.PassRequestHed" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PassReqVehicle" EntityType="PassIssueSystemModel.Store.PassReqVehicle" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PassType" EntityType="PassIssueSystemModel.Store.PassType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PaymentDetail" EntityType="PassIssueSystemModel.Store.PaymentDetail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserProfile" EntityType="PassIssueSystemModel.Store.UserProfile" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VehicleType" EntityType="PassIssueSystemModel.Store.VehicleType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="webpages_Membership" EntityType="PassIssueSystemModel.Store.webpages_Membership" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="webpages_OAuthMembership" EntityType="PassIssueSystemModel.Store.webpages_OAuthMembership" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="webpages_Roles" EntityType="PassIssueSystemModel.Store.webpages_Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="webpages_UsersInRoles" EntityType="PassIssueSystemModel.Store.webpages_UsersInRoles" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_CardDetail_PaymentDetail" Association="PassIssueSystemModel.Store.FK_CardDetail_PaymentDetail">
+      <End Role="PaymentDetail" EntitySet="PaymentDetail" />
+      <End Role="CardDetail" EntitySet="CardDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CheckInPerson_PassIssueHed" Association="PassIssueSystemModel.Store.FK_CheckInPerson_PassIssueHed">
+      <End Role="PassIssueHed" EntitySet="PassIssueHed" />
+      <End Role="CheckInPerson" EntitySet="CheckInPerson" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CheckInVehicle_PassIssueHed" Association="PassIssueSystemModel.Store.FK_CheckInVehicle_PassIssueHed">
+      <End Role="PassIssueHed" EntitySet="PassIssueHed" />
+      <End Role="CheckInVehicle" EntitySet="CheckInVehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PassIssueDet_PassIssueHed" Association="PassIssueSystemModel.Store.FK_PassIssueDet_PassIssueHed">
+      <End Role="PassIssueHed" EntitySet="PassIssueHed" />
+      <End Role="PassIssueDet" EntitySet="PassIssueDet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PassIssueHed_PassRequestHed" Association="PassIssueSystemModel.Store.FK_PassIssueHed_PassRequestHed">
+      <End Role="PassRequestHed" EntitySet="PassRequestHed" />
+      <End Role="PassIssueHed" EntitySet="PassIssueHed" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PassIssueVehicle_PassIssueHed" Association="PassIssueSystemModel.Store.FK_PassIssueVehicle_PassIssueHed">
+      <End Role="PassIssueHed" EntitySet="PassIssueHed" />
+      <End Role="PassIssueVehicle" EntitySet="PassIssueVehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PassRequestDet_PassRequestHed" Association="PassIssueSystemModel.Store.FK_PassRequestDet_PassRequestHed">
+      <End Role="PassRequestHed" EntitySet="PassRequestHed" />
+      <End Role="PassRequestDet" EntitySet="PassRequestDet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PassRequestDet_PassType" Association="PassIssueSystemModel.Store.FK_PassRequestDet_PassType">
+      <End Role="PassType" EntitySet="PassType" />
+      <End Role="PassRequestDet" EntitySet="PassRequestDet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PassRequestHed_Company" Association="PassIssueSystemModel.Store.FK_PassRequestHed_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="PassRequestHed" EntitySet="PassRequestHed" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PassReqVehicle_PassRequestHed" Association="PassIssueSystemModel.Store.FK_PassReqVehicle_PassRequestHed">
+      <End Role="PassRequestHed" EntitySet="PassRequestHed" />
+      <End Role="PassReqVehicle" EntitySet="PassReqVehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PassReqVehicle_VehicleType" Association="PassIssueSystemModel.Store.FK_PassReqVehicle_VehicleType">
+      <End Role="VehicleType" EntitySet="VehicleType" />
+      <End Role="PassReqVehicle" EntitySet="PassReqVehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PaymentDetail_PassIssueHed" Association="PassIssueSystemModel.Store.FK_PaymentDetail_PassIssueHed">
+      <End Role="PassIssueHed" EntitySet="PassIssueHed" />
+      <End Role="PaymentDetail" EntitySet="PaymentDetail" />
+    </AssociationSet>
+    <AssociationSet Name="fk_RoleId" Association="PassIssueSystemModel.Store.fk_RoleId">
+      <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+      <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="fk_UserId" Association="PassIssueSystemModel.Store.fk_UserId">
+      <End Role="UserProfile" EntitySet="UserProfile" />
+      <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserProfile_Company" Association="PassIssueSystemModel.Store.FK_UserProfile_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="UserProfile" EntitySet="UserProfile" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" Nullable="false" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="CardDetail">
+    <Key>
+      <PropertyRef Name="PaymentNo" />
+    </Key>
+    <Property Name="PaymentNo" Type="int" Nullable="false" />
+    <Property Name="CardNo" Type="char" Nullable="false" MaxLength="6" />
+    <Property Name="CardType" Type="char" Nullable="false" MaxLength="4" />
+    <Property Name="NameOnCard" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddUser" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CheckInPerson">
+    <Key>
+      <PropertyRef Name="PassNo" />
+      <PropertyRef Name="PersonNIC" />
+    </Key>
+    <Property Name="PassNo" Type="int" Nullable="false" />
+    <Property Name="PersonNIC" Type="char" Nullable="false" MaxLength="10" />
+    <Property Name="InTime" Type="datetime" Nullable="false" />
+    <Property Name="OutTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CheckInVehicle">
+    <Key>
+      <PropertyRef Name="PassNo" />
+      <PropertyRef Name="VehicleNo" />
+    </Key>
+    <Property Name="PassNo" Type="int" Nullable="false" />
+    <Property Name="VehicleNo" Type="char" Nullable="false" MaxLength="12" />
+    <Property Name="InTime" Type="datetime" Nullable="false" />
+    <Property Name="OutTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="CompanyID" />
+    </Key>
+    <Property Name="CompanyID" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="CompanyName" Type="varchar" Nullable="false" MaxLength="80" />
+    <Property Name="Address1" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Address2" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="Address3" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="BOIApproveNo" Type="char" Nullable="false" MaxLength="10" />
+    <Property Name="BOIApproveDate" Type="date" Nullable="false" />
+    <Property Name="Telephone1" Type="char" Nullable="false" MaxLength="10" />
+    <Property Name="Telephone2" Type="char" Nullable="false" MaxLength="10" />
+    <Property Name="Fax" Type="char" Nullable="false" MaxLength="10" />
+    <Property Name="Status" Type="numeric" Nullable="false" Precision="1" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddUser" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CompanyLogin">
+    <Key>
+      <PropertyRef Name="CompanyID" />
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="CompanyID" Type="char" Nullable="false" MaxLength="10" />
+    <Property Name="UserName" Type="char" Nullable="false" MaxLength="15" />
+    <Property Name="Password" Type="char" Nullable="false" MaxLength="15" />
+    <Property Name="Status" Type="numeric" Nullable="false" Precision="1" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddUser" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="GenerateRefNo">
+    <Key>
+      <PropertyRef Name="TRName" />
+    </Key>
+    <Property Name="TRName" Type="char" Nullable="false" MaxLength="10" />
+    <Property Name="TRPrefix" Type="char" Nullable="false" MaxLength="2" />
+    <Property Name="TRVal" Type="numeric" Nullable="false" Precision="10" />
+  </EntityType>
+  <EntityType Name="PassIssueDet">
+    <Key>
+      <PropertyRef Name="PassNo" />
+      <PropertyRef Name="PersonNIC" />
+    </Key>
+    <Property Name="PassNo" Type="int" Nullable="false" />
+    <Property Name="PersonNIC" Type="char" Nullable="false" MaxLength="10" />
+    <Property Name="MobileNo" Type="char" Nullable="false" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="PassIssueHed">
+    <Key>
+      <PropertyRef Name="PassNo" />
+    </Key>
+    <Property Name="PassNo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PassReqNo" Type="int" Nullable="false" />
+    <Property Name="IssueDate" Type="datetime" Nullable="false" />
+    <Property Name="ValidFrom" Type="date" Nullable="false" />
+    <Property Name="ValidTo" Type="date" Nullable="false" />
+    <Property Name="IsVIP" Type="numeric" Nullable="false" Precision="1" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddUser" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PassIssueVehicle">
+    <Key>
+      <PropertyRef Name="PassNo" />
+      <PropertyRef Name="VehicleNo" />
+    </Key>
+    <Property Name="PassNo" Type="int" Nullable="false" />
+    <Property Name="VehicleNo" Type="char" Nullable="false" MaxLength="12" />
+  </EntityType>
+  <EntityType Name="PassRequestDet">
+    <Key>
+      <PropertyRef Name="PassReqNo" />
+      <PropertyRef Name="PersonNIC" />
+    </Key>
+    <Property Name="PassReqNo" Type="int" Nullable="false" />
+    <Property Name="PersonNIC" Type="char" Nullable="false" MaxLength="10" />
+    <Property Name="PersonName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="MobileNo" Type="char" Nullable="false" MaxLength="10" />
+    <Property Name="PassCode" Type="varchar" Nullable="false" MaxLength="8" />
+    <Property Name="PassFee" Type="numeric" Nullable="false" Precision="8" Scale="2" />
+  </EntityType>
+  <EntityType Name="PassRequestHed">
+    <Key>
+      <PropertyRef Name="PassReqNo" />
+    </Key>
+    <Property Name="PassReqNo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="varchar" Nullable="false" MaxLength="15" />
+    <Property Name="RequiredFrom" Type="datetime" Nullable="false" />
+    <Property Name="RequiredTo" Type="datetime" Nullable="false" />
+    <Property Name="Comments" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddUser" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PassReqVehicle">
+    <Key>
+      <PropertyRef Name="PassReqNo" />
+      <PropertyRef Name="VehicleCode" />
+      <PropertyRef Name="VehicleNo" />
+    </Key>
+    <Property Name="PassReqNo" Type="int" Nullable="false" />
+    <Property Name="VehicleCode" Type="varchar" Nullable="false" MaxLength="8" />
+    <Property Name="VehicleNo" Type="char" Nullable="false" MaxLength="12" />
+    <Property Name="VehicleFee" Type="numeric" Nullable="false" Precision="8" Scale="2" />
+  </EntityType>
+  <EntityType Name="PassType">
+    <Key>
+      <PropertyRef Name="PassCode" />
+    </Key>
+    <Property Name="PassCode" Type="varchar" Nullable="false" MaxLength="8" />
+    <Property Name="Description" Type="varchar" Nullable="false" MaxLength="25" />
+    <Property Name="PassFee" Type="numeric" Nullable="false" Precision="8" Scale="2" />
+    <Property Name="Status" Type="numeric" Nullable="false" Precision="1" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddUser" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PaymentDetail">
+    <Key>
+      <PropertyRef Name="PaymentNo" />
+    </Key>
+    <Property Name="PaymentNo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PassNo" Type="int" Nullable="false" />
+    <Property Name="PassTotal" Type="numeric" Nullable="false" Precision="12" Scale="2" />
+    <Property Name="PaymentDate" Type="datetime" Nullable="false" />
+    <Property Name="PaymentType" Type="char" Nullable="false" MaxLength="3" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddUser" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="UserProfile">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="56" />
+    <Property Name="CompanyID" Type="varchar" Nullable="false" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="VehicleType">
+    <Key>
+      <PropertyRef Name="VehicleCode" />
+    </Key>
+    <Property Name="VehicleCode" Type="varchar" Nullable="false" MaxLength="8" />
+    <Property Name="Description" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="VehicleFee" Type="numeric" Nullable="false" Precision="8" Scale="2" />
+    <Property Name="Status" Type="numeric" Nullable="false" Precision="1" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
+    <Property Name="AddUser" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="webpages_Membership">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="ConfirmationToken" Type="nvarchar" MaxLength="128" />
+    <Property Name="IsConfirmed" Type="bit" />
+    <Property Name="LastPasswordFailureDate" Type="datetime" />
+    <Property Name="PasswordFailuresSinceLastSuccess" Type="int" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="PasswordChangedDate" Type="datetime" />
+    <Property Name="PasswordSalt" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="PasswordVerificationToken" Type="nvarchar" MaxLength="128" />
+    <Property Name="PasswordVerificationTokenExpirationDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="webpages_OAuthMembership">
+    <Key>
+      <PropertyRef Name="Provider" />
+      <PropertyRef Name="ProviderUserId" />
+    </Key>
+    <Property Name="Provider" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="ProviderUserId" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="webpages_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="webpages_UsersInRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_CardDetail_PaymentDetail">
+    <End Role="PaymentDetail" Type="PassIssueSystemModel.Store.PaymentDetail" Multiplicity="1" />
+    <End Role="CardDetail" Type="PassIssueSystemModel.Store.CardDetail" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentDetail">
+        <PropertyRef Name="PaymentNo" />
+      </Principal>
+      <Dependent Role="CardDetail">
+        <PropertyRef Name="PaymentNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CheckInPerson_PassIssueHed">
+    <End Role="PassIssueHed" Type="PassIssueSystemModel.Store.PassIssueHed" Multiplicity="1" />
+    <End Role="CheckInPerson" Type="PassIssueSystemModel.Store.CheckInPerson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PassIssueHed">
+        <PropertyRef Name="PassNo" />
+      </Principal>
+      <Dependent Role="CheckInPerson">
+        <PropertyRef Name="PassNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CheckInVehicle_PassIssueHed">
+    <End Role="PassIssueHed" Type="PassIssueSystemModel.Store.PassIssueHed" Multiplicity="1" />
+    <End Role="CheckInVehicle" Type="PassIssueSystemModel.Store.CheckInVehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PassIssueHed">
+        <PropertyRef Name="PassNo" />
+      </Principal>
+      <Dependent Role="CheckInVehicle">
+        <PropertyRef Name="PassNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PassIssueDet_PassIssueHed">
+    <End Role="PassIssueHed" Type="PassIssueSystemModel.Store.PassIssueHed" Multiplicity="1" />
+    <End Role="PassIssueDet" Type="PassIssueSystemModel.Store.PassIssueDet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PassIssueHed">
+        <PropertyRef Name="PassNo" />
+      </Principal>
+      <Dependent Role="PassIssueDet">
+        <PropertyRef Name="PassNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PassIssueHed_PassRequestHed">
+    <End Role="PassRequestHed" Type="PassIssueSystemModel.Store.PassRequestHed" Multiplicity="1" />
+    <End Role="PassIssueHed" Type="PassIssueSystemModel.Store.PassIssueHed" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PassRequestHed">
+        <PropertyRef Name="PassReqNo" />
+      </Principal>
+      <Dependent Role="PassIssueHed">
+        <PropertyRef Name="PassReqNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PassIssueVehicle_PassIssueHed">
+    <End Role="PassIssueHed" Type="PassIssueSystemModel.Store.PassIssueHed" Multiplicity="1" />
+    <End Role="PassIssueVehicle" Type="PassIssueSystemModel.Store.PassIssueVehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PassIssueHed">
+        <PropertyRef Name="PassNo" />
+      </Principal>
+      <Dependent Role="PassIssueVehicle">
+        <PropertyRef Name="PassNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PassRequestDet_PassRequestHed">
+    <End Role="PassRequestHed" Type="PassIssueSystemModel.Store.PassRequestHed" Multiplicity="1" />
+    <End Role="PassRequestDet" Type="PassIssueSystemModel.Store.PassRequestDet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PassRequestHed">
+        <PropertyRef Name="PassReqNo" />
+      </Principal>
+      <Dependent Role="PassRequestDet">
+        <PropertyRef Name="PassReqNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PassRequestDet_PassType">
+    <End Role="PassType" Type="PassIssueSystemModel.Store.PassType" Multiplicity="1" />
+    <End Role="PassRequestDet" Type="PassIssueSystemModel.Store.PassRequestDet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PassType">
+        <PropertyRef Name="PassCode" />
+      </Principal>
+      <Dependent Role="PassRequestDet">
+        <PropertyRef Name="PassCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PassRequestHed_Company">
+    <End Role="Company" Type="PassIssueSystemModel.Store.Company" Multiplicity="1" />
+    <End Role="PassRequestHed" Type="PassIssueSystemModel.Store.PassRequestHed" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="PassRequestHed">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PassReqVehicle_PassRequestHed">
+    <End Role="PassRequestHed" Type="PassIssueSystemModel.Store.PassRequestHed" Multiplicity="1" />
+    <End Role="PassReqVehicle" Type="PassIssueSystemModel.Store.PassReqVehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PassRequestHed">
+        <PropertyRef Name="PassReqNo" />
+      </Principal>
+      <Dependent Role="PassReqVehicle">
+        <PropertyRef Name="PassReqNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PassReqVehicle_VehicleType">
+    <End Role="VehicleType" Type="PassIssueSystemModel.Store.VehicleType" Multiplicity="1" />
+    <End Role="PassReqVehicle" Type="PassIssueSystemModel.Store.PassReqVehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VehicleType">
+        <PropertyRef Name="VehicleCode" />
+      </Principal>
+      <Dependent Role="PassReqVehicle">
+        <PropertyRef Name="VehicleCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PaymentDetail_PassIssueHed">
+    <End Role="PassIssueHed" Type="PassIssueSystemModel.Store.PassIssueHed" Multiplicity="1" />
+    <End Role="PaymentDetail" Type="PassIssueSystemModel.Store.PaymentDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PassIssueHed">
+        <PropertyRef Name="PassNo" />
+      </Principal>
+      <Dependent Role="PaymentDetail">
+        <PropertyRef Name="PassNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_RoleId">
+    <End Role="webpages_Roles" Type="PassIssueSystemModel.Store.webpages_Roles" Multiplicity="1" />
+    <End Role="webpages_UsersInRoles" Type="PassIssueSystemModel.Store.webpages_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="webpages_Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="webpages_UsersInRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_UserId">
+    <End Role="UserProfile" Type="PassIssueSystemModel.Store.UserProfile" Multiplicity="1" />
+    <End Role="webpages_UsersInRoles" Type="PassIssueSystemModel.Store.webpages_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="webpages_UsersInRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserProfile_Company">
+    <End Role="Company" Type="PassIssueSystemModel.Store.Company" Multiplicity="1" />
+    <End Role="UserProfile" Type="PassIssueSystemModel.Store.UserProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="UserProfile">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

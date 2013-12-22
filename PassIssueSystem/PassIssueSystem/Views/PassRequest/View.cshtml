@@ -1,0 +1,71 @@
+﻿@model PassIssueSystem.Models.PassRequestHed
+
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>View</h2>
+
+<fieldset>
+    <legend>PassRequestHed</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CompanyID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CompanyID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RequiredFrom)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RequiredFrom)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RequiredTo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RequiredTo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Comments)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Comments)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AddDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AddDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AddUser)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AddUser)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Issued)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Issued)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Paid)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Paid)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.PassReqNo }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

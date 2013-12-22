@@ -5,12 +5,15 @@ using System.Transactions;
 using System.Web;
 using System.Web.Mvc;
 using PassIssueSystem.Controllers;
+using PassIssueSystem.Filters;
 using PassIssueSystem.Models;
 
 namespace PassIssueSystem.Facades
 {
     public class PassRequestFacade
     {
+        //private Entities db = new Entities();
+
         /// <summary>
         /// Saves the pass request.
         /// </summary>
@@ -48,7 +51,6 @@ namespace PassIssueSystem.Facades
             Obj.RequiredFrom = passReq.RequiredFrom;
             Obj.RequiredTo = passReq.RequiredTo;
             Obj.Comments = passReq.Comments;
-            Obj.CompanyID = "Lumiere";
 
             return Obj;
         }
@@ -105,6 +107,21 @@ namespace PassIssueSystem.Facades
             }
 
             return Obj;
+        }
+
+        /// <summary>
+        /// Gets the request from identifier.
+        /// </summary>
+        /// <param name="NICNo">The nic no.</param>
+        /// <returns></returns>
+        public static int GetRequestFromID(String NICNo)
+        {
+            Entities db = new Entities();
+
+            var ReqNo = db.PassRequestDets.Where(d => d.PersonNIC == NICNo).Select(p => p.PassReqNo).First();
+            //PassRequestHed Obj = db.PassRequestHeds.Find(ReqNo);
+
+            return ReqNo;
         }
     }
 }

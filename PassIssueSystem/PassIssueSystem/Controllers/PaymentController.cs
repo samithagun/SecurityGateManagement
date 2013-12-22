@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PassIssueSystem.Models;
 using PassIssueSystem.Twilio;
 
 namespace PassIssueSystem.Controllers
 {
     public class PaymentController : Controller
     {
+        private Entities db = new Entities();
+
         //
         // GET: /Payment/
 
@@ -30,6 +33,8 @@ namespace PassIssueSystem.Controllers
 
         public ActionResult Create()
         {
+            var comid = db.UserProfiles.Where(u => u.UserName == User.Identity.Name).Select(s => s.CompanyID).First();
+            ViewBag.Company = db.Companies.Where(c => c.CompanyID == comid).Select(n => n.CompanyName).First().ToString();
             return View();
         }
 
@@ -43,9 +48,9 @@ namespace PassIssueSystem.Controllers
             {
                 // TODO: Add insert logic here
                 var client = new TwilioRestClient("AC73a7e5cc8ceb71599d77a664307425ee", "58f1829a5b6534d6acd3a25041742d17");
-                var result = client.SendSmsMessage("+13312085208", "+94777006211", ".NET Unit Test Message");
+                var result = client.SendSmsMessage("+13312085208", "+94777006211", "Your Pass No : ");
 
-                TempData["result"] = result.Status;
+                TempData["result"] = "SMS Status : " + result.Status;
                 return RedirectToAction("Index");
             }
             catch
@@ -71,7 +76,6 @@ namespace PassIssueSystem.Controllers
             try
             {
                 // TODO: Add update logic here
-
                 return RedirectToAction("Index");
             }
             catch
@@ -97,7 +101,6 @@ namespace PassIssueSystem.Controllers
             try
             {
                 // TODO: Add delete logic here
-
                 return RedirectToAction("Index");
             }
             catch

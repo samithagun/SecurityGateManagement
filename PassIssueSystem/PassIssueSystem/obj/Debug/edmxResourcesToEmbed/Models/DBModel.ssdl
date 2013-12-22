@@ -213,6 +213,8 @@
     <Property Name="Comments" Type="varchar" Nullable="false" MaxLength="100" />
     <Property Name="AddDate" Type="datetime" Nullable="false" />
     <Property Name="AddUser" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Issued" Type="bit" Nullable="false" />
+    <Property Name="Paid" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="PassReqVehicle">
     <Key>

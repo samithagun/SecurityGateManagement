@@ -11,33 +11,32 @@
 }
 
 function SubmitData() {
-
     var passReq = new Object();
 
     passReq.RequiredFrom = $('#datefrom').val();
     passReq.RequiredTo = $('#dateto').val();
-    passReq.Comments = $('#comment').val();
+    passReq.Comments = $('#comments').val();
 
-    var PassRequestDet = [];
-    var PassReqVehicle = [];
+    var reqDets = [];
+    var reqVehi = [];
 
     $("table#reqtable > tbody > tr").each(function () {
 
-        PassRequestDet.push({
+        reqDets.push({
             PersonName: $('td:eq(0) input', this).val(),
             PersonNIC: $('td:eq(1) input', this).val(),
             MobileNo: $('td:eq(4) input', this).val(),
             PassCode: $('#passtype').val(),
         });
 
-        PassReqVehicle.push({
+        reqVehi.push({
             VehicleCode: $(this).find("#vehitype").val(),
             VehicleNo: $('td:eq(3) input', this).val(),
         });
     });
 
-    passReq.PassRequestDets = PassRequestDet;
-    passReq.PassReqVehicles = PassReqVehicle;
+    passReq.PassRequestDets = reqDets;
+    passReq.PassReqVehicles = reqVehi;
 
     //debugger;
     $.ajax({
@@ -46,13 +45,14 @@ function SubmitData() {
         data: JSON.stringify(passReq),
         contentType: "application/json; charset=utf-8",
         dataType: "json",
+        async: false,
 
         success: function (msg) {
             if (msg.refNo === 0) {
                 alert('Request Sending Failed');
             }
             else {
-                alert('Request Sent Successfully! Request No:' + msg.refNo);
+                alert('Request Sent Successfully! Request No: ' + msg.refNo);
                 passReq = [];
             }
         },

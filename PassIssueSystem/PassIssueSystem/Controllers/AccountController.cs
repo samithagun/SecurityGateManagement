@@ -48,8 +48,8 @@ namespace PassIssueSystem.Controllers
                 }
                 else if (Roles.IsUserInRole(model.UserName, "Client User"))
                 {
-                    var comid = db.UserProfiles.Where(u => u.UserName == User.Identity.Name).Select(s => s.CompanyID).First();
-                    TempData["company"] = db.Companies.Where(c => c.CompanyID == comid).Select(n => n.CompanyName).First().ToString();
+                    var comid = db.UserProfiles.Where(u => u.UserName == model.UserName).Select(s => s.CompanyID).First();
+                    ViewBag.Company = db.Companies.Where(c => c.CompanyID == comid).Select(n => n.CompanyName).First().ToString();
 
                     return RedirectToAction("Client", "Home");
                 }
@@ -84,8 +84,8 @@ namespace PassIssueSystem.Controllers
         public ActionResult Register()
         {
             ViewBag.CompanyID = new SelectList(db.Companies, "CompanyID", "CompanyName");
-
             //ViewBag.Roles = new SelectList(db.webpages_Roles, "RoleID", "RoleName");
+
             var rolesCollection = new List<string> { "Administrator", "Client User", "Pass Office" };
             ViewBag.Roles = new SelectList(rolesCollection);
             

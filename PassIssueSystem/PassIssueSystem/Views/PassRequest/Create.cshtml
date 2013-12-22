@@ -49,7 +49,7 @@
                                         @Html.LabelFor(model => model.RequiredFrom)
                                     </div>
                                     <div class="col-md-5">
-                                        <div class='datetimepicker-input input-group' id='datepickerfrom'>
+                                        <div class='datetimepicker-input input-group' id='datepickerfrom' data-format="YYYY-MM-DD">
                                             @Html.TextBoxFor(model => model.RequiredFrom, new { @class = "form-control", id = "datefrom" })
                                             <span class='input-group-addon'>
                                                 <span data-icon-element=''></span>
@@ -64,7 +64,7 @@
                                         @Html.LabelFor(model => model.RequiredTo)
                                     </div>
                                     <div class="col-md-5">
-                                        <div class='datetimepicker-input input-group' id='datepickerto'>
+                                        <div class='datetimepicker-input input-group' id='datepickerto' data-format="YYYY-MM-DD">
                                             @Html.TextBoxFor(model => model.RequiredTo, new { @class = "form-control", id = "dateto" })
                                             <span class='input-group-addon'>
                                                 <span data-icon-element=''></span>
@@ -79,7 +79,7 @@
                                         @Html.LabelFor(model => model.Comments)
                                     </div>
                                     <div class="col-md-5">
-                                        @Html.TextBoxFor(model => model.Comments, new { @class = "form-control", id = "comment" })
+                                        @Html.TextBoxFor(model => model.Comments, new { @class = "form-control", id = "comments" })
                                         @Html.ValidationMessageFor(model => model.Comments)
                                     </div>
                                 </div>

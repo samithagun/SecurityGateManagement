@@ -218,6 +218,8 @@
           <Property Name="Comments" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="AddDate" Type="datetime" Nullable="false" />
           <Property Name="AddUser" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Issued" Type="bit" Nullable="false" />
+          <Property Name="Paid" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="PassReqVehicle">
           <Key>
@@ -733,6 +735,8 @@
           <NavigationProperty Name="PassRequestDets" Relationship="PassIssueSystemModel.FK_PassRequestDet_PassRequestHed" FromRole="PassRequestHed" ToRole="PassRequestDet" />
           <NavigationProperty Name="PassReqVehicles" Relationship="PassIssueSystemModel.FK_PassReqVehicle_PassRequestHed" FromRole="PassRequestHed" ToRole="PassReqVehicle" />
           <NavigationProperty Name="PassIssueHeds" Relationship="PassIssueSystemModel.FK_PassIssueHed_PassRequestHed" FromRole="PassRequestHed" ToRole="PassIssueHed" />
+          <Property Type="Boolean" Name="Issued" Nullable="false" />
+          <Property Type="Boolean" Name="Paid" Nullable="false" />
         </EntityType>
         <EntityType Name="PassReqVehicle">
           <Key>
@@ -1122,6 +1126,8 @@
           <EntitySetMapping Name="PassRequestHeds">
             <EntityTypeMapping TypeName="PassIssueSystemModel.PassRequestHed">
               <MappingFragment StoreEntitySet="PassRequestHed">
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
+                <ScalarProperty Name="Issued" ColumnName="Issued" />
                 <ScalarProperty Name="AddUser" ColumnName="AddUser" />
                 <ScalarProperty Name="AddDate" ColumnName="AddDate" />
                 <ScalarProperty Name="Comments" ColumnName="Comments" />

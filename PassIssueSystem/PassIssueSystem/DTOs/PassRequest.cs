@@ -18,19 +18,29 @@
 
         [Required]
         [Display(Name = "Required From")]
-        [DisplayFormat(DataFormatString = "{0:d}")]
+        [DataType(DataType.Date)]
         public System.DateTime RequiredFrom { get; set; }
 
         [Required]
         [Display(Name = "Required To")]
-        [DisplayFormat(DataFormatString = "{0:d}")]
+        [DataType(DataType.Date)]
         public System.DateTime RequiredTo { get; set; }
 
+        [Required]
         [Display(Name = "Comments")]
         public string Comments { get; set; }
 
+        [Display(Name = "Added Date")]
         public System.DateTime AddDate { get; set; }
+
+        [Display(Name = "Added By")]
         public string AddUser { get; set; }
+
+        [Display(Name = "Pass Issued")]
+        public bool Issued { get; set; }
+
+        [Display(Name = "Payment Done")]
+        public bool Paid { get; set; }
 
         public virtual Company Company { get; set; }
         public virtual List<PassRequestDet> PassRequestDets { get; set; }

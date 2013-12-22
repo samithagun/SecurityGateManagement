@@ -17,8 +17,6 @@ namespace PassIssueSystem.Controllers
         public ActionResult Index()
         {
             ViewBag.Message = "";
-            var comid = db.UserProfiles.Where(u => u.UserName == User.Identity.Name).Select(s => s.CompanyID).First();
-            TempData["company"] = db.Companies.Where(c => c.CompanyID == comid).Select(n => n.CompanyName).First().ToString();
 
             return View();     
         }
@@ -48,7 +46,7 @@ namespace PassIssueSystem.Controllers
         {
             ViewBag.Message = "";
             var comid = db.UserProfiles.Where(u => u.UserName == User.Identity.Name).Select(s => s.CompanyID).First();
-            TempData["company"] = db.Companies.Where(c => c.CompanyID == comid).Select(n => n.CompanyName).First().ToString();
+            ViewBag.Company = db.Companies.Where(c => c.CompanyID == comid).Select(n => n.CompanyName).First().ToString();
 
             return View();
         }

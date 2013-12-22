@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 
-    @Styles.Render("~/Content/bootstrapcss")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrapjs")
+    @Styles.Render("~/Content/bootstrapcss")
     @RenderSection("scripts", required: false)
 
     <title>Biyagama EPZ</title>
@@ -189,13 +189,13 @@
                             </a>
                             <ul class='nav nav-stacked'>
                                 <li class=''>
-                                    <a href="@Url.Action("Create", "PassIssue")">
+                                    <a href="@Url.Action("Find", "PassRequest")">
                                         <i class='icon-caret-right'></i>
                                         <span>Issue Passes</span>
                                     </a>
                                 </li>
                                 <li class=''>
-                                    <a href='#'>
+                                    <a href="@Url.Action("Create", "Payment")">
                                         <i class='icon-caret-right'></i>
                                         <span>Get Payments</span>
                                     </a>
@@ -214,7 +214,7 @@
                         <li>
                             <a class='dropdown-collapse ' href='#'>
                                 <i class='icon-building'></i>
-                                <span>@TempData["company"]</span>
+                                <span>@ViewBag.Company</span>
                                 <i class='icon-angle-down angle-down'></i>
                             </a>
                             <ul class='nav nav-stacked'>
@@ -231,7 +231,7 @@
                                     </a>
                                 </li>
                                 <li class=''>
-                                    <a href='timeline.html'>
+                                    <a href="@Url.Action("Index", "PassRequest")">
                                         <i class='icon-caret-right'></i>
                                         <span>View Requested Passes</span>
                                     </a>
