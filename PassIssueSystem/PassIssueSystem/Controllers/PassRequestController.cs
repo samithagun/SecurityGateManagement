@@ -197,28 +197,29 @@ namespace PassIssueSystem.Controllers
         }
 
         [HttpPost]
-        public ActionResult Find(string NICNo)
+        public ActionResult Find(string NIC)
         {
             try
             {
-                int Req = PassRequestFacade.GetRequestFromID(NICNo);
+                int Req = PassRequestFacade.GetRequestFromID(NIC);
                 if (Req == 0)
                 {
                     ModelState.AddModelError("ErrorMsg", "No Records Found");
+                    return View();
                 }
 
-                return RedirectToAction("View", new { ReqNo = Req });
+                return RedirectToAction("View", new { ReqNo = Req, NICNo = NIC });
             }
             catch (Exception ex)
             {
-                ModelState.AddModelError("ErrorMsg", "No Records Found");
+                ModelState.AddModelError("ErrorMsg", "Error: " + ex.ToString());
                 return RedirectToAction("Find");
             }
         }
 
-        public ActionResult View(int ReqNo)
+        public ActionResult View(int ReqNo, String NICNo)
         {
-            PassRequestHed PRH = db.PassRequestHeds.Find(ReqNo);
+            IEnumerable<PassRequestHed> PRH = db.PassRequestHeds.ToList().Where(p => p.Issued == false);
             
             if (PRH == null)
             {

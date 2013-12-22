@@ -1,71 +1,81 @@
-﻿@model PassIssueSystem.Models.PassRequestHed
+﻿@model IEnumerable<PassIssueSystem.Models.PassRequestHed>
 
 @{
     ViewBag.Title = "View";
 }
 
-<h2>View</h2>
+<div class="col-xs-12">
+    <div class="row">
+    </div>
+</div>
+<div class="col-sm-12">
+    <div class='row'>
+        <div class='col-sm-12'>
+            <div class='box bordered-box fb-border'>
+                <div class='box-header fb-background'>
+                    <div class='title'>
+                        <i class='icon-key'></i>
+                        Pass Details
+                    </div>
+                    <div class='actions'>
+                        <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+                        </a>
+                        <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                        </a>
+                    </div>
+                </div>
+                <div class='container'>
+                    <div class='row' id='content-wrapper'>
+                        <br />
+                        @for (var i = 0; i < Model.Count(); i++)
+                        {
+                            <div class='col-sm-6 col-md-3'>
+                                <div class="pricing-table">
 
-<fieldset>
-    <legend>PassRequestHed</legend>
+                                    <div class="price blue-background">
+                                        <span>Request No: @Html.DisplayFor(item => item.ElementAt(i).PassReqNo)</span>
+                                    </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.CompanyID)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.CompanyID)
-    </div>
+                                    <ul class="list-unstyled features">
+                                        <li>Company: <strong>@Html.DisplayFor(item => item.ElementAt(i).CompanyID)</strong></li>
+                                        <li>From: <strong>@Html.DisplayFor(item => item.ElementAt(i).RequiredFrom)</strong></li>
+                                        <li>To: <strong>@Html.DisplayFor(item => item.ElementAt(i).RequiredTo)</strong></li>
+                                        <li>Comments: <strong>@Html.DisplayFor(item => item.ElementAt(i).Comments)</strong></li>
+                                    </ul>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.RequiredFrom)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.RequiredFrom)
-    </div>
+                                    <div class="header">Persons</div>
+                                    @for (var j = 0; j < Model.ElementAt(i).PassRequestDets.Count(); j++)
+                                    { 
+                                        <ul class="list-unstyled features">
+                                            <li>Name: <strong>@Html.DisplayFor(item => item.ElementAt(i).PassRequestDets.ElementAt(j).PersonName)</strong></li>
+                                            <li>NIC: <strong>@Html.DisplayFor(item => item.ElementAt(i).PassRequestDets.ElementAt(j).PersonNIC)</strong></li>
+                                        </ul>
+                                    }
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.RequiredTo)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.RequiredTo)
-    </div>
+                                    <div class="header">Vehicles</div>
+                                    @for (var k = 0; k < Model.ElementAt(i).PassReqVehicles.Count(); k++)
+                                    { 
+                                        <ul class="list-unstyled features">
+                                            <li>Type: <strong>@Html.DisplayFor(item => item.ElementAt(i).PassReqVehicles.ElementAt(k).VehicleCode)</strong></li>
+                                            <li>Number: <strong>@Html.DisplayFor(item => item.ElementAt(i).PassReqVehicles.ElementAt(k).VehicleNo)</strong></li>
+                                        </ul>
+                                    }
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Comments)
+                                    <div class='form-actions form-actions-padding-sm'>
+                                        <div class='row'>
+                                            <div class='col-md-10 col-md-offset-2'>
+                                                <a href="@Url.Action("Create", "Payment")" class="btn btn-default" style="margin-bottom:5px">
+                                                    <i class="icon-money"></i>
+                                                    <span>Proceed to Payment</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><br />
+                            </div>
+                        } 
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Comments)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.AddDate)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.AddDate)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.AddUser)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.AddUser)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Issued)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Issued)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Paid)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Paid)
-    </div>
-</fieldset>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.PassReqNo }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+</div>

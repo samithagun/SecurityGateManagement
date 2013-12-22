@@ -114,11 +114,11 @@ namespace PassIssueSystem.Facades
         /// </summary>
         /// <param name="NICNo">The nic no.</param>
         /// <returns></returns>
-        public static int GetRequestFromID(String NICNo)
+        public static int GetRequestFromID(String NIC)
         {
             Entities db = new Entities();
 
-            var ReqNo = db.PassRequestDets.Where(d => d.PersonNIC == NICNo).Select(p => p.PassReqNo).First();
+            var ReqNo = db.PassRequestDets.Where(d => d.PersonNIC == NIC).Select(p => p.PassReqNo).FirstOrDefault();
             //PassRequestHed Obj = db.PassRequestHeds.Find(ReqNo);
 
             return ReqNo;
