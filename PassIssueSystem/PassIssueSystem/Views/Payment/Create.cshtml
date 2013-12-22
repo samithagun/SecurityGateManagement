@@ -32,15 +32,16 @@
                             @Html.ValidationSummary(true)
 
                             <fieldset>
-                                <legend>Enter Payment Details</legend>
+                                <legend>Payment Details</legend>
 
                                 <div class="form-group">
                                     <div class="col-md-2 control-label">
                                         @Html.LabelFor(model => model.PassTotal)
                                     </div>
                                     <div class="col-md-5">
-                                        @Html.TextBoxFor(model => model.PassTotal, new { @class = "form-control" })
+                                        @Html.TextBoxFor(model => model.PassTotal, new { @class = "form-control", @value = ViewBag.Total })
                                         @Html.ValidationMessageFor(model => model.PassTotal)
+                                        @*<strong>ViewBag.Total</strong>*@
                                     </div>
                                 </div>
 
@@ -49,7 +50,12 @@
                                         @Html.LabelFor(model => model.PaymentDate)
                                     </div>
                                     <div class="col-md-5">
-                                        @Html.TextBoxFor(model => model.PaymentDate, new { @class = "form-control" })
+                                        <div class='datetimepicker-input input-group' id='datetimepicker'>
+                                            @Html.TextBoxFor(model => model.PaymentDate, new { @class = "form-control", @value = DateTime.Today.Date })
+                                            <span class='input-group-addon'>
+                                                <span data-icon-element=''></span>
+                                            </span>
+                                        </div>
                                         @Html.ValidationMessageFor(model => model.PaymentDate)
                                     </div>
                                 </div>
@@ -67,7 +73,7 @@
                                 <div class='form-actions form-actions-padding-sm'>
                                     <div class='row'>
                                         <div class='col-md-10 col-md-offset-2'>
-                                            <button class='btn btn-primary' value="Create" style="margin-bottom: 5px" onclick="SubmitData();">
+                                            <button class='btn btn-primary' value="Create" style="margin-bottom: 5px">
                                                 <i class='icon-save'></i>
                                                 Save
                                             </button>

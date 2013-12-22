@@ -43,10 +43,10 @@ namespace PassIssueSystem.Controllers
         }
 
         public ActionResult Client()
-        {
-            ViewBag.Message = "";
-            var comid = db.UserProfiles.Where(u => u.UserName == User.Identity.Name).Select(s => s.CompanyID).First();
-            ViewBag.Company = db.Companies.Where(c => c.CompanyID == comid).Select(n => n.CompanyName).First().ToString();
+        {            
+            var comid = db.UserProfiles.Where(u => u.UserName == User.Identity.Name).Select(s => s.CompanyID).First();              
+            ViewData["Company"] = db.Companies.Where(c => c.CompanyID == comid).Select(n => n.CompanyName).First().ToString();
+            ViewData["CompanyID"] = comid;  
 
             return View();
         }

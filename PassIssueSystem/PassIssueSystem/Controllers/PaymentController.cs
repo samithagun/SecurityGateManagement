@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using PassIssueSystem.Models;
 using PassIssueSystem.Twilio;
+using PassIssueSystem.Facades;
 
 namespace PassIssueSystem.Controllers
 {
@@ -21,20 +22,17 @@ namespace PassIssueSystem.Controllers
         }
 
         //
-        // GET: /Payment/Details/5
-
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        //
         // GET: /Payment/Create
 
-        public ActionResult Create()
+        public ActionResult Create(string ReqNo)
         {
             var comid = db.UserProfiles.Where(u => u.UserName == User.Identity.Name).Select(s => s.CompanyID).First();
             ViewBag.Company = db.Companies.Where(c => c.CompanyID == comid).Select(n => n.CompanyName).First().ToString();
+
+            int Req = Convert.ToInt16(ReqNo);
+            decimal PassTot = PaymentFacade.GetPassTotal(Req);
+            ViewBag.Total = PassTot;
+            
             return View();
         }
 
@@ -42,11 +40,11 @@ namespace PassIssueSystem.Controllers
         // POST: /Payment/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(PaymentDetail paymentdetail)
         {
             try
             {
-                // TODO: Add insert logic here
+                // SMS Logic
                 var client = new TwilioRestClient("AC73a7e5cc8ceb71599d77a664307425ee", "58f1829a5b6534d6acd3a25041742d17");
                 var result = client.SendSmsMessage("+13312085208", "+94777006211", "Your Pass No : ");
 
@@ -59,54 +57,25 @@ namespace PassIssueSystem.Controllers
             }
         }
 
-        //
-        // GET: /Payment/Edit/5
-
-        public ActionResult Edit(int id)
+        public ActionResult Client(string ReqNo)
         {
+            var comid = db.UserProfiles.Where(u => u.UserName == User.Identity.Name).Select(s => s.CompanyID).First();
+            ViewBag.Company = db.Companies.Where(c => c.CompanyID == comid).Select(n => n.CompanyName).First().ToString();
+
+            int Req = Convert.ToInt16(ReqNo);
+            decimal PassTot = PaymentFacade.GetPassTotal(Req);
+            ViewBag.Total = PassTot;
+
             return View();
         }
 
-        //
-        // POST: /Payment/Edit/5
-
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        //
-        // GET: /Payment/Delete/5
-
-        public ActionResult Delete(int id)
+        /// <summary>
+        /// Pays the pal.
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult PayPal()
         {
             return View();
-        }
-
-        //
-        // POST: /Payment/Delete/5
-
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
         }
     }
 }

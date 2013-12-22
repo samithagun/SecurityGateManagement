@@ -6,6 +6,7 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using PassIssueSystem.Facades;
 using PassIssueSystem.Filters;
 using PassIssueSystem.Models;
@@ -25,10 +26,12 @@ namespace PassIssueSystem.Controllers
         public ActionResult Index()
         {
             var comid = db.UserProfiles.Where(u => u.UserName == User.Identity.Name).Select(s => s.CompanyID).First();
-            ViewBag.Company = db.Companies.Where(c => c.CompanyID == comid).Select(n => n.CompanyName).First().ToString();
+            ViewData["Company"] = db.Companies.Where(c => c.CompanyID == comid).Select(n => n.CompanyName).First().ToString();
+            ViewData["CompanyID"] = comid;
 
-            var passrequestheds = db.PassRequestHeds.Include(p => p.Company);
-            return View(passrequestheds.ToList());
+            var passreqhed = db.PassRequestHeds.Include(p => p.Company);
+            
+            return View(passreqhed.ToList());
         }
 
         //
@@ -49,11 +52,12 @@ namespace PassIssueSystem.Controllers
 
         public ActionResult Create()
         {
+            var comid = db.UserProfiles.Where(u => u.UserName == User.Identity.Name).Select(s => s.CompanyID).First();
+            ViewData["Company"] = db.Companies.Where(c => c.CompanyID == comid).Select(n => n.CompanyName).First().ToString();
+            ViewData["CompanyID"] = comid;
+
             ViewBag.PassCode = new SelectList(db.PassTypes, "PassCode", "Description");
             ViewBag.VehicleCode = new SelectList(db.VehicleTypes, "VehicleCode", "Description");
-            
-            var comid = db.UserProfiles.Where(u => u.UserName == User.Identity.Name).Select(s => s.CompanyID).First();
-            ViewBag.Company = db.Companies.Where(c => c.CompanyID == comid).Select(n => n.CompanyName).First().ToString();
             
             return View();
         }
@@ -190,12 +194,14 @@ namespace PassIssueSystem.Controllers
         [HttpGet]
         public ActionResult Find()
         {
-            var comid = db.UserProfiles.Where(u => u.UserName == User.Identity.Name).Select(s => s.CompanyID).First();
-            ViewBag.Company = db.Companies.Where(c => c.CompanyID == comid).Select(n => n.CompanyName).First().ToString();
-
             return View();
         }
 
+        /// <summary>
+        /// Finds the specified nic.
+        /// </summary>
+        /// <param name="NIC">The nic.</param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Find(string NIC)
         {
@@ -208,7 +214,7 @@ namespace PassIssueSystem.Controllers
                     return View();
                 }
 
-                return RedirectToAction("View", new { ReqNo = Req, NICNo = NIC });
+                return RedirectToAction("View", new { ReqNo = Req, ID = NIC });
             }
             catch (Exception ex)
             {
@@ -217,9 +223,30 @@ namespace PassIssueSystem.Controllers
             }
         }
 
-        public ActionResult View(int ReqNo, String NICNo)
-        {
-            IEnumerable<PassRequestHed> PRH = db.PassRequestHeds.ToList().Where(p => p.Issued == false);
+        /// <summary>
+        /// Views the specified req no.
+        /// </summary>
+        /// <param name="ReqNo">The req no.</param>
+        /// <param name="NICNo">The nic no.</param>
+        /// <returns></returns>
+        public ActionResult View(int ReqNo, String ID)
+        {            
+            IEnumerable<PassRequestHed> PRH;
+            
+            var comid = db.UserProfiles.Where(u => u.UserName == User.Identity.Name).Select(s => s.CompanyID).First();
+            ViewData["Company"] = db.Companies.Where(c => c.CompanyID == comid).Select(n => n.CompanyName).First().ToString();
+            ViewData["CompanyID"] = comid;
+
+            if (Roles.IsUserInRole("Pass Office"))
+            {
+                // Needs to filter with NIC No (ID == NIC No)
+                PRH = db.PassRequestHeds.ToList().Where(p => p.Issued == false);
+            }
+            else
+            {
+                // Needs to filter with Company ID
+                PRH = db.PassRequestHeds.ToList().Where(p => p.Paid == false && p.CompanyID == ID);    
+            }
             
             if (PRH == null)
             {
@@ -228,5 +255,6 @@ namespace PassIssueSystem.Controllers
             
             return View(PRH);
         }
+
     }
 }
