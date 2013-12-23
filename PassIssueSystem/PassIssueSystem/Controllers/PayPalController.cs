@@ -49,6 +49,7 @@ namespace PayPal.Controllers
                 },
                 redirect_urls = new RedirectUrls
                 {
+                    //Needs to provide correct URLs
                     return_url = Utilities.ToAbsoluteUrl(HttpContext, String.Format("~/paypal/confirmed?id={0}", guid)),
                     cancel_url = Utilities.ToAbsoluteUrl(HttpContext, String.Format("~/paypal/canceled?id={0}", guid)),
                 },
