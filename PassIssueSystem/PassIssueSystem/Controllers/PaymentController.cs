@@ -27,7 +27,8 @@ namespace PassIssueSystem.Controllers
         public ActionResult Create(string ReqNo)
         {
             var comid = db.UserProfiles.Where(u => u.UserName == User.Identity.Name).Select(s => s.CompanyID).First();
-            ViewBag.Company = db.Companies.Where(c => c.CompanyID == comid).Select(n => n.CompanyName).First().ToString();
+            ViewData["Company"] = db.Companies.Where(c => c.CompanyID == comid).Select(n => n.CompanyName).First().ToString();
+            ViewData["CompanyID"] = comid;  
 
             int Req = Convert.ToInt16(ReqNo);
             decimal PassTot = PaymentFacade.GetPassTotal(Req);
@@ -44,11 +45,12 @@ namespace PassIssueSystem.Controllers
         {
             try
             {
-                // SMS Logic
-                var client = new TwilioRestClient("AC73a7e5cc8ceb71599d77a664307425ee", "58f1829a5b6534d6acd3a25041742d17");
-                var result = client.SendSmsMessage("+13312085208", "+94777006211", "Your Pass No : ");
+                //SMS Logic
+                //var client = new TwilioRestClient("AC73a7e5cc8ceb71599d77a664307425ee", "58f1829a5b6534d6acd3a25041742d17");
+                //var result = client.SendSmsMessage("+13312085208", "+94777006211", "Your Pass No : ");
 
-                TempData["result"] = "SMS Status : " + result.Status;
+                //TempData["result"] = "SMS Status : " + result.Status;
+                
                 return RedirectToAction("Index");
             }
             catch
@@ -60,11 +62,13 @@ namespace PassIssueSystem.Controllers
         public ActionResult Client(string ReqNo)
         {
             var comid = db.UserProfiles.Where(u => u.UserName == User.Identity.Name).Select(s => s.CompanyID).First();
-            ViewBag.Company = db.Companies.Where(c => c.CompanyID == comid).Select(n => n.CompanyName).First().ToString();
+            ViewData["Company"] = db.Companies.Where(c => c.CompanyID == comid).Select(n => n.CompanyName).First().ToString();
+            ViewData["CompanyID"] = comid;  
 
             int Req = Convert.ToInt16(ReqNo);
             decimal PassTot = PaymentFacade.GetPassTotal(Req);
             ViewBag.Total = PassTot;
+            ViewBag.ReqNo = ReqNo;
 
             return View();
         }
@@ -73,9 +77,14 @@ namespace PassIssueSystem.Controllers
         /// Pays the pal.
         /// </summary>
         /// <returns></returns>
-        public ActionResult PayPal()
+        public ActionResult PayPal(string ReqNo )
         {
-            return View();
+            // SMS Logic
+            var client = new TwilioRestClient("AC73a7e5cc8ceb71599d77a664307425ee", "58f1829a5b6534d6acd3a25041742d17");
+            var result = client.SendSmsMessage("+13312085208", "+94777006211", "Your Pass No : " + ReqNo);
+
+            TempData["result"] = "SMS Status : " + result.Status;
+            return RedirectToAction("Index");
         }
     }
 }

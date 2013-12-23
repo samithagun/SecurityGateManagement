@@ -15,7 +15,7 @@
                 <div class='box-header fb-background'>
                     <div class='title'>
                         <i class='icon-money'></i>
-                        New Payment
+                        New Payment for @ViewBag.ReqNo
                     </div>
                     <div class='actions'>
                         <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
@@ -35,7 +35,7 @@
                         <div class='form-actions form-actions-padding-sm'>
                             <div class='row'>
                                 <div class='col-md-10 col-md-offset-2'>
-                                    <a href="@Url.Action("PayPal", "Payment")" class="btn btn-default" style="margin-bottom:5px">
+                                    <a href="@Url.Action("PayPal", "Payment", new { ReqNo = ViewBag.ReqNo })" class="btn btn-default" style="margin-bottom:5px">
                                         <i class="icon-pinterest-sign"></i>
                                         <span>Pay with Paypal</span></a>
                                     <a href="@Url.Action("Client", "Home")" class="btn btn-default" style="margin-bottom:5px">

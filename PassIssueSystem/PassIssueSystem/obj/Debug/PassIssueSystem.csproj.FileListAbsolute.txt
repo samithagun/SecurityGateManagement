@@ -264,3 +264,6 @@ C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIss
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\obj\Debug\PassIssueSystem.dll
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\obj\Debug\PassIssueSystem.pdb
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\obj\Debug\PassIssueSystem.csprojResolveAssemblyReference.cache
+C:\Users\samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\PayPalAdaptivePaymentsSDK.dll
+C:\Users\samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\PayPalCoreSDK.dll
+C:\Users\samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\RestApiSDK.dll
