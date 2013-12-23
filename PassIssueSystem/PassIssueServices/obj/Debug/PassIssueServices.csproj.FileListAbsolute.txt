@@ -1,5 +1,4 @@
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueServices\bin\PassIssueServices.dll
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueServices\bin\PassIssueServices.pdb
-C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueServices\obj\Debug\PassIssueServices.csprojResolveAssemblyReference.cache
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueServices\obj\Debug\PassIssueServices.dll
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueServices\obj\Debug\PassIssueServices.pdb

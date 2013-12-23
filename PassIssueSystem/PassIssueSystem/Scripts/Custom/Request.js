@@ -1,5 +1,5 @@
 ﻿function AddDetailRow() {
-    document.getElementById('template').style.display = "block";
+    document.getElementById('template').style.display = "table-row";
 
     var row = $('#template').clone();                       // Clone the 1st row
     var rowCount = $('#reqtable tr').length;                // No of rows in the table 

@@ -184,6 +184,8 @@ C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIss
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\Microsoft.Web.WebPages.OAuth.dll
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\Newtonsoft.Json.dll
+C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\PayPalCoreSDK.dll
+C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\RestApiSDK.dll
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\RestSharp.dll
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\System.Net.Http.Formatting.dll
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\System.Spatial.dll
@@ -203,9 +205,9 @@ C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIss
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\WebGrease.dll
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\WebMatrix.Data.dll
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\WebMatrix.WebData.dll
+C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\Newtonsoft.Json.xml
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\RestSharp.xml
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\EntityFramework.xml
-C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\Newtonsoft.Json.xml
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\System.Net.Http.Formatting.xml
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\System.Web.Helpers.xml
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\System.Web.Http.xml
@@ -263,7 +265,3 @@ C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIss
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\zh-Hant\System.Spatial.resources.dll
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\obj\Debug\PassIssueSystem.dll
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\obj\Debug\PassIssueSystem.pdb
-C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\obj\Debug\PassIssueSystem.csprojResolveAssemblyReference.cache
-C:\Users\samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\PayPalAdaptivePaymentsSDK.dll
-C:\Users\samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\PayPalCoreSDK.dll
-C:\Users\samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\RestApiSDK.dll

@@ -44,9 +44,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="PayPalAdaptivePaymentsSDK">
-      <HintPath>..\packages\PayPalAdaptivePaymentsSDK.2.7.109\lib\PayPalAdaptivePaymentsSDK.dll</HintPath>
-    </Reference>
     <Reference Include="PayPalCoreSDK">
       <HintPath>..\packages\PayPalCoreSDK.1.4.1\lib\net45\PayPalCoreSDK.dll</HintPath>
     </Reference>
@@ -212,6 +209,7 @@
     <Compile Include="Controllers\PassRequestController.cs" />
     <Compile Include="Controllers\PassTypeController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
+    <Compile Include="Controllers\PayPalController.cs" />
     <Compile Include="Controllers\VehicleTypeController.cs" />
     <Compile Include="DTOs\CardDetail.cs" />
     <Compile Include="DTOs\CheckInPerson.cs" />
@@ -238,6 +236,7 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="DTOs\PassRequest.cs" />
+    <Compile Include="Models\ConfirmedViewData.cs" />
     <Compile Include="Models\DBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -248,6 +247,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\PayPalViewData.cs" />
+    <Compile Include="Models\Utilities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Twilio\Core.cs" />
     <Compile Include="Twilio\Sms.cs" />
