@@ -25,10 +25,6 @@ namespace PassIssueSystem.Controllers
 
         public ActionResult Index()
         {
-            var comid = db.UserProfiles.Where(u => u.UserName == User.Identity.Name).Select(s => s.CompanyID).First();
-            ViewData["Company"] = db.Companies.Where(c => c.CompanyID == comid).Select(n => n.CompanyName).First().ToString();
-            ViewData["CompanyID"] = comid;
-
             var passreqhed = db.PassRequestHeds.Include(p => p.Company);
             
             return View(passreqhed.ToList());
@@ -52,10 +48,6 @@ namespace PassIssueSystem.Controllers
 
         public ActionResult Create()
         {
-            var comid = db.UserProfiles.Where(u => u.UserName == User.Identity.Name).Select(s => s.CompanyID).First();
-            ViewData["Company"] = db.Companies.Where(c => c.CompanyID == comid).Select(n => n.CompanyName).First().ToString();
-            ViewData["CompanyID"] = comid;
-
             ViewBag.PassCode = new SelectList(db.PassTypes, "PassCode", "Description");
             ViewBag.VehicleCode = new SelectList(db.VehicleTypes, "VehicleCode", "Description");
             
@@ -233,10 +225,6 @@ namespace PassIssueSystem.Controllers
         {            
             IEnumerable<PassRequestHed> PRH;
             
-            var comid = db.UserProfiles.Where(u => u.UserName == User.Identity.Name).Select(s => s.CompanyID).First();
-            ViewData["Company"] = db.Companies.Where(c => c.CompanyID == comid).Select(n => n.CompanyName).First().ToString();
-            ViewData["CompanyID"] = comid;
-
             if (Roles.IsUserInRole("Pass Office"))
             {
                 // Needs to filter with NIC No (ID == NIC No)

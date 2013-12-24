@@ -375,6 +375,9 @@
     <Content Include="Views\PassRequest\View.cshtml" />
     <Content Include="Views\PassIssue\Index.cshtml" />
     <Content Include="Views\Payment\Client.cshtml" />
+    <Content Include="Views\PayPal\Confirmed.cshtml" />
+    <Content Include="Views\PayPal\Success.cshtml" />
+    <Content Include="Views\PayPal\Void.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

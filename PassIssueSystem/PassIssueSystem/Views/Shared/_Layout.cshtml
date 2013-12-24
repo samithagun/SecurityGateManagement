@@ -214,7 +214,7 @@
                         <li>
                             <a class='dropdown-collapse ' href='#'>
                                 <i class='icon-building'></i>
-                                <span>@ViewData["Company"]</span>
+                                <span>@Session["Company"]</span>
                                 <i class='icon-angle-down angle-down'></i>
                             </a>
                             <ul class='nav nav-stacked'>
@@ -225,7 +225,7 @@
                                     </a>
                                 </li>
                                 <li class=''>
-                                    <a href="@Url.Action("View", "PassRequest", new { ReqNo = 0, ID = ViewData["CompanyID"] })">
+                                    <a href="@Url.Action("View", "PassRequest", new { ReqNo = 0, ID = Session["CompanyID"] })">
                                         <i class='icon-caret-right'></i>
                                         <span>Make Payments</span>
                                     </a>

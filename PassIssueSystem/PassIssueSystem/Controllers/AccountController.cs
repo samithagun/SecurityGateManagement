@@ -43,14 +43,11 @@ namespace PassIssueSystem.Controllers
 
                 if (Roles.IsUserInRole(model.UserName, "Administrator"))
                 {
-                    return RedirectToAction("Admin", "Home");
-                    
+                    return RedirectToAction("Admin", "Home");                    
                 }
+
                 else if (Roles.IsUserInRole(model.UserName, "Client User"))
                 {
-                    var comid = db.UserProfiles.Where(u => u.UserName == model.UserName).Select(s => s.CompanyID).First();
-                    ViewBag.Company = db.Companies.Where(c => c.CompanyID == comid).Select(n => n.CompanyName).First().ToString();
-
                     return RedirectToAction("Client", "Home");
                 }
 

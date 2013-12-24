@@ -44,13 +44,8 @@ namespace PassIssueSystem.Controllers
         public ActionResult Create(PaymentDetail paymentdetail)
         {
             try
-            {
-                //SMS Logic
-                //var client = new TwilioRestClient("AC73a7e5cc8ceb71599d77a664307425ee", "58f1829a5b6534d6acd3a25041742d17");
-                //var result = client.SendSmsMessage("+13312085208", "+94777006211", "Your Pass No : ");
-
-                //TempData["result"] = "SMS Status : " + result.Status;
-                
+            {              
+                //Need to Add payment saving logic.
                 return RedirectToAction("Index");
             }
             catch
@@ -77,14 +72,23 @@ namespace PassIssueSystem.Controllers
         /// Pays the pal.
         /// </summary>
         /// <returns></returns>
-        public ActionResult PayPal(string ReqNo )
+        public string SendSms(string SmsId)
         {
             // SMS Logic
             var client = new TwilioRestClient("AC73a7e5cc8ceb71599d77a664307425ee", "58f1829a5b6534d6acd3a25041742d17");
-            var result = client.SendSmsMessage("+13312085208", "+94777006211", "Your Pass No : " + ReqNo);
+            var result = client.SendSmsMessage("+13312085208", "+94777006211", "From Biyagama EPZ! Your Pass No : " + SmsId);
+            string Sms = "";
 
-            TempData["result"] = "SMS Status : " + result.Status;
-            return RedirectToAction("Index");
+            if (result.Status.ToString() != "Failed")
+            {
+                Sms = "SMS sent successfully. It will be delivered shortly.";
+            }
+            else
+            {
+                Sms = "SMS sending failed. Please try again later.";
+            }
+
+            return Sms;
         }
     }
 }

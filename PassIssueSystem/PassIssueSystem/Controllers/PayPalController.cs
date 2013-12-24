@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using PassIssueSystem.Controllers;
+using PassIssueSystem.Models;
+using PassIssueSystem.Twilio;
 using PayPal.Api.Payments;
 using PayPal.Exception;
 using PayPal.Manager;
@@ -14,13 +17,19 @@ namespace PayPal.Controllers
 {
     public class PayPalController : Controller
     {
+        private Entities db = new Entities();
+        public string smsId;
+
         //
         // GET: /Payment/
 
         public ActionResult CreatePayment(string description, decimal price, decimal tax = 0, decimal shipping = 0)
         {
             var viewData = new PayPalViewData();
-            var guid = Guid.NewGuid().ToString();
+            var guid = Guid.NewGuid().ToString();            
+            
+            //Newly added
+            HttpContext.Application["smsId"] = description;
 
             var paymentInit = new Payment
             {
@@ -49,7 +58,6 @@ namespace PayPal.Controllers
                 },
                 redirect_urls = new RedirectUrls
                 {
-                    //Needs to provide correct URLs
                     return_url = Utilities.ToAbsoluteUrl(HttpContext, String.Format("~/paypal/confirmed?id={0}", guid)),
                     cancel_url = Utilities.ToAbsoluteUrl(HttpContext, String.Format("~/paypal/canceled?id={0}", guid)),
                 },
@@ -61,7 +69,7 @@ namespace PayPal.Controllers
             {
                 var accessToken = new OAuthTokenCredential(ConfigManager.Instance.GetProperties()["ClientID"], ConfigManager.Instance.GetProperties()["ClientSecret"]).GetAccessToken();
                 var apiContext = new APIContext(accessToken);
-                var createdPayment = paymentInit.Create(apiContext);
+                var createdPayment = paymentInit.Create(apiContext);                
 
                 var approvalUrl = createdPayment.links.ToArray().FirstOrDefault(f => f.rel.Contains("approval_url"));
 
@@ -84,6 +92,13 @@ namespace PayPal.Controllers
             }
         }
 
+        /// <summary>
+        /// Confirmeds the specified identifier.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <param name="token">The token.</param>
+        /// <param name="payerId">The payer identifier.</param>
+        /// <returns></returns>
         public ActionResult Confirmed(Guid id, string token, string payerId)
         {
             var viewData = new ConfirmedViewData
@@ -109,11 +124,23 @@ namespace PayPal.Controllers
             return View(viewData);
         }
 
+        /// <summary>
+        /// Canceleds the specified identifier.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <param name="token">The token.</param>
+        /// <param name="payerId">The payer identifier.</param>
+        /// <returns></returns>
         public ActionResult Canceled(Guid id, string token, string payerId)
         {
-            return Content("Asshole.");
+            return Content("Let's Try Again!");
         }
 
+        /// <summary>
+        /// Captures the specified authorization identifier.
+        /// </summary>
+        /// <param name="authorizationId">The authorization identifier.</param>
+        /// <returns></returns>
         public ActionResult Capture(string authorizationId)
         {
             var viewData = new PayPalViewData();
@@ -138,10 +165,14 @@ namespace PayPal.Controllers
                            },
                        });
 
-
                     viewData.JsonResponse = JObject.Parse(capture.ConvertToJson()).ToString(Formatting.Indented);
+                    
+                    // Send Sms
+                    var smsId = HttpContext.Application["smsId"].ToString();
+                    PaymentController PC = new PaymentController();
+                    TempData["SMS"] = PC.SendSms(smsId);
 
-                    return View("Success", viewData);
+                    return View("Success");
                 }
 
                 viewData.ErrorMessage = "Could not find previous authorization.";

@@ -26,35 +26,34 @@
                 </div>
                 <div class="box-content">
                     <h3>Total Amount</h3>
-                    <div class="row invoice">                    
+                    <div class="row invoice">
                         <div class="col-sm-12">
                             <div class="text-left text-contrast subtotal">
                                 Rs. @ViewBag.Total
                             </div>
                         </div>
-                        <div class='form-actions form-actions-padding-sm'>
-                            <div class='row'>
-                                <div class='col-md-10 col-md-offset-2'>
-                                    @*<a href="@Url.Action("PayPal", "Payment", new { ReqNo = ViewBag.ReqNo })" class="btn btn-default" style="margin-bottom:5px">*@
-                                    
-                                    <a href="@Url.Action("CreatePayment", "PayPal", new { description = ViewBag.ReqNo, price = ViewBag.Total })" class="btn btn-default" style="margin-bottom:5px">
-                                        <i class="icon-pinterest-sign"></i>
-                                        <span>Pay with Paypal</span></a>
-                                    
-                                    <a href="@Url.Action("Client", "Home")" class="btn btn-default" style="margin-bottom:5px">
-                                        <i class="icon-undo"></i>
-                                        <span>Cancel</span></a>
-                                </div>
+                        <div class='row'>
+                            <div class='col-md-10 col-md-offset-2'>
+                                @*<a href="@Url.Action("PayPal", "Payment", new { ReqNo = ViewBag.ReqNo })" class="btn btn-default" style="margin-bottom:5px">*@
+
+                                <a href="@Url.Action("CreatePayment", "PayPal", new { description = ViewBag.ReqNo, price = ViewBag.Total })" class="btn btn-default" style="margin-bottom:5px">
+                                    <i class="icon-pinterest-sign"></i>
+                                    <span>Pay with Paypal</span></a>
+
+                                <a href="@Url.Action("Client", "Home")" class="btn btn-default" style="margin-bottom:5px">
+                                    <i class="icon-undo"></i>
+                                    <span>Cancel</span></a>
                             </div>
                         </div>
                     </div>
-
-                    @section Scripts {
-                        @Scripts.Render("~/bundles/jqueryval")
-                        @Scripts.Render("~/bundles/Custom")
-                    }
                 </div>
+
+                @section Scripts {
+                    @Scripts.Render("~/bundles/jqueryval")
+                    @Scripts.Render("~/bundles/Custom")
+                }
             </div>
         </div>
     </div>
+</div>
 </div>

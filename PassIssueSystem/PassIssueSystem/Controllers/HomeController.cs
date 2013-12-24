@@ -44,9 +44,9 @@ namespace PassIssueSystem.Controllers
 
         public ActionResult Client()
         {            
-            var comid = db.UserProfiles.Where(u => u.UserName == User.Identity.Name).Select(s => s.CompanyID).First();              
-            ViewData["Company"] = db.Companies.Where(c => c.CompanyID == comid).Select(n => n.CompanyName).First().ToString();
-            ViewData["CompanyID"] = comid;  
+            var comId = db.UserProfiles.Where(u => u.UserName == User.Identity.Name).Select(s => s.CompanyID).First();              
+            Session["Company"] = db.Companies.Where(c => c.CompanyID == comId).Select(n => n.CompanyName).First().ToString();
+            Session["CompanyID"] = comId;
 
             return View();
         }

@@ -28,6 +28,9 @@ namespace PassIssueSystem
             AuthConfig.RegisterAuth();
 
             AntiForgeryConfig.SuppressIdentityHeuristicChecks = true;
+
+            //This will send as the Pass No in Sms
+            Application["smsId"] = "";
         }
     }
 }
