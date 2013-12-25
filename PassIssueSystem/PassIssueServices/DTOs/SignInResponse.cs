@@ -12,9 +12,9 @@ namespace PassIssueServices.DTOs
     public class SignInResponse
     {
         [DataMember(Order = 0)]
-        public bool isValid { get; set; }
+        public bool isSuccess { get; set; }
 
         [DataMember(Order = 1)]
-        public AuthToken AuthToken { get; set; }
+        public AuthToken AuthenticationToken { get; set; }
     }
 }

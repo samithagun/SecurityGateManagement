@@ -5,7 +5,11 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using System.Web.Security;
 using PassIssueServices.DTOs;
+using WebMatrix.WebData;
+using System.Web.Security;
+using PassIssueSystem.Filters;
 
 namespace PassIssueServices
 {
@@ -13,13 +17,40 @@ namespace PassIssueServices
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class MobileService : IMobileService
     {
-        public SignInResponse SignInUser(SignInRequest Request)
+        string password = "help";
+        public SignInResponse SignInUser(SignInRequest request)
         {
-            //Needs to validate
-            SignInResponse Response = new SignInResponse();
-            Response.isValid = true;
+            SignInResponse response = new SignInResponse();
+            try
+            {
+                if (!WebSecurity.Initialized)
+                {
+                    WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: false); 
+                }
 
-            return Response;
+                if (WebSecurity.Login(request.UserName, request.Password))
+                {
+                    response.isSuccess = true;
+                    response.AuthenticationToken = new AuthToken();
+                    MembershipUser currentUser = Membership.GetUser(request.UserName, true /* userIsOnline */);
+                    string tokenValue = currentUser.UserName + "-" + currentUser.Email;
+                    AuthToken authT = new AuthToken();
+                    authT.UserID = currentUser.Email;
+                    authT.SessionData = StringCipher.Encrypt(tokenValue, password);
+                    response.AuthenticationToken = authT;
+
+                }
+                else
+                {
+                    response.isSuccess = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                response.isSuccess = false;
+                response.AuthenticationToken.SessionData = ex.Message;
+            }
+            return response;
         }
     }
 }
