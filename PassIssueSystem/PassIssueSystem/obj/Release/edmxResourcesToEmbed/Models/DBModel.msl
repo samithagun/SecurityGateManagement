@@ -140,6 +140,8 @@
     <EntitySetMapping Name="PassRequestHeds">
       <EntityTypeMapping TypeName="PassIssueSystemModel.PassRequestHed">
         <MappingFragment StoreEntitySet="PassRequestHed">
+          <ScalarProperty Name="Paid" ColumnName="Paid" />
+          <ScalarProperty Name="Issued" ColumnName="Issued" />
           <ScalarProperty Name="AddUser" ColumnName="AddUser" />
           <ScalarProperty Name="AddDate" ColumnName="AddDate" />
           <ScalarProperty Name="Comments" ColumnName="Comments" />

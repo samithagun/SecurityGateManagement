@@ -10,14 +10,18 @@ using PassIssueServices.DTOs;
 using WebMatrix.WebData;
 using System.Web.Security;
 using PassIssueSystem.Filters;
+using System.ServiceModel.Activation;
 
 namespace PassIssueServices
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
+
+    [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
+
     public class MobileService : IMobileService
     {
-        string password = "help";
+        string password = "zILL#940";
         public SignInResponse SignInUser(SignInRequest request)
         {
             SignInResponse response = new SignInResponse();
@@ -28,12 +32,12 @@ namespace PassIssueServices
                     WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: false); 
                 }
 
-                if (WebSecurity.Login(request.UserName, request.Password))
+                if (WebSecurity.Login(request.UserName, request.Password, persistCookie: false))
                 {
                     response.isSuccess = true;
                     response.AuthenticationToken = new AuthToken();
                     MembershipUser currentUser = Membership.GetUser(request.UserName, true /* userIsOnline */);
-                    string tokenValue = currentUser.UserName + "-" + currentUser.Email;
+                    string tokenValue = currentUser.UserName + "-" + currentUser.CreationDate;
                     AuthToken authT = new AuthToken();
                     authT.UserID = currentUser.Email;
                     authT.SessionData = StringCipher.Encrypt(tokenValue, password);

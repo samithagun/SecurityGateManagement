@@ -237,6 +237,8 @@
     <NavigationProperty Name="PassRequestDets" Relationship="PassIssueSystemModel.FK_PassRequestDet_PassRequestHed" FromRole="PassRequestHed" ToRole="PassRequestDet" />
     <NavigationProperty Name="PassReqVehicles" Relationship="PassIssueSystemModel.FK_PassReqVehicle_PassRequestHed" FromRole="PassRequestHed" ToRole="PassReqVehicle" />
     <NavigationProperty Name="PassIssueHeds" Relationship="PassIssueSystemModel.FK_PassIssueHed_PassRequestHed" FromRole="PassRequestHed" ToRole="PassIssueHed" />
+    <Property Type="Boolean" Name="Issued" Nullable="false" />
+    <Property Type="Boolean" Name="Paid" Nullable="false" />
   </EntityType>
   <EntityType Name="PassReqVehicle">
     <Key>

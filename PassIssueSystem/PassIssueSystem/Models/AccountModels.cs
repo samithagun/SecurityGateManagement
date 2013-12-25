@@ -104,6 +104,10 @@ namespace PassIssueSystem.Models
         [Required]
         [Display(Name = "Company")]
         public string CompanyID { get; set; }
+
+        [Required]
+        [Display(Name = "Role")]
+        public string Role { get; set; }
     }
 
     public class ExternalLogin

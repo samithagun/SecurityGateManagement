@@ -81,8 +81,8 @@ namespace PassIssueSystem.Controllers
         public ActionResult Register()
         {
             ViewBag.CompanyID = new SelectList(db.Companies, "CompanyID", "CompanyName");
+            
             //ViewBag.Roles = new SelectList(db.webpages_Roles, "RoleID", "RoleName");
-
             var rolesCollection = new List<string> { "Administrator", "Client User", "Pass Office" };
             ViewBag.Roles = new SelectList(rolesCollection);
             
@@ -99,11 +99,23 @@ namespace PassIssueSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+                var role = (SimpleRoleProvider)Roles.Provider;
+
+                // If the role doesn't yet exist, create the role first
+                if (!role.RoleExists(model.Role))
+                    role.CreateRole(model.Role);
+
                 // Attempt to register the user
                 try
                 {
-                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new {CompanyID = model.CompanyID });
+                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new {CompanyID = model.CompanyID });                   
+                    
+                    // Add user to the Role
+                    role.AddUsersToRoles(new[] { model.UserName }, new[] { model.Role });
+
+                    // Login from new User
                     WebSecurity.Login(model.UserName, model.Password);
+                    
                     return RedirectToAction("Index", "Home");
                 }
                 catch (MembershipCreateUserException e)
