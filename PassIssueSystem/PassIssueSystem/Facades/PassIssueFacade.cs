@@ -19,48 +19,43 @@ namespace PassIssueSystem.Facades
             return Obj;
         }
 
-        //public static List<PassRequestDet> MapModelToDet(PassRequestHed passReq)
-        //{
-        //    List<PassRequestDet> Obj = new List<PassRequestDet>();
-        //    Entities db = new Entities();
+        public static List<PassIssueDet> MapModelToDet(PassRequestHed passReq)
+        {
+            List<PassIssueDet> Obj = new List<PassIssueDet>();
+            Entities db = new Entities();
 
-        //    foreach (PassRequestDet Item in passReq.PassRequestDets)
-        //    {
-        //        if (Item.PersonNIC != null)
-        //        {
-        //            Obj.Add(new PassRequestDet()
-        //            {
-        //                PersonName = Item.PersonName,
-        //                PersonNIC = Item.PersonNIC,
-        //                PassCode = Item.PassCode,
-        //                MobileNo = Item.MobileNo,
-        //                PassFee = db.PassTypes.Where(p => p.PassCode == Item.PassCode).Select(t => t.PassFee).First(),
-        //            });
-        //        }
-        //    }
+            foreach (PassRequestDet Item in passReq.PassRequestDets)
+            {
+                if (Item.PersonNIC != null)
+                {
+                    Obj.Add(new PassIssueDet()
+                    {
+                        PersonNIC = Item.PersonNIC,
+                        MobileNo = Item.MobileNo,
+                    });
+                }
+            }
 
-        //    return Obj;
-        //}
+            return Obj;
+        }
 
-        //public static List<PassReqVehicle> MapModelToVehi(PassRequestHed passReq)
-        //{
-        //    List<PassReqVehicle> Obj = new List<PassReqVehicle>();
-        //    Entities db = new Entities();
+        public static List<PassIssueVehicle> MapModelToVehi(PassRequestHed passReq)
+        {
+            List<PassIssueVehicle> Obj = new List<PassIssueVehicle>();
+            Entities db = new Entities();
 
-        //    foreach (PassReqVehicle Item in passReq.PassReqVehicles)
-        //    {
-        //        if (Item.VehicleNo != null)
-        //        {
-        //            Obj.Add(new PassReqVehicle()
-        //            {
-        //                VehicleCode = Item.VehicleCode,
-        //                VehicleNo = Item.VehicleNo,
-        //                VehicleFee = db.VehicleTypes.Where(v => v.VehicleCode == Item.VehicleCode).Select(t => t.VehicleFee).First(),
-        //            });
-        //        }
-        //    }
+            foreach (PassReqVehicle Item in passReq.PassReqVehicles)
+            {
+                if (Item.VehicleNo != null)
+                {
+                    Obj.Add(new PassIssueVehicle()
+                    {
+                        VehicleNo = Item.VehicleNo,
+                    });
+                }
+            }
 
-        //    return Obj;
-        //}
+            return Obj;
+        }
     }
 }

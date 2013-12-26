@@ -224,15 +224,18 @@ namespace PassIssueSystem.Controllers
         public ActionResult View(int ReqNo, String ID)
         {            
             IEnumerable<PassRequestHed> PRH;
+            IEnumerable<PassRequestDet> PRD;
             
             if (Roles.IsUserInRole("Pass Office"))
             {
-                // Needs to filter with NIC No (ID == NIC No)
-                PRH = db.PassRequestHeds.ToList().Where(p => p.Issued == false);
+                // PRH = db.PassRequestHeds.ToList().Where(p => p.Issued == false);
+
+                PRD = db.PassRequestDets.ToList().Where(d => d.PersonNIC == ID);
+                PRH = db.PassRequestHeds.ToList().Where(p => PRD.Select(d => d.PassReqNo).Contains(p.PassReqNo));             
             }
             else
             {
-                // Needs to filter with Company ID
+                // Lists all the not paid passes issued from users' company
                 PRH = db.PassRequestHeds.ToList().Where(p => p.Paid == false && p.CompanyID == ID);    
             }
             

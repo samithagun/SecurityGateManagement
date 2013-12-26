@@ -42,7 +42,6 @@ namespace PassIssueServices
                     authT.UserID = currentUser.Email;
                     authT.SessionData = StringCipher.Encrypt(tokenValue, password);
                     response.AuthenticationToken = authT;
-
                 }
                 else
                 {

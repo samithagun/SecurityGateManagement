@@ -14,109 +14,36 @@
 <body class='contrast-fb'>
     <header>
         <nav class='navbar navbar-default'>
-            <a class='navbar-brand' href='index.html'>
-                <img width="21" height="21" class="logo-xs" alt="Flatty" src="Images/logo_xs.png" />
-            </a>
             <a class='toggle-nav btn pull-left' href='#'>
                 <i class='icon-reorder'></i>
             </a>
             <ul class='nav'>
                 <li class='dropdown light only-icon'>
-                    <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
-                        <i class='icon-cog'></i>
-                    </a>
-                    <ul class='dropdown-menu color-settings'>
-                        <li class='color-settings-body-color'>
-                            <div class='color-title'>Change body color</div>
-                            <a data-change-to='Content/Theme/light-theme.css' href='#'>Light
-                            <small>(default)</small>
-                            </a>
-                            <a data-change-to='Content/Theme/dark-theme.css' href='#'>Dark
-                            </a>
-                        </li>
-                        <li class='divider'></li>
-                        <li class='color-settings-contrast-color'>
-                            <div class='color-title'>Change contrast color</div>
-                            <a data-change-to="contrast-red" href="#"><i class='icon-cog text-red'></i>
-                                Red                                
-                            </a>
-                            <a data-change-to="contrast-blue" href="#"><i class='icon-cog text-blue'></i>
-                                Blue
-                                <small>(default)</small>
-                            </a>
-                            <a data-change-to="contrast-orange" href="#"><i class='icon-cog text-orange'></i>
-                                Orange
-                            </a>
-                            <a data-change-to="contrast-purple" href="#"><i class='icon-cog text-purple'></i>
-                                Purple
-                            </a>
-                            <a data-change-to="contrast-green" href="#"><i class='icon-cog text-green'></i>
-                                Green
-                            </a>
-                            <a data-change-to="contrast-fb" href="#"><i class='icon-cog text-fb'></i>
-                                Facebook
-                            </a>
-                            <a data-change-to="contrast-dark" href="#"><i class='icon-cog text-dark'></i>
-                                Dark
-                            </a>
-                            <a data-change-to="contrast-pink" href="#"><i class='icon-cog text-pink'></i>
-                                Pink
-                            </a>
-                            <a data-change-to="contrast-banana" href="#"><i class='icon-cog text-banana'></i>
-                                Banana
-                            </a>
-                            <a data-change-to="contrast-brown" href="#"><i class='icon-cog text-brown'></i>
-                                Brown
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class='dropdown medium only-icon widget'>
-                    <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
-                        <i class='icon-rss'></i>
-                        <div class='label'>1</div>
-                    </a>
-                    <ul class='dropdown-menu'>
-                        <li>
-                            <a href='#'>
-                                <div class='widget-body'>
-                                    <div class='pull-left icon'>
-                                        <i class='icon-user text-success'></i>
-                                    </div>
-                                    <div class='pull-left text'>
-                                        New Pass Request from Lumiere Textiles
-                      <small class='text-muted'>just now</small>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class='dropdown dark user-menu'>
-                    <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
-                        <span class='user-name'>Hi @User.Identity.Name</span>
-                        <b class='caret'></b>
-                    </a>
-                    <ul class='dropdown-menu'>
-                        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
-                        {
-                            @Html.AntiForgeryToken()
-                            <li>
-                                <a href="javascript:document.getElementById('logoutForm').submit()">
-                                    <i class='icon-signout'></i>
-                                    Sign Out
-                                </a>
-                            </li>                      
-                        }
-                    </ul>
-                </li>
+                    <li class='dropdown dark user-menu'>
+                        <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
+                            <span class='user-name'>Hi @User.Identity.Name</span>
+                            <b class='caret'></b>
+                        </a>
+                        <ul class='dropdown-menu'>
+                            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <li>
+                                    <a href="javascript:document.getElementById('logoutForm').submit()">
+                                        <i class='icon-signout'></i>
+                                        Sign Out
+                                    </a>
+                                </li>                      
+                            }
+                        </ul>
+                    </li>
             </ul>
-            <form action='search_results.html' class='navbar-form navbar-right hidden-xs' method='get'>
-                <button class='btn btn-link icon-search' name='button' type='submit'></button>
+            @*<form action="_search.cshtml" class='navbar-form navbar-right hidden-xs' method='get'>
+                <button class='btn btn-link icon-search' name='button' ></button>
                 <div class='form-group'>
                     <input value="" class="form-control" placeholder="Search..." autocomplete="off" id="q_header" name="q" type="text" />
                 </div>
-            </form>
+            </form>*@
         </nav>
     </header>
     <div id='wrapper'>
@@ -182,8 +109,8 @@
                             </a>
                         </li>
                         <li>
-                            <a class='dropdown-collapse ' href='#'>
-                                <i class='icon-tint'></i>
+                            <a class='dropdown-collapse' href='#'>
+                                <i class=' icon-ticket'></i>
                                 <span>Pass Office</span>
                                 <i class='icon-angle-down angle-down'></i>
                             </a>
