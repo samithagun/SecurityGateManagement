@@ -83,3 +83,4 @@ C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIss
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueServices\bin\System.Net.Http.Formatting.xml
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueServices\bin\Mono.Math.xml
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueServices\obj\Release\PassIssueServices.csproj.App.config
+C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueServices\bin\System.Web.Optimization.xml

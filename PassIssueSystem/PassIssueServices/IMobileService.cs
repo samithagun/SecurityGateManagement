@@ -20,5 +20,13 @@ namespace PassIssueServices
         BodyStyle = WebMessageBodyStyle.Bare,
         UriTemplate = "SignInUser")]
         SignInResponse SignInUser(SignInRequest Request);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+        ResponseFormat = WebMessageFormat.Xml,
+        RequestFormat = WebMessageFormat.Xml,
+        BodyStyle = WebMessageBodyStyle.Bare,
+        UriTemplate = "CheckPass")]
+        PassResponse CheckPass(PassRequest Request);
     }
 }

@@ -205,8 +205,10 @@ C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIss
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\WebGrease.dll
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\WebMatrix.Data.dll
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\WebMatrix.WebData.dll
+C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\Antlr3.Runtime.pdb
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\Newtonsoft.Json.xml
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\RestSharp.xml
+C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\System.Web.Optimization.xml
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\EntityFramework.xml
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\System.Net.Http.Formatting.xml
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\System.Web.Helpers.xml
@@ -265,6 +267,4 @@ C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIss
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\zh-Hant\System.Spatial.resources.dll
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\obj\Debug\PassIssueSystem.dll
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\obj\Debug\PassIssueSystem.pdb
-C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\Antlr3.Runtime.pdb
-C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\System.Web.Optimization.xml
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\obj\Debug\PassIssueSystem.csprojResolveAssemblyReference.cache

@@ -118,10 +118,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/23/2013 19:57:15</publishTime>
     </File>
     <File Include="bin/PassIssueSystem.dll">
-      <publishTime>12/26/2013 15:51:30</publishTime>
+      <publishTime>12/26/2013 21:44:26</publishTime>
     </File>
     <File Include="bin/PassIssueSystem.pdb">
-      <publishTime>12/26/2013 15:51:29</publishTime>
+      <publishTime>12/26/2013 21:44:26</publishTime>
     </File>
     <File Include="bin/PayPalCoreSDK.dll">
       <publishTime>12/23/2013 19:57:15</publishTime>
@@ -414,6 +414,21 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Account/Manage.cshtml">
       <publishTime>12/12/2013 22:46:20</publishTime>
     </File>
+    <File Include="Views/Account/PassType/Create.cshtml">
+      <publishTime>12/14/2013 12:43:19</publishTime>
+    </File>
+    <File Include="Views/Account/PassType/Delete.cshtml">
+      <publishTime>11/03/2013 15:05:14</publishTime>
+    </File>
+    <File Include="Views/Account/PassType/Details.cshtml">
+      <publishTime>11/03/2013 15:05:10</publishTime>
+    </File>
+    <File Include="Views/Account/PassType/Edit.cshtml">
+      <publishTime>12/08/2013 19:24:46</publishTime>
+    </File>
+    <File Include="Views/Account/PassType/Index.cshtml">
+      <publishTime>12/08/2013 19:24:52</publishTime>
+    </File>
     <File Include="Views/Account/Register.cshtml">
       <publishTime>12/25/2013 23:57:53</publishTime>
     </File>
@@ -550,7 +565,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/24/2013 21:40:56</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/26/2013 15:54:11</publishTime>
+      <publishTime>12/26/2013 21:31:22</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -8,9 +8,10 @@ using System.Text;
 using System.Web.Security;
 using PassIssueServices.DTOs;
 using WebMatrix.WebData;
-using System.Web.Security;
+//using System.Web.Security;
 using PassIssueSystem.Filters;
 using System.ServiceModel.Activation;
+using PassIssueSystem.Models;
 
 namespace PassIssueServices
 {
@@ -22,14 +23,16 @@ namespace PassIssueServices
     public class MobileService : IMobileService
     {
         string password = "zILL#940";
+
         public SignInResponse SignInUser(SignInRequest request)
         {
             SignInResponse response = new SignInResponse();
             try
             {
+                // This method needs to be called before using any other method relating to Entity Framework.
                 if (!WebSecurity.Initialized)
                 {
-                    WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: false); 
+                    WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: false);
                 }
 
                 if (WebSecurity.Login(request.UserName, request.Password, persistCookie: false))
@@ -37,10 +40,12 @@ namespace PassIssueServices
                     response.isSuccess = true;
                     response.AuthenticationToken = new AuthToken();
                     MembershipUser currentUser = Membership.GetUser(request.UserName, true /* userIsOnline */);
-                    string tokenValue = currentUser.UserName + "-" + currentUser.CreationDate;
+                    string tokenValue = currentUser.UserName;
+
                     AuthToken authT = new AuthToken();
-                    authT.UserID = currentUser.Email;
+                    authT.UserID = WebSecurity.GetUserId(request.UserName).ToString();
                     authT.SessionData = StringCipher.Encrypt(tokenValue, password);
+
                     response.AuthenticationToken = authT;
                 }
                 else
@@ -53,6 +58,48 @@ namespace PassIssueServices
                 response.isSuccess = false;
                 response.AuthenticationToken.SessionData = ex.Message;
             }
+
+            return response;
+        }
+
+        public PassResponse CheckPass(PassRequest request)
+        {
+            PassResponse response = new PassResponse();
+
+            try
+            {
+                Entities db = new Entities();
+                IEnumerable<PassRequestHed> PRH;
+
+                int ReqNo = Convert.ToInt16(request.PassNo);
+
+                // Get pass request details
+                PRH = db.PassRequestHeds.ToList().Where(p => p.PassReqNo == ReqNo && p.Issued == true);
+
+                // Check whether there are any valid data
+                if (PRH.Select(h => h.PassIssueHeds).FirstOrDefault() != null)
+                {
+                    response.isValid = true;
+                    response.AuthenticationToken = new AuthToken();
+                    string tokenValue = PRH.Select(r => r.CompanyID).First();
+
+                    AuthToken authT = new AuthToken();
+                    authT.UserID = PRH.Select(r => r.AddUser).First();
+                    authT.SessionData = StringCipher.Encrypt(tokenValue, password);
+
+                    response.AuthenticationToken = authT;
+                }
+                else
+                {
+                    response.isValid = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                response.isValid = false;
+                response.AuthenticationToken.SessionData = ex.Message;
+            }
+
             return response;
         }
     }
