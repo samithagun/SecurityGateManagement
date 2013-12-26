@@ -96,3 +96,5 @@ C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIss
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\obj\Release\PassIssueSystem.pdb
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\PayPalCoreSDK.dll
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\RestApiSDK.dll
+C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\Antlr3.Runtime.pdb
+C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueSystem\bin\System.Web.Optimization.xml

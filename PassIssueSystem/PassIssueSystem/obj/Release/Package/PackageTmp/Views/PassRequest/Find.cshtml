@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Find Pass Requests";
+}
+<div class="col-xs-12">
+    <div class="row">
+    </div>
+</div>
+<div class="col-sm-12">
+    <div class='row'>
+        <div class='col-sm-12'>
+            <div class='box bordered-box fb-border'>
+                <div class='box-header fb-background'>
+                    <div class='title'>
+                        <i class='icon-key'></i>
+                        Find Pass Request
+                    </div>
+                    <div class='actions'>
+                        <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+                        </a>
+                        <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <form class="form form-horizontal" style="margin-bottom: 0;" method="post" accept-charset="UTF-8">
+                        @using (Html.BeginForm("Find", "PassRequest", FormMethod.Post))
+                        {
+                            <div class="form-group">
+                                <div class="col-md-2 control-label">
+                                    @Html.Label("Find by NIC")
+                                </div>
+                                <div class="col-md-5">
+                                    @Html.TextBox("NIC", "", new { @class = "form-control", id = "NIC", required = "required" })
+                                    @Html.ValidationMessage("ErrorMsg")
+                                </div>
+                            </div>
+                            
+                            <div class='form-actions form-actions-padding-sm'>
+                                <div class='row'>
+                                    <div class='col-md-10 col-md-offset-2'>
+                                        <button class='btn btn-success' type='submit' value="Search" style="margin-bottom: 5px">
+                                            <i class='icon-save'></i>
+                                            Search
+                                        </button>
+                                        <a href="@Url.Action("Index", "PassRequest")" class="btn btn-default" style="margin-bottom:5px">
+                                            <i class="icon-undo"></i>
+                                            <span>Cancel</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

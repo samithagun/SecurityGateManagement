@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrapjs")
+    @Styles.Render("~/Content/bootstrapcss")
+    @RenderSection("scripts", required: false)
+
+    <title>Biyagama EPZ</title>
+</head>
+<body class='contrast-fb'>
+    <header>
+        <nav class='navbar navbar-default'>
+            <a class='toggle-nav btn pull-left' href='#'>
+                <i class='icon-reorder'></i>
+            </a>
+            <ul class='nav'>
+                <li class='dropdown light only-icon'>
+                    <li class='dropdown dark user-menu'>
+                        <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
+                            <span class='user-name'>Hi @User.Identity.Name</span>
+                            <b class='caret'></b>
+                        </a>
+                        <ul class='dropdown-menu'>
+                            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <li>
+                                    <a href="javascript:document.getElementById('logoutForm').submit()">
+                                        <i class='icon-signout'></i>
+                                        Sign Out
+                                    </a>
+                                </li>                      
+                            }
+                        </ul>
+                    </li>
+            </ul>
+            @*<form action="_search.cshtml" class='navbar-form navbar-right hidden-xs' method='get'>
+                <button class='btn btn-link icon-search' name='button' ></button>
+                <div class='form-group'>
+                    <input value="" class="form-control" placeholder="Search..." autocomplete="off" id="q_header" name="q" type="text" />
+                </div>
+            </form>*@
+        </nav>
+    </header>
+    <div id='wrapper'>
+        <div id='main-nav-bg'></div>
+        <nav id='main-nav'>
+            <div class='navigation'>
+                <div class='search'>
+                    <form action='search_results.html' method='get'>
+                        <div class='search-wrapper'>
+                            <input value="" class="search-query form-control" placeholder="Search..." autocomplete="off" name="q" type="text" />
+                            <button class='btn btn-link icon-search' name='button' type='submit'></button>
+                        </div>
+                    </form>
+                </div>
+                <ul class='nav nav-stacked'>
+                    @if (Roles.IsUserInRole("Administrator"))
+                    {
+                        <li class=''>
+                            <a href="@Url.Action("Admin", "Home")">
+                                <i class='icon-dashboard'></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class=''>
+                            <a class="dropdown-collapse" href="#"><i class='icon-edit'></i>
+                                <span>Administrator</span>
+                                <i class='icon-angle-down angle-down'></i>
+                            </a>
+                            <ul class='nav nav-stacked'>
+                                <li class=''>
+                                    <a href="@Url.Action("Index", "Company")">
+                                        <i class='icon-caret-right'></i>
+                                        <span>Company Details</span>
+                                    </a>
+                                </li>
+                                <li class=''>
+                                    <a href="@Url.Action("Index", "PassType")">
+                                        <i class='icon-caret-right'></i>
+                                        <span>Pass Details</span>
+                                    </a>
+                                </li>
+                                <li class=''>
+                                    <a href="@Url.Action("Index", "VehicleType")">
+                                        <i class='icon-caret-right'></i>
+                                        <span>Vehicle Details</span>
+                                    </a>
+                                </li>
+                                <li class=''>
+                                    <a href="@Url.Action("Index", "Account")">
+                                        <i class='icon-caret-right'></i>
+                                        <span>User Details</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+                    @if (Roles.IsUserInRole("Pass Office"))
+                    {
+                        <li class=''>
+                            <a href="@Url.Action("Office", "Home")">
+                                <i class='icon-dashboard'></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class='dropdown-collapse' href='#'>
+                                <i class=' icon-ticket'></i>
+                                <span>Pass Office</span>
+                                <i class='icon-angle-down angle-down'></i>
+                            </a>
+                            <ul class='nav nav-stacked'>
+                                <li class=''>
+                                    <a href="@Url.Action("Find", "PassRequest")">
+                                        <i class='icon-caret-right'></i>
+                                        <span>Issue Passes</span>
+                                    </a>
+                                </li>
+                                <li class=''>
+                                    <a href="@Url.Action("Index", "PassIssue")">
+                                        <i class='icon-caret-right'></i>
+                                        <span>View Issued Passes</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+                    @if (Roles.IsUserInRole("Client User"))
+                    {
+                        <li class=''>
+                            <a href="@Url.Action("Client", "Home")">
+                                <i class='icon-dashboard'></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class='dropdown-collapse ' href='#'>
+                                <i class='icon-building'></i>
+                                <span>@Session["Company"]</span>
+                                <i class='icon-angle-down angle-down'></i>
+                            </a>
+                            <ul class='nav nav-stacked'>
+                                <li class=''>
+                                    <a href="@Url.Action("Create", "PassRequest")">
+                                        <i class='icon-caret-right'></i>
+                                        <span>New Pass Request</span>
+                                    </a>
+                                </li>
+                                <li class=''>
+                                    <a href="@Url.Action("View", "PassRequest", new { ReqNo = 0, ID = Session["CompanyID"] })">
+                                        <i class='icon-caret-right'></i>
+                                        <span>Make Payments</span>
+                                    </a>
+                                </li>
+                                <li class=''>
+                                    <a href="@Url.Action("Index", "PassRequest")">
+                                        <i class='icon-caret-right'></i>
+                                        <span>View Requested Passes</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </nav>
+        <section id='content'>
+            <div class="container">
+                <div id="content-wrapper" class="row">
+                    <div id="body">
+                        @RenderSection("featured", required: false)
+                        <section class="content-wrapper main-contsent clear-fix">
+                            @RenderBody()
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <footer id='footer'>
+                <div class='footer-wrapper'>
+                    <div class='row'>
+                        <div class='col-sm-6 text'>
+                            Copyright © 2013 Samitha Gunarathna
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+﻿@model IEnumerable<PassIssueSystem.Models.PassType>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="col-xs-12">
+    <div class="row">
+    </div>
+</div>
+<div class="col-sm-12">
+    <div class='row'>
+        <div class='col-sm-12'>
+            <div class='box bordered-box fb-border'>
+                <div class='box-header fb-background'>
+                    <div class='title'>
+                        <i class='icon-key'></i>
+                        Pass Details
+                    </div>
+                    <div class='actions'>
+                        <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+                        </a>
+                        <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                        </a>
+                    </div>
+                </div>
+                <div class='box-content box-double-padding'>
+                    <p>
+                        <a href="@Url.Action("Create", "PassType")" class="btn btn-success"  style="margin-bottom:5px"><i class="icon-bullseye"></i>
+                            <span>New</span></a>
+                    </p>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="box bordered-box green-border" style="margin-bottom: 0;">
+                                <div class="box-header green-background">
+                                </div>
+                                <div class="responsive-table">
+                                    <div class="scrollable-area">
+                                        <table class="table table-bordered table-hover table-striped" style="margin-bottom: 0;">
+                                            <tr>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.Description)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.PassFee)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.Status)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.AddDate)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.AddUser)
+                                                </th>
+                                                <th></th>
+                                            </tr>
+
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Description)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.PassFee)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Status)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.AddDate)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.AddUser)
+                                                    </td>
+                                                    <td>
+                                                        <a href="@Url.Action("Edit", "PassType", new { id = item.PassCode })" class="btn btn-warning btn-sm" style="margin-bottom:auto"><i class="icon-bullseye"></i>
+                                                            <span>Edit</span></a> |
+                                                        <a href="@Url.Action("Details", "PassType", new { id = item.PassCode })" class="btn btn-info btn-sm" style="margin-bottom:auto"><i class="icon-bullseye"></i>
+                                                            <span>Details</span></a> |
+                                                        <a href="@Url.Action("Delete", "PassType", new { id = item.PassCode })" class="btn btn-danger btn-sm" style="margin-bottom:auto"><i class="icon-bullseye"></i>
+                                                            <span>Delete</span></a>
+                                                    </td>
+                                                </tr>                            
+                                            }
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

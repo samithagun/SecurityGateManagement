@@ -1,0 +1,75 @@
+﻿@model IEnumerable<PassIssueSystem.Models.PassRequestHed>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequiredFrom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequiredTo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comments)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AddDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AddUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Issued)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Paid)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompanyID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequiredFrom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequiredTo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comments)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AddDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AddUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Issued)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Paid)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PassReqNo }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PassReqNo }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PassReqNo })
+        </td>
+    </tr>
+}
+
+</table>

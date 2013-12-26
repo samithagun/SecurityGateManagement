@@ -1,0 +1,133 @@
+﻿@model PassIssueSystem.Models.Company
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="col-xs-12">
+    <div class="row">
+    </div>
+</div>
+<div class="col-sm-12">
+    <div class='row'>
+        <div class='col-sm-12'>
+            <div class='box bordered-box fb-border'>
+                <div class='box-header fb-background'>
+                    <div class='title'>
+                        <i class='icon-building'></i>
+                        Company Details
+                    </div>
+                    <div class='actions'>
+                        <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+                        </a>
+                        <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                        </a>
+                    </div>
+                </div>
+                <div class='box-content box-double-padding'>
+                    <fieldset>
+                        <legend>@Html.DisplayNameFor(model => model.CompanyID)</legend>
+
+                        @{
+                            var c1 = (PassIssueSystem.Models.Company)ViewData["currentcompany"];
+                            var c2 = (PassIssueSystem.Models.Company)TempData["currentcompany"];
+                        }
+                        <div class="display-label">
+                            @Html.DisplayNameFor(model => model.CompanyName)
+                        </div>
+                        <div class="display-field">
+                            @Html.DisplayFor(model => model.CompanyName)
+                        </div>
+
+                        <div class="display-label">
+                            @Html.DisplayNameFor(model => model.Address1)
+                        </div>
+                        <div class="display-field">
+                            @Html.DisplayFor(model => model.Address1)
+                        </div>
+
+                        <div class="display-label">
+                            @Html.DisplayNameFor(model => model.Address2)
+                        </div>
+                        <div class="display-field">
+                            @Html.DisplayFor(model => model.Address2)
+                        </div>
+
+                        <div class="display-label">
+                            @Html.DisplayNameFor(model => model.Address3)
+                        </div>
+                        <div class="display-field">
+                            @Html.DisplayFor(model => model.Address3)
+                        </div>
+
+                        <div class="display-label">
+                            @Html.DisplayNameFor(model => model.BOIApproveNo)
+                        </div>
+                        <div class="display-field">
+                            @Html.DisplayFor(model => model.BOIApproveNo)
+                        </div>
+
+                        <div class="display-label">
+                            @Html.DisplayNameFor(model => model.BOIApproveDate)
+                        </div>
+                        <div class="display-field">
+                            @Html.DisplayFor(model => model.BOIApproveDate)
+                        </div>
+
+                        <div class="display-label">
+                            @Html.DisplayNameFor(model => model.Telephone1)
+                        </div>
+                        <div class="display-field">
+                            @Html.DisplayFor(model => model.Telephone1)
+                        </div>
+
+                        <div class="display-label">
+                            @Html.DisplayNameFor(model => model.Telephone2)
+                        </div>
+                        <div class="display-field">
+                            @Html.DisplayFor(model => model.Telephone2)
+                        </div>
+
+                        <div class="display-label">
+                            @Html.DisplayNameFor(model => model.Fax)
+                        </div>
+                        <div class="display-field">
+                            @Html.DisplayFor(model => model.Fax)
+                        </div>
+
+                        <div class="display-label">
+                            @Html.DisplayNameFor(model => model.Status)
+                        </div>
+                        <div class="display-field">
+                            @Html.DisplayFor(model => model.Status)
+                        </div>
+
+                        <div class="display-label">
+                            @Html.DisplayNameFor(model => model.AddDate)
+                        </div>
+                        <div class="display-field">
+                            @Html.DisplayFor(model => model.AddDate)
+                        </div>
+
+                        <div class="display-label">
+                            @Html.DisplayNameFor(model => model.AddUser)
+                        </div>
+                        <div class="display-field">
+                            @Html.DisplayFor(model => model.AddUser)
+                        </div>
+                    </fieldset>
+
+                    <div class='form-actions form-actions-padding-sm'>
+                        <div class='row'>
+                            <div class='col-md-10 col-md-offset-2'>
+                                <a href="@Url.Action("Index", "Company")" class="btn btn-default" style="margin-bottom:5px">
+                                    <i class="icon-undo"></i>
+                                    <span>Back to List</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

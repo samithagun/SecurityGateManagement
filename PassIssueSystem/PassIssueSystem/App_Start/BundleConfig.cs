@@ -39,6 +39,7 @@ namespace PassIssueSystem
                         "~/Content/Theme/bootbox.min.css",
                         "~/Content/Theme/fullcalender.css",
                         "~/Content/Theme/fullcalender.print.css",
+                        "~/Content/Theme/font-awesome.min.css",
                         "~/Content/Theme/light-theme.css",
                         "~/Content/Theme/theme-colors.css",
                         "~/Content/Theme/bootstrap*"));
