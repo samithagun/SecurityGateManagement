@@ -25,7 +25,8 @@ namespace PassIssueSystem.Controllers
 
         public ActionResult Index()
         {
-            var passreqhed = db.PassRequestHeds.Include(p => p.Company);
+            // Gets the pass requests entered from users' company
+            var passreqhed = db.PassRequestHeds.Include(p => p.Company).Where( c => c.CompanyID == db.UserProfiles.Where(u => u.UserName == WebSecurity.CurrentUserName).Select(s => s.CompanyID).FirstOrDefault()) ;
             
             return View(passreqhed.ToList());
         }

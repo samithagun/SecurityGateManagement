@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PassIssueSystem.Models;
+using WebMatrix.WebData;
 
 namespace PassIssueSystem.Controllers
 {
+    [Authorize]
     public class PassIssueController : Controller
     {
+        private Entities db = new Entities();
+
         //
         // GET: /PassIssue/
 
@@ -50,55 +55,59 @@ namespace PassIssueSystem.Controllers
             }
         }
 
-        //
-        // GET: /PassIssue/Edit/5
-
-        public ActionResult Edit(int id)
+        /// <summary>
+        /// Saves the pass issue hed.
+        /// </summary>
+        /// <param name="Hed">The hed.</param>
+        /// <returns></returns>
+        [ValidateAntiForgeryToken]
+        public int SavePassIssueHed(PassIssueHed Hed)
         {
-            return View();
+            Hed.AddDate = DateTime.Now;
+            Hed.AddUser = WebSecurity.CurrentUserName;
+
+            if (ModelState.IsValid)
+            {
+                db.PassIssueHeds.Add(Hed);
+                db.SaveChanges();
+            }
+
+            return Hed.PassReqNo;
         }
 
-        //
-        // POST: /PassIssue/Edit/5
-
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        /// <summary>
+        /// Saves the pass issue det.
+        /// </summary>
+        /// <param name="passrequestdet">The passrequestdet.</param>
+        /// <param name="refNo">The reference no.</param>
+        public void SavePassIssueDet(List<PassIssueDet> passrequestdet, int refNo)
         {
-            try
+            foreach (PassIssueDet Det in passrequestdet)
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
+                if (ModelState.IsValid)
+                {
+                    Det.PassNo = refNo;
+                    db.PassIssueDets.Add(Det);
+                    db.SaveChanges();
+                }
             }
         }
 
-        //
-        // GET: /PassIssue/Delete/5
-
-        public ActionResult Delete(int id)
+        /// <summary>
+        /// Saves the pass req vehi.
+        /// </summary>
+        /// <param name="passreqvehicle">The passreqvehicle.</param>
+        /// <param name="refNo">The reference no.</param>
+        public void SavePassReqVehi(List<PassIssueVehicle> passreqvehicle, int refNo)
         {
-            return View();
-        }
-
-        //
-        // POST: /PassIssue/Delete/5
-
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
+            foreach (PassIssueVehicle Vehi in passreqvehicle)
             {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
+                if (ModelState.IsValid)
+                {
+                    Vehi.PassNo = refNo;
+                    db.PassIssueVehicles.Add(Vehi);
+                    db.SaveChanges();
+                }
             }
         }
     }

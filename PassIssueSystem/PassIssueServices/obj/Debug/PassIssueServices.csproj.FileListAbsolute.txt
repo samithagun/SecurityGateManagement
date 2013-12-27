@@ -41,11 +41,8 @@ C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIss
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueServices\bin\PayPalCoreSDK.dll
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueServices\bin\System.Web.Http.WebHost.dll
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueServices\bin\Org.Mentalis.Security.Cryptography.dll
-C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueServices\bin\WebGrease.dll
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueServices\bin\System.Net.Http.Formatting.dll
-C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueServices\bin\DotNetOpenAuth.AspNet.dll
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueServices\bin\Mono.Math.dll
-C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueServices\bin\Antlr3.Runtime.dll
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueServices\bin\PassIssueSystem.pdb
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueServices\bin\DotNetOpenAuth.Core.xml
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueServices\bin\DotNetOpenAuth.Core.UI.xml
@@ -84,8 +81,6 @@ C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIss
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueServices\bin\System.Web.Http.WebHost.xml
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueServices\bin\Org.Mentalis.Security.Cryptography.xml
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueServices\bin\System.Net.Http.Formatting.xml
-C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueServices\bin\DotNetOpenAuth.AspNet.xml
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueServices\bin\Mono.Math.xml
-C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueServices\bin\Antlr3.Runtime.pdb
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueServices\obj\Debug\PassIssueServices.dll
 C:\Users\Samitha\Documents\GitHub\SecurityGateManagement\PassIssueSystem\PassIssueServices\obj\Debug\PassIssueServices.pdb

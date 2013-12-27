@@ -15,11 +15,11 @@ namespace PassIssueSystem.Facades
             Entities db = new Entities();
 
             var DetTotal = db.PassRequestDets.Where(r => r.PassReqNo == ReqNo).Sum(p => p.PassFee);
+
+            // (decimal?) will return null if there are no records
+            var VehiTotal = db.PassReqVehicles.Where(r => r.PassReqNo == ReqNo).Sum(p => (decimal?)p.VehicleFee);
             
-            // Need to check for null
-            var VehiTotal = db.PassReqVehicles.Where(r => r.PassReqNo == ReqNo).Sum(p => p.VehicleFee);
-            
-            Total = DetTotal + VehiTotal;
+            Total = DetTotal + Convert.ToDecimal(VehiTotal);
             
             return Total;
         }
