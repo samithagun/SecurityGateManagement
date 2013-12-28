@@ -8,13 +8,14 @@ namespace PassIssueSystem.Facades
 {
     public class PassIssueFacade
     {
-        private static PassIssueHed MapModelToHed(PassRequestHed passReq)
+       public static PassIssueHed MapModelToHed(PassRequestHed passReq)
         {
             PassIssueHed Obj = new PassIssueHed();
 
             Obj.PassReqNo = passReq.PassReqNo;
             Obj.ValidFrom = passReq.RequiredFrom;
             Obj.ValidTo = passReq.RequiredTo;
+            Obj.IssueDate = DateTime.Today.Date;
 
             return Obj;
         }
@@ -56,6 +57,19 @@ namespace PassIssueSystem.Facades
             }
 
             return Obj;
+        }
+
+        /// <summary>
+        /// Updates the pass req.
+        /// </summary>
+        /// <param name="passReq">The pass req.</param>
+        /// <returns></returns>
+        public static PassRequestHed UpdatePassReq(PassRequestHed passReq)
+        {
+            passReq.Issued = true;
+            passReq.Paid = true;
+
+            return passReq;
         }
     }
 }

@@ -44,7 +44,7 @@ namespace PassIssueSystem.Facades
         /// </summary>
         /// <param name="passReq">The pass req.</param>
         /// <returns></returns>
-        private static PassRequestHed MapModelToHed(PassRequestHed passReq)
+        public static PassRequestHed MapModelToHed(PassRequestHed passReq)
         {
             PassRequestHed Obj = new PassRequestHed();
 

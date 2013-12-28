@@ -72,7 +72,7 @@ namespace PassIssueSystem.Controllers
                 db.SaveChanges();
             }
 
-            return Hed.PassReqNo;
+            return Hed.PassNo;
         }
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace PassIssueSystem.Controllers
         /// </summary>
         /// <param name="passreqvehicle">The passreqvehicle.</param>
         /// <param name="refNo">The reference no.</param>
-        public void SavePassReqVehi(List<PassIssueVehicle> passreqvehicle, int refNo)
+        public void SavePassIssueVehi(List<PassIssueVehicle> passreqvehicle, int refNo)
         {
             foreach (PassIssueVehicle Vehi in passreqvehicle)
             {

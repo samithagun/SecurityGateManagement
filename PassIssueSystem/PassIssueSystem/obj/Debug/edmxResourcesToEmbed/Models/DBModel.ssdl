@@ -246,7 +246,7 @@
     <Property Name="PassNo" Type="int" Nullable="false" />
     <Property Name="PassTotal" Type="numeric" Nullable="false" Precision="12" Scale="2" />
     <Property Name="PaymentDate" Type="datetime" Nullable="false" />
-    <Property Name="PaymentType" Type="char" Nullable="false" MaxLength="3" />
+    <Property Name="PaymentType" Type="varchar" Nullable="false" MaxLength="6" />
     <Property Name="AddDate" Type="datetime" Nullable="false" />
     <Property Name="AddUser" Type="varchar" Nullable="false" MaxLength="50" />
   </EntityType>

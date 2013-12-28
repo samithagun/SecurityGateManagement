@@ -9,6 +9,11 @@ namespace PassIssueSystem.Facades
     public class PaymentFacade
     {
 
+        /// <summary>
+        /// Gets the pass total.
+        /// </summary>
+        /// <param name="ReqNo">The req no.</param>
+        /// <returns></returns>
         public static decimal GetPassTotal(int ReqNo)
         {
             decimal Total = 0;

@@ -15,7 +15,7 @@
                 <div class='box-header fb-background'>
                     <div class='title'>
                         <i class='icon-money'></i>
-                        New Payment
+                        New Payment for @ViewBag.ReqNo
                     </div>
                     <div class='actions'>
                         <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div class="box-content">
-                    <form class="form form-horizontal" style="margin-bottom: 0;" method="post" action="#" accept-charset="UTF-8">
+                    <form class="form form-horizontal" style="margin-bottom: 0;" method="post" action="@Url.Action("Create", "Payment", new { paymentdetail = Model, reqno = ViewBag.ReqNo, price = ViewBag.Total })" accept-charset="UTF-8">
                         @using (Html.BeginForm())
                         {
                             @Html.AntiForgeryToken()
@@ -34,55 +34,53 @@
                             <fieldset>
                                 <legend>Payment Details</legend>
 
-                                <div class="form-group">
-                                    <div class="col-md-2 control-label">
-                                        @Html.LabelFor(model => model.PassTotal)
-                                    </div>
-                                    <div class="col-md-5">
-                                        @Html.TextBoxFor(model => model.PassTotal, new { @class = "form-control", @value = ViewBag.Total })
-                                        @Html.ValidationMessageFor(model => model.PassTotal)
-                                        @*<strong>ViewBag.Total</strong>*@
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="col-md-2 control-label">
-                                        @Html.LabelFor(model => model.PaymentDate)
-                                    </div>
-                                    <div class="col-md-5">
-                                        <div class='datetimepicker-input input-group' id='datetimepicker'>
-                                            @Html.TextBoxFor(model => model.PaymentDate, new { @class = "form-control", @value = DateTime.Today.Date })
-                                            <span class='input-group-addon'>
-                                                <span data-icon-element=''></span>
-                                            </span>
-                                        </div>
-                                        @Html.ValidationMessageFor(model => model.PaymentDate)
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="col-md-2 control-label">
-                                        @Html.LabelFor(model => model.PaymentType)
-                                    </div>
-                                    <div class="col-md-5">
-                                        @Html.TextBoxFor(model => model.PaymentType, new { @class = "form-control" })
-                                        @Html.ValidationMessageFor(model => model.PaymentType)
-                                    </div>
-                                </div>
-
-                                <div class='form-actions form-actions-padding-sm'>
-                                    <div class='row'>
-                                        <div class='col-md-10 col-md-offset-2'>
-                                            <button class='btn btn-primary' value="Create" style="margin-bottom: 5px">
-                                                <i class='icon-save'></i>
-                                                Save
-                                            </button>
-                                            <a href="@Url.Action("Client", "Home")" class="btn btn-default" style="margin-bottom:5px">
-                                                <i class="icon-undo"></i>
-                                                <span>Cancel</span></a>
+                                <h3>Total Amount</h3>
+                                <div class="row invoice">
+                                    <div class="col-sm-12">
+                                        <div class="text-left text-contrast subtotal">
+                                            Rs. @ViewBag.Total
                                         </div>
                                     </div>
                                 </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-2 control-label">
+                                            @Html.LabelFor(model => model.PaymentDate)
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class='datetimepicker-input input-group' id='paydatepicker'>
+                                                @Html.TextBoxFor(model => model.PaymentDate, new { @class = "form-control" })
+                                                <span class='input-group-addon'>
+                                                    <span data-icon-element=''></span>
+                                                </span>
+                                            </div>
+                                            @Html.ValidationMessageFor(model => model.PaymentDate)
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-2 control-label">
+                                            @Html.LabelFor(model => model.PaymentType)
+                                        </div>
+                                        <div class="col-md-5">
+                                            @Html.DropDownListFor(model => model.PaymentType, (IEnumerable<SelectListItem>)ViewBag.PayTypes, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.PaymentType)
+                                        </div>
+                                    </div>
+
+                                    <div class='form-actions form-actions-padding-sm'>
+                                        <div class='row'>
+                                            <div class='col-md-10 col-md-offset-2'>
+                                                <button class='btn btn-primary' value="Create" style="margin-bottom: 5px">
+                                                    <i class='icon-save'></i>
+                                                    Save
+                                                </button>
+                                                <a href="@Url.Action("Office", "Home")" class="btn btn-default" style="margin-bottom:5px">
+                                                    <i class="icon-undo"></i>
+                                                    <span>Cancel</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
                             </fieldset>
                         }
                     </form>

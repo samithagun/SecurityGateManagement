@@ -34,7 +34,7 @@ namespace PassIssueSystem.Controllers
         //
         // GET: /PassRequest/Details/5
 
-        public ActionResult Details(string id = null)
+        public ActionResult Details(int id)
         {
             PassRequestHed passrequesthed = db.PassRequestHeds.Find(id);
             if (passrequesthed == null)
