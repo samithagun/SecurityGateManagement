@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using PassIssueSystem.Controllers;
+using PassIssueSystem.Facades;
 using PassIssueSystem.Models;
 using PassIssueSystem.Twilio;
 using PayPal.Api.Payments;
@@ -28,7 +29,7 @@ namespace PayPal.Controllers
             var viewData = new PayPalViewData();
             var guid = Guid.NewGuid().ToString();            
             
-            //Newly added
+            // Newly added. Keeps the Request No as in a global variable
             HttpContext.Application["smsId"] = description;
 
             var paymentInit = new Payment
@@ -167,10 +168,20 @@ namespace PayPal.Controllers
 
                     viewData.JsonResponse = JObject.Parse(capture.ConvertToJson()).ToString(Formatting.Indented);
                     
-                    // Send Sms
+                    // Newly added
+                    // Sends the Sms
                     var smsId = HttpContext.Application["smsId"].ToString();
                     PaymentController PC = new PaymentController();
                     TempData["SMS"] = PC.SendSms(smsId);
+
+                    // Get relevent request details
+                    PassRequestHed passReq = new PassRequestHed();
+                    passReq = db.PassRequestHeds.Find(Convert.ToInt16(smsId));     
+
+                    // Update Pass request (Paid & Issued flags)
+                    passReq = PassIssueFacade.UpdatePassReq(passReq);
+                    db.Entry(passReq).State = System.Data.EntityState.Modified;
+                    db.SaveChanges();     
 
                     return View("Success");
                 }

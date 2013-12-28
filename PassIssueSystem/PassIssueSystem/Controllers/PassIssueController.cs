@@ -18,7 +18,8 @@ namespace PassIssueSystem.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            // Gets all the passes issued from the user
+            return View(db.PassIssueHeds.ToList().Where(p => p.AddUser == WebSecurity.CurrentUserName));
         }
 
         //

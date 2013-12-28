@@ -232,12 +232,12 @@ namespace PassIssueSystem.Controllers
                 // PRH = db.PassRequestHeds.ToList().Where(p => p.Issued == false);
 
                 PRD = db.PassRequestDets.ToList().Where(d => d.PersonNIC == ID);
-                PRH = db.PassRequestHeds.ToList().Where(p => PRD.Select(d => d.PassReqNo).Contains(p.PassReqNo));             
+                PRH = db.PassRequestHeds.ToList().Where(p => PRD.Select(d => d.PassReqNo).Contains(p.PassReqNo) && p.Issued == false && p.Paid == false);             
             }
             else
             {
                 // Lists all the not paid passes issued from users' company
-                PRH = db.PassRequestHeds.ToList().Where(p => p.Paid == false && p.CompanyID == ID);    
+                PRH = db.PassRequestHeds.ToList().Where(p => p.Paid == false && p.Issued == false && p.CompanyID == ID);    
             }
             
             if (PRH == null)

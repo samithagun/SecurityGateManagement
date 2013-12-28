@@ -12,7 +12,7 @@ namespace PassIssueSystem.Facades
 {
     public class PassRequestFacade
     {
-        //private Entities db = new Entities();
+        //Entities db = new Entities();
 
         /// <summary>
         /// Saves the pass request.
@@ -62,8 +62,8 @@ namespace PassIssueSystem.Facades
         /// <returns></returns>
         public static List<PassRequestDet> MapModelToDet(PassRequestHed passReq)
         {
-            List<PassRequestDet> Obj = new List<PassRequestDet>();
             Entities db = new Entities();
+            List<PassRequestDet> Obj = new List<PassRequestDet>();            
 
             foreach (PassRequestDet Item in passReq.PassRequestDets)
             {
@@ -90,8 +90,8 @@ namespace PassIssueSystem.Facades
         /// <returns></returns>
         public static List<PassReqVehicle> MapModelToVehi(PassRequestHed passReq)
         {
-            List<PassReqVehicle> Obj = new List<PassReqVehicle>();
             Entities db = new Entities();
+            List<PassReqVehicle> Obj = new List<PassReqVehicle>();            
 
             foreach (PassReqVehicle Item in passReq.PassReqVehicles)
             {
@@ -117,9 +117,7 @@ namespace PassIssueSystem.Facades
         public static int GetRequestFromID(String NIC)
         {
             Entities db = new Entities();
-
             var ReqNo = db.PassRequestDets.Where(d => d.PersonNIC == NIC).Select(p => p.PassReqNo).FirstOrDefault();
-            //PassRequestHed Obj = db.PassRequestHeds.Find(ReqNo);
 
             return ReqNo;
         }

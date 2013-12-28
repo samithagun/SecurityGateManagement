@@ -128,9 +128,17 @@ namespace PassIssueSystem.Controllers
         /// <returns></returns>
         public string SendSms(string SmsId)
         {
+            // Get data for sms
+            var reqno = Convert.ToInt16(SmsId);
+            var request = db.PassRequestHeds.Where(p => p.PassReqNo == reqno).First();
+            var company = db.Companies.Where(c => c.CompanyID == request.CompanyID).Select(s => s.CompanyName).First().ToString();
+            
+            var mobileno = "+94777006211";
+            var smstext = "From Biyagama EPZ. You have been issued a Gate Pass by " + company + ". Pass No is: " + SmsId + ".";
+
             // SMS Logic
             var client = new TwilioRestClient("AC73a7e5cc8ceb71599d77a664307425ee", "58f1829a5b6534d6acd3a25041742d17");
-            var result = client.SendSmsMessage("+13312085208", "+94777006211", "From Biyagama EPZ! Your Pass No : " + SmsId);
+            var result = client.SendSmsMessage("+13312085208", mobileno, smstext);
             string Sms = "";
 
             if (result.Status.ToString() != "Failed")
