@@ -372,7 +372,7 @@
     <Property Type="Int32" Name="PassNo" Nullable="false" />
     <Property Type="Decimal" Name="PassTotal" Nullable="false" Precision="12" Scale="2" />
     <Property Type="DateTime" Name="PaymentDate" Nullable="false" Precision="3" />
-    <Property Type="String" Name="PaymentType" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="PaymentType" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
     <Property Type="DateTime" Name="AddDate" Nullable="false" Precision="3" />
     <Property Type="String" Name="AddUser" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="PassIssueHed" Relationship="PassIssueSystemModel.FK_PaymentDetail_PassIssueHed" FromRole="PaymentDetail" ToRole="PassIssueHed" />

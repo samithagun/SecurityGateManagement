@@ -35,6 +35,9 @@
                                         <table class="table table-bordered table-hover table-striped" style="margin-bottom: 0;">
                                             <tr>
                                                 <th>
+                                                    @Html.DisplayNameFor(model => model.PassReqNo)
+                                                </th>
+                                                <th>
                                                     @Html.DisplayNameFor(model => model.RequiredFrom)
                                                 </th>
                                                 <th>
@@ -52,15 +55,15 @@
                                                 <th>
                                                     @Html.DisplayNameFor(model => model.AddDate)
                                                 </th>
-                                                <th>
-                                                    @Html.DisplayNameFor(model => model.AddUser)
-                                                </th>
                                                 <th></th>
                                             </tr>
 
                                             @foreach (var item in Model)
                                             {
                                                 <tr>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.PassReqNo)
+                                                    </td>
                                                     <td>
                                                         @Html.DisplayFor(modelItem => item.RequiredFrom)
                                                     </td>
@@ -80,10 +83,7 @@
                                                         @Html.DisplayFor(modelItem => item.AddDate)
                                                     </td>
                                                     <td>
-                                                        @Html.DisplayFor(modelItem => item.AddUser)
-                                                    </td>
-                                                    <td>
-                                                        <a href="@Url.Action("Details", "PassType", new { id = item.PassReqNo })" class="btn btn-info btn-sm" style="margin-bottom:auto"><i class="icon-bullseye"></i>
+                                                        <a href="@Url.Action("Details", "PassRequest", new { id = item.PassReqNo })" class="btn btn-info btn-sm" style="margin-bottom:auto"><i class="icon-bullseye"></i>
                                                             <span>Details</span></a>
                                                     </td>
                                                 </tr>                            

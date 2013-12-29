@@ -69,22 +69,28 @@ namespace PassIssueServices
             try
             {
                 Entities db = new Entities();
-                IEnumerable<PassRequestHed> PRH;
+                PassRequestHed PRH;
 
                 int ReqNo = Convert.ToInt16(request.PassNo);
 
                 // Get pass request details
-                PRH = db.PassRequestHeds.ToList().Where(p => p.PassReqNo == ReqNo && p.Issued == true);
+                PRH = db.PassRequestHeds.ToList().Where(p => p.PassReqNo == ReqNo && p.Issued == true).FirstOrDefault();
 
                 // Check whether there are any valid data
-                if (PRH.Select(h => h.PassIssueHeds).FirstOrDefault() != null)
+                if (PRH.PassReqNo != 0)
                 {
                     response.isValid = true;
                     response.AuthenticationToken = new AuthToken();
-                    string tokenValue = PRH.Select(r => r.CompanyID).First();
+                    string tokenValue = PRH.CompanyID;
+
+                    response.personName = db.PassRequestDets.Where(i => i.PassReqNo == PRH.PassReqNo).Select(d => d.PersonName).First().ToString();
+                    response.personNIC = db.PassRequestDets.Where(i => i.PassReqNo == PRH.PassReqNo).Select(d => d.PersonNIC).First().ToString();
+                    response.issuedCompany = db.Companies.Where(i => i.CompanyID == PRH.CompanyID).Select(d => d.CompanyName).First().ToString();
+                    response.validFrom = PRH.RequiredFrom;
+                    response.validTo = PRH.RequiredTo;
 
                     AuthToken authT = new AuthToken();
-                    authT.UserID = PRH.Select(r => r.AddUser).First();
+                    authT.UserID = PRH.AddUser;
                     authT.SessionData = StringCipher.Encrypt(tokenValue, password);
 
                     response.AuthenticationToken = authT;

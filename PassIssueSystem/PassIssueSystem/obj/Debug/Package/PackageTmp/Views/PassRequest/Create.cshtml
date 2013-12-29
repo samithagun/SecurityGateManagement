@@ -14,7 +14,7 @@
             <div class='box bordered-box fb-border'>
                 <div class='box-header fb-background'>
                     <div class='title'>
-                        <i class='icon-road'></i>
+                        <i class='icon-key'></i>
                         New Pass Request
                     </div>
                     <div class='actions'>
@@ -111,8 +111,8 @@
                                                             </th>
                                                             <th>Mobile No
                                                             </th>
-                                                            <th>VIP
-                                                            </th>
+@*                                                            <th>VIP
+                                                            </th>*@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -132,7 +132,7 @@
                                                             <td>
                                                                 @Html.TextBoxFor(model => model.PassRequestDets.FirstOrDefault().MobileNo, new { @class = "form-control", id = "mobile" })
                                                             </td>
-                                                            <td>
+@*                                                            <td>
                                                                 <div class="col-md-5">
                                                                     <a class='btn btn-success btn-xs' href='#'>
                                                                         <i class='icon-ok'></i>
@@ -141,7 +141,7 @@
                                                                         <i class='icon-remove'></i>
                                                                     </a>
                                                                 </div>
-                                                            </td>
+                                                            </td>*@
                                                         </tr>
                                                         <tr id="reqrow1">
                                                             <td>
@@ -159,7 +159,7 @@
                                                             <td>
                                                                 @Html.TextBoxFor(model => model.PassRequestDets.FirstOrDefault().MobileNo, new { @class = "form-control", id = "mobile" })
                                                             </td>
-                                                            <td>
+                                                            @*<td>
                                                                 <div class="col-md-5">
                                                                     <a class='btn btn-success btn-xs' href='#'>
                                                                         <i class='icon-ok'></i>
@@ -168,7 +168,7 @@
                                                                         <i class='icon-remove'></i>
                                                                     </a>
                                                                 </div>
-                                                            </td>
+                                                            </td>*@
                                                         </tr>
                                                     </tbody>
                                                 </table>
