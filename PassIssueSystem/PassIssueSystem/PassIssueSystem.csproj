@@ -238,6 +238,7 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="DTOs\PassRequest.cs" />
+    <Compile Include="Models\DateTimeModelBinder.cs" />
     <Compile Include="Models\PayPal\ConfirmedViewData.cs" />
     <Compile Include="Models\DBModel.Context.cs">
       <AutoGen>True</AutoGen>

@@ -1,0 +1,140 @@
+﻿@model IEnumerable<PassIssueSystem.Models.Company>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="col-xs-12">
+    <div class="row">
+    </div>
+</div>
+<div class="col-sm-12">
+    <div class='row'>
+        <div class='col-sm-12'>
+            <div class='box bordered-box fb-border'>
+                <div class='box-header fb-background'>
+                    <div class='title'>
+                        <i class='icon-user'></i>
+                        Company Details
+                    </div>
+                    <div class='actions'>
+                        <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+                        </a>
+                        <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                        </a>
+                    </div>
+                </div>
+                <div class='box-content box-double-padding'>
+                    <p>
+                        <a href="@Url.Action("Create", "Company")" class="btn btn-success"  style="margin-bottom:5px"><i class="icon-bullseye"></i>
+                            <span>New</span></a>
+                    </p>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="box bordered-box green-border" style="margin-bottom: 0;">
+                                <div class="box-header green-background">
+                                </div>
+                                <div class="responsive-table">
+                                    <div class="scrollable-area">
+                                        <table class="table table-bordered table-hover table-striped" style="margin-bottom: 0;">
+                                            <tr>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.CompanyName)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.Address1)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.Address2)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.Address3)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.BOIApproveNo)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.BOIApproveDate)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.Telephone1)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.Telephone2)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.Fax)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.Status)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.AddDate)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.AddUser)
+                                                </th>
+                                                <th>Action</th>
+                                            </tr>
+
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.CompanyName)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Address1)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Address2)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Address3)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.BOIApproveNo)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.BOIApproveDate)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Telephone1)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Telephone2)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Fax)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Status)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.AddDate)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.AddUser)
+                                                    </td>
+                                                    <td>
+                                                                                <a href="@Url.Action("Edit", "Company", new { id = item.CompanyID })" class="btn btn-warning btn-sm" style="margin-bottom:auto"><i class="icon-bullseye"></i>
+                            <span>Edit</span></a> |
+                                                                                <a href="@Url.Action("Details", "Company", new { id = item.CompanyID })" class="btn btn-info btn-sm" style="margin-bottom:auto"><i class="icon-bullseye"></i>
+                            <span>Details</span></a> |
+                                                                                <a href="@Url.Action("Delete", "Company", new { id = item.CompanyID })" class="btn btn-danger btn-sm" style="margin-bottom:auto"><i class="icon-bullseye"></i>
+                            <span>Delete</span></a>
+                                                    </td>
+                                                </tr>                            
+                                            }
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

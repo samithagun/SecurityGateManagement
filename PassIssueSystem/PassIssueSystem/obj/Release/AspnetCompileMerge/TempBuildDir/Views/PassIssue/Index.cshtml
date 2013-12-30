@@ -1,0 +1,101 @@
+﻿@model IEnumerable<PassIssueSystem.Models.PassIssueHed>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="col-xs-12">
+    <div class="row">
+    </div>
+</div>
+<div class="col-sm-12">
+    <div class='row'>
+        <div class='col-sm-12'>
+            <div class='box bordered-box fb-border'>
+                <div class='box-header fb-background'>
+                    <div class='title'>
+                        <i class='icon-key'></i>
+                        Issued Pass Details
+                    </div>
+                    <div class='actions'>
+                        <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+                        </a>
+                        <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                        </a>
+                    </div>
+                </div>
+                <div class='box-content box-double-padding'>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="box bordered-box green-border" style="margin-bottom: 0;">
+                                <div class="box-header green-background">
+                                </div>
+                                <div class="responsive-table">
+                                    <div class="scrollable-area">
+                                        <table class="table table-bordered table-hover table-striped" style="margin-bottom: 0;">
+                                            <tr>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.PassReqNo)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.IssueDate)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.ValidFrom)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.ValidTo)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.IsVIP)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.AddDate)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.AddUser)
+                                                </th>
+                                                <th></th>
+                                            </tr>
+
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.PassReqNo)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.IssueDate)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.ValidFrom)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.ValidTo)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.IsVIP)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.AddDate)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.AddUser)
+                                                    </td>
+                                                    <td>
+                                                        <a href="@Url.Action("Details", "PassRequest", new { id = item.PassNo })" class="btn btn-info btn-sm" style="margin-bottom:auto"><i class="icon-bullseye"></i>
+                                                            <span>Details</span></a>
+                                                    </td>
+                                                </tr>                            
+                                            }
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

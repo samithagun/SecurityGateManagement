@@ -1,4 +1,5 @@
-﻿function AddDetailRow() {
+﻿
+function AddDetailRow() {
     document.getElementById('template').style.display = "table-row";
 
     var row = $('#template').clone();                       // Clone the 1st row
@@ -11,14 +12,37 @@
 }
 
 function SubmitData() {
+
     var passReq = new Object();
-
-    passReq.RequiredFrom = $('#datefrom').val();
-    passReq.RequiredTo = $('#dateto').val();
-    passReq.Comments = $('#comments').val();
-
     var reqDets = [];
     var reqVehi = [];
+
+    var dFrom = new Date($('#datefrom').val());
+    passReq.RequiredFrom = dFrom;
+    //passReq.RequiredFrom = $('#datefrom').val();
+
+    var dTo = new Date($('#dateto').val());
+    passReq.RequiredTo = dTo;
+    //passReq.RequiredTo = $('#dateto').val();
+
+    if (passReq.RequiredTo < passReq.RequiredFrom) {
+        alert('Invalid date range');
+        return;
+    }
+
+    passReq.Comments = $('#comments').val();
+    if (passReq.Comments == "") {
+        alert('Comments are required');
+        return;
+    }
+
+    //var row = $('table#reqtable > tbody > tr#reqrow1');
+    var name = document.getElementById('name1');
+    var nic = document.getElementById('nic1');
+    if (name.value == "" || nic.value == "") {
+        alert('At least 1 person details are required');
+        return;
+    }
 
     $("table#reqtable > tbody > tr").each(function () {
 
@@ -30,7 +54,7 @@ function SubmitData() {
         });
 
         reqVehi.push({
-            VehicleCode: $(this).find("#vehitype").val(),
+            VehicleCode: $(this).find("#vehitype1").val(),
             VehicleNo: $('td:eq(3) input', this).val(),
         });
     });
@@ -49,10 +73,10 @@ function SubmitData() {
 
         success: function (msg) {
             if (msg.refNo === 0) {
-                alert('Request Sending Failed');
+                alert('Request sending failed');
             }
             else {
-                alert('Request Sent Successfully! Request No: ' + msg.refNo);
+                alert('Request sent successfully! Request No: ' + msg.refNo);
                 passReq = [];
             }
         },

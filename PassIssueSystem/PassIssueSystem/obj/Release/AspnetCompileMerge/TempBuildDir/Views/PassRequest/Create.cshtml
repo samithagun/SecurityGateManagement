@@ -1,0 +1,227 @@
+﻿@model PassIssueSystem.Models.PassRequestHed
+
+@{
+    ViewBag.Title = "New Pass Request";
+}
+
+<div class="col-xs-12">
+    <div class="row">
+    </div>
+</div>
+<div class="col-sm-12">
+    <div class='row'>
+        <div class='col-sm-12'>
+            <div class='box bordered-box fb-border'>
+                <div class='box-header fb-background'>
+                    <div class='title'>
+                        <i class='icon-key'></i>
+                        New Pass Request
+                    </div>
+                    <div class='actions'>
+                        <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+                        </a>
+                        <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <form class="form form-horizontal" style="margin-bottom: 0;" method="post" action="#" accept-charset="UTF-8">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+
+                            <fieldset>
+                                <legend class='box-header green-background'>Fill Pass Details</legend>
+
+                                <div class="form-group">
+                                    <div class="col-md-2 control-label">
+                                        @Html.LabelFor(model => model.PassRequestDets.FirstOrDefault().PassType)
+                                    </div>
+                                    <div class="col-md-5">
+                                        @Html.DropDownListFor(model => model.PassRequestDets.FirstOrDefault().PassType, (IEnumerable<SelectListItem>)ViewBag.PassCode, new { @class = "form-control", id = "passtype" })
+                                        @Html.ValidationMessageFor(model => model.PassRequestDets.FirstOrDefault().PassType)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-2 control-label">
+                                        @Html.LabelFor(model => model.RequiredFrom)
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class='datepicker-input input-group' id='datepickerfrom' data-format="yyyy-MM-dd">
+                                            @Html.TextBoxFor(model => model.RequiredFrom, new { @class = "form-control", id = "datefrom" })
+                                            <span class='input-group-addon'>
+                                                <span class="icon-calendar" data-time-icon="icon-time" data-date-icon="icon-calendar"></span>
+                                            </span>
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.RequiredFrom)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-2 control-label">
+                                        @Html.LabelFor(model => model.RequiredTo)
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class='datepicker-input input-group' id='datepickerto' data-format="yyyy-MM-dd">
+                                            @Html.TextBoxFor(model => model.RequiredTo, new { @class = "form-control", id = "dateto" })
+                                            <span class='input-group-addon'>
+                                                <span class="icon-calendar" data-time-icon="icon-time" data-date-icon="icon-calendar"></span>
+                                            </span>
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.RequiredTo)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-2 control-label">
+                                        @Html.LabelFor(model => model.Comments)
+                                    </div>
+                                    <div class="col-md-5">
+                                        @Html.TextBoxFor(model => model.Comments, new { @class = "form-control", id = "comments" })
+                                        @Html.ValidationMessageFor(model => model.Comments)
+                                    </div>
+                                </div>
+
+                                <div class='box bordered-box blue-border' style='margin-bottom: 0;'>
+                                    <div class='box-header green-background'>
+                                        <div class='title'>Fill Person Details</div>
+                                        <div class='actions'>
+                                            <a class="btn btn-inverse btn-xs" onclick="AddDetailRow();"><i class='icon-plus'></i>
+                                                Add Row
+                                            </a>
+                                            <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class='box-content box-no-padding'>
+                                        <div class='responsive-table'>
+                                            <div class='scrollable-area'>
+                                                <table class='responsive-table' style='margin-bottom: auto;' id="reqtable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Name
+                                                            </th>
+                                                            <th>National ID No
+                                                            </th>
+                                                            <th>Vehicle Type
+                                                            </th>
+                                                            <th>Vehicle No
+                                                            </th>
+                                                            <th>Mobile No
+                                                            </th>
+                                                            @*                                                            <th>VIP
+                                                            </th>*@
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr id="template" style="display: none">
+                                                            <td>
+                                                                @Html.TextBoxFor(model => model.PassRequestDets.FirstOrDefault().PersonName, new { @class = "form-control", id = "name" })
+                                                            </td>
+                                                            <td>
+                                                                @Html.TextBoxFor(model => model.PassRequestDets.FirstOrDefault().PersonNIC, new { @class = "form-control", id = "nic" })
+                                                            </td>
+                                                            <td>
+                                                                @Html.DropDownListFor(model => model.PassReqVehicles.FirstOrDefault().VehicleCode, (IEnumerable<SelectListItem>)ViewBag.VehicleCode, new { @class = "form-control", id = "vehitype" })
+                                                            </td>
+                                                            <td>
+                                                                @Html.TextBoxFor(model => model.PassReqVehicles.FirstOrDefault().VehicleNo, new { @class = "form-control", id = "vehino" })
+                                                            </td>
+                                                            <td>
+                                                                @Html.TextBoxFor(model => model.PassRequestDets.FirstOrDefault().MobileNo, new { @class = "form-control", id = "mobile" })
+                                                            </td>
+                                                            @*                                                            <td>
+                                                                <div class="col-md-5">
+                                                                    <a class='btn btn-success btn-xs' href='#'>
+                                                                        <i class='icon-ok'></i>
+                                                                    </a>
+                                                                    <a class='btn btn-danger btn-xs' href='#'>
+                                                                        <i class='icon-remove'></i>
+                                                                    </a>
+                                                                </div>
+                                                            </td>*@
+                                                        </tr>
+                                                        <tr id="reqrow1">
+                                                            <td>
+                                                                @Html.TextBoxFor(model => model.PassRequestDets.FirstOrDefault().PersonName, new { @class = "form-control", id = "name" })
+                                                            </td>
+                                                            <td>
+                                                                @Html.TextBoxFor(model => model.PassRequestDets.FirstOrDefault().PersonNIC, new { @class = "form-control", id = "nic" })
+                                                            </td>
+                                                            <td>
+                                                                @Html.DropDownListFor(model => model.PassReqVehicles.FirstOrDefault().VehicleCode, (IEnumerable<SelectListItem>)ViewBag.VehicleCode, new { @class = "form-control", id = "vehitype" })
+                                                            </td>
+                                                            <td>
+                                                                @Html.TextBoxFor(model => model.PassReqVehicles.FirstOrDefault().VehicleNo, new { @class = "form-control", id = "vehino" })
+                                                            </td>
+                                                            <td>
+                                                                @Html.TextBoxFor(model => model.PassRequestDets.FirstOrDefault().MobileNo, new { @class = "form-control", id = "mobile" })
+                                                            </td>
+                                                            @*<td>
+                                                                <div class="col-md-5">
+                                                                    <a class='btn btn-success btn-xs' href='#'>
+                                                                        <i class='icon-ok'></i>
+                                                                    </a>
+                                                                    <a class='btn btn-danger btn-xs' href='#'>
+                                                                        <i class='icon-remove'></i>
+                                                                    </a>
+                                                                </div>
+                                                            </td>*@
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-10 col-md-offset-2">
+                                    @Html.ValidationMessageFor((model => model.PassRequestDets.FirstOrDefault().PersonName))
+                                    @Html.ValidationMessageFor((model => model.PassRequestDets.FirstOrDefault().PersonNIC))
+                                    @Html.ValidationMessageFor(model => model.PassReqVehicles.FirstOrDefault().VehicleCode)
+                                    @Html.ValidationMessageFor((model => model.PassReqVehicles.FirstOrDefault().VehicleNo))
+                                    @Html.ValidationMessageFor((model => model.PassRequestDets.FirstOrDefault().MobileNo))
+                                </div>
+
+                                <div class='form-actions form-actions-padding-sm'>
+                                    <div class='row'>
+                                        <div class='col-md-10 col-md-offset-2'>
+                                            <button class='btn btn-primary' value="Create" style="margin-bottom: 5px" onclick="SubmitData();">
+                                                <i class='icon-save'></i>
+                                                Save
+                                            </button>
+                                            <a href="@Url.Action("Client", "Home")" class="btn btn-default" style="margin-bottom:5px">
+                                                <i class="icon-undo"></i>
+                                                <span>Cancel</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        }
+                    </form>
+
+                    @section Scripts {
+                        @Scripts.Render("~/bundles/jqueryval")
+                        @Scripts.Render("~/bundles/Custom")
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@*<script type="text/javascript">
+    $(document).ready(function () {
+        $('#datefrom').datepicker({
+            dateFormat: "yyyy-MM-dd",
+            showStatus: true,
+            showWeeks: true,
+            currentText: 'Now',
+            autoSize: true,
+            gotoCurrent: true,
+            showAnim: 'blind',
+            highlightWeek: true
+        });
+    });
+</script>*@

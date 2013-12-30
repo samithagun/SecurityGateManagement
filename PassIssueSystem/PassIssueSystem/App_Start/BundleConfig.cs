@@ -33,7 +33,8 @@ namespace PassIssueSystem
                         "~/Scripts/moment.min.js",
                         "~/Scripts/excanvas.js",
                         "~/Scripts/retina.js",
-                        "~/Scripts/flot*"));
+                        //"~/Scripts/flot.resize.js",
+                        "~/Scripts/flot.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/bootstrapcss").Include(
                         "~/Content/Theme/bootbox.min.css",

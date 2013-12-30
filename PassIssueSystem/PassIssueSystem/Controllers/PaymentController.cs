@@ -69,8 +69,9 @@ namespace PassIssueSystem.Controllers
 
                         // Save Payment details
                         paymentdetail.PassNo = Ref;
-                        paymentdetail.PassTotal = price;
+                        paymentdetail.PassTotal = price;                        
                         paymentdetail.AddDate = DateTime.Now;
+                        paymentdetail.PaymentDate = DateTime.Now.Date;
                         paymentdetail.AddUser = WebSecurity.CurrentUserName;
                         db.PaymentDetails.Add(paymentdetail);
 

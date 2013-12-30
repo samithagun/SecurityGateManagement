@@ -50,7 +50,7 @@
                                     </div>
                                     <div class="col-md-5">
                                         <div class='datepicker-input input-group' id='datepickerfrom' data-format="yyyy-MM-dd">
-                                            @Html.TextBoxFor(model => model.RequiredFrom, new { @class = "form-control", id = "datefrom" })
+                                            @Html.TextBoxFor(model => model.RequiredFrom, "{0:yyyy-MM-dd}", new { @class = "form-control", id = "datefrom", type = "date" })
                                             <span class='input-group-addon'>
                                                 <span class="icon-calendar" data-time-icon="icon-time" data-date-icon="icon-calendar"></span>
                                             </span>
@@ -65,7 +65,7 @@
                                     </div>
                                     <div class="col-md-5">
                                         <div class='datepicker-input input-group' id='datepickerto' data-format="yyyy-MM-dd">
-                                            @Html.TextBoxFor(model => model.RequiredTo, new { @class = "form-control", id = "dateto" })
+                                            @Html.TextBoxFor(model => model.RequiredTo, "{0:yyyy-MM-dd}", new { @class = "form-control", id = "dateto", type = "date" })
                                             <span class='input-group-addon'>
                                                 <span class="icon-calendar" data-time-icon="icon-time" data-date-icon="icon-calendar"></span>
                                             </span>
@@ -111,7 +111,7 @@
                                                             </th>
                                                             <th>Mobile No
                                                             </th>
-                                                            @*                                                            <th>VIP
+                                                            @*<th>VIP
                                                             </th>*@
                                                         </tr>
                                                     </thead>
@@ -145,19 +145,19 @@
                                                         </tr>
                                                         <tr id="reqrow1">
                                                             <td>
-                                                                @Html.TextBoxFor(model => model.PassRequestDets.FirstOrDefault().PersonName, new { @class = "form-control", id = "name" })
+                                                                @Html.TextBoxFor(model => model.PassRequestDets.FirstOrDefault().PersonName, new { @class = "form-control", id = "name1" })
                                                             </td>
                                                             <td>
-                                                                @Html.TextBoxFor(model => model.PassRequestDets.FirstOrDefault().PersonNIC, new { @class = "form-control", id = "nic" })
+                                                                @Html.TextBoxFor(model => model.PassRequestDets.FirstOrDefault().PersonNIC, new { @class = "form-control", id = "nic1" })
                                                             </td>
                                                             <td>
-                                                                @Html.DropDownListFor(model => model.PassReqVehicles.FirstOrDefault().VehicleCode, (IEnumerable<SelectListItem>)ViewBag.VehicleCode, new { @class = "form-control", id = "vehitype" })
+                                                                @Html.DropDownListFor(model => model.PassReqVehicles.FirstOrDefault().VehicleCode, (IEnumerable<SelectListItem>)ViewBag.VehicleCode, new { @class = "form-control", id = "vehitype1" })
                                                             </td>
                                                             <td>
-                                                                @Html.TextBoxFor(model => model.PassReqVehicles.FirstOrDefault().VehicleNo, new { @class = "form-control", id = "vehino" })
+                                                                @Html.TextBoxFor(model => model.PassReqVehicles.FirstOrDefault().VehicleNo, new { @class = "form-control", id = "vehino1" })
                                                             </td>
                                                             <td>
-                                                                @Html.TextBoxFor(model => model.PassRequestDets.FirstOrDefault().MobileNo, new { @class = "form-control", id = "mobile" })
+                                                                @Html.TextBoxFor(model => model.PassRequestDets.FirstOrDefault().MobileNo, new { @class = "form-control", id = "mobile1" })
                                                             </td>
                                                             @*<td>
                                                                 <div class="col-md-5">
@@ -211,17 +211,3 @@
         </div>
     </div>
 </div>
-@*<script type="text/javascript">
-    $(document).ready(function () {
-        $('#datefrom').datepicker({
-            dateFormat: "yyyy-MM-dd",
-            showStatus: true,
-            showWeeks: true,
-            currentText: 'Now',
-            autoSize: true,
-            gotoCurrent: true,
-            showAnim: 'blind',
-            highlightWeek: true
-        });
-    });
-</script>*@

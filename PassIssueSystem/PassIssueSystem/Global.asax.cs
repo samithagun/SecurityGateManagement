@@ -29,8 +29,11 @@ namespace PassIssueSystem
 
             AntiForgeryConfig.SuppressIdentityHeuristicChecks = true;
 
-            //This will send as the Pass No in Sms
+            // This will send as the Pass No in SMS
             Application["smsId"] = "";
+
+            // Custom Date model binder
+            ModelBinders.Binders.Add(typeof(DateTime?), new DateTimeModelBinder());
         }
     }
 }
