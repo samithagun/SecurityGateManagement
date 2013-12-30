@@ -43,44 +43,44 @@
                                     </div>
                                 </div>
 
-                                    <div class="form-group">
-                                        <div class="col-md-2 control-label">
-                                            @Html.LabelFor(model => model.PaymentDate)
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class='datetimepicker-input input-group' id='paydatepicker'>
-                                                @Html.TextBoxFor(model => model.PaymentDate, new { @class = "form-control" })
-                                                <span class='input-group-addon'>
-                                                    <span data-icon-element=''></span>
-                                                </span>
-                                            </div>
-                                            @Html.ValidationMessageFor(model => model.PaymentDate)
-                                        </div>
+                                <div class="form-group">
+                                    <div class="col-md-2 control-label">
+                                        @Html.LabelFor(model => model.PaymentDate)
                                     </div>
+                                    <div class="col-md-5">
+                                        <div class='datepicker-input input-group' id='datepickerfrom' data-format="yyyy-MM-dd">
+                                            @Html.TextBoxFor(model => model.PaymentDate, new { @class = "form-control", id = "datefrom" })
+                                            <span class='input-group-addon'>
+                                                <span class="icon-calendar" data-time-icon="icon-time" data-date-icon="icon-calendar"></span>
+                                            </span>
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.PaymentDate)
+                                    </div>
+                                </div>
 
-                                    <div class="form-group">
-                                        <div class="col-md-2 control-label">
-                                            @Html.LabelFor(model => model.PaymentType)
-                                        </div>
-                                        <div class="col-md-5">
-                                            @Html.DropDownListFor(model => model.PaymentType, (IEnumerable<SelectListItem>)ViewBag.PayTypes, new { @class = "form-control" })
-                                            @Html.ValidationMessageFor(model => model.PaymentType)
-                                        </div>
+                                <div class="form-group">
+                                    <div class="col-md-2 control-label">
+                                        @Html.LabelFor(model => model.PaymentType)
                                     </div>
+                                    <div class="col-md-5">
+                                        @Html.DropDownListFor(model => model.PaymentType, (IEnumerable<SelectListItem>)ViewBag.PayTypes, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.PaymentType)
+                                    </div>
+                                </div>
 
-                                    <div class='form-actions form-actions-padding-sm'>
-                                        <div class='row'>
-                                            <div class='col-md-10 col-md-offset-2'>
-                                                <button class='btn btn-primary' value="Create" style="margin-bottom: 5px">
-                                                    <i class='icon-save'></i>
-                                                    Save
-                                                </button>
-                                                <a href="@Url.Action("Office", "Home")" class="btn btn-default" style="margin-bottom:5px">
-                                                    <i class="icon-undo"></i>
-                                                    <span>Cancel</span></a>
-                                            </div>
+                                <div class='form-actions form-actions-padding-sm'>
+                                    <div class='row'>
+                                        <div class='col-md-10 col-md-offset-2'>
+                                            <button class='btn btn-primary' value="Create" style="margin-bottom: 5px">
+                                                <i class='icon-save'></i>
+                                                Save
+                                            </button>
+                                            <a href="@Url.Action("Office", "Home")" class="btn btn-default" style="margin-bottom:5px">
+                                                <i class="icon-undo"></i>
+                                                <span>Cancel</span></a>
                                         </div>
                                     </div>
+                                </div>
                             </fieldset>
                         }
                     </form>

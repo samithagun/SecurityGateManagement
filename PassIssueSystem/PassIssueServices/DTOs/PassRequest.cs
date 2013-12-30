@@ -13,5 +13,8 @@ namespace PassIssueServices.DTOs
     {
         [DataMember(Order = 0)]
         public string PassNo { get; set; }
+
+        [DataMember(Order = 1)]
+        public AuthToken Token { get; set; }
     }
 }

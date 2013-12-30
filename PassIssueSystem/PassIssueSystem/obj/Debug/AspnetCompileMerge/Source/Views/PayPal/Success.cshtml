@@ -1,0 +1,24 @@
+﻿@model PayPal.Models.PayPalViewData
+@{
+    ViewBag.Title = "Success";
+}
+
+<div class="col-xs-12">
+    <div class="row">
+    </div>
+</div>
+<div class="col-sm-12">
+    <div class='row'>
+        <div class='col-sm-12'>
+            <div class='box bordered-box fb-border'>
+                <div class='box-header fb-background'>
+                    <p>
+                        <strong>Payment complete.</strong>
+                        <br />
+                        <strong>@TempData["SMS"] </strong>
+                    <p />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,96 @@
+﻿@model IEnumerable<PassIssueSystem.Models.PassRequestHed>
+
+@{
+    ViewBag.Title = "View";
+}
+
+<div class="col-xs-12">
+    <div class="row">
+    </div>
+</div>
+<div class="col-sm-12">
+    <div class='row'>
+        <div class='col-sm-12'>
+            <div class='box bordered-box fb-border'>
+                <div class='box-header fb-background'>
+                    <div class='title'>
+                        <i class='icon-key'></i>
+                        Pass Details
+                    </div>
+                    <div class='actions'>
+                        <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+                        </a>
+                        <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                        </a>
+                    </div>
+                </div>
+                <div class='container'>
+                    <div class='row' id='content-wrapper'>
+                        <br />
+                        <div class="row pricing-tables">
+                            @for (var i = 0; i < Model.Count(); i++)
+                            {   
+                                <div class='col-sm-6 col-md-3'>
+                                    <div class="pricing-table not-important">
+
+                                        <div class="header">
+                                            @Html.DisplayFor(item => item.ElementAt(i).CompanyID)
+                                        </div>
+
+                                        <div class="price blue-background">
+                                            @Html.DisplayFor(item => item.ElementAt(i).PassReqNo)
+                                            @{
+                                var ID = Model.ElementAt(i).PassReqNo.ToString();
+                                TempData["ReqNo" + i] = ID;        
+                                            }
+                                        </div>
+
+                                        <ul class="list-unstyled features">
+                                            <li>From: <strong>@Html.DisplayFor(item => item.ElementAt(i).RequiredFrom)</strong></li>
+                                            <li>To: <strong>@Html.DisplayFor(item => item.ElementAt(i).RequiredTo)</strong></li>
+                                            <li>Comments: <strong>@Html.DisplayFor(item => item.ElementAt(i).Comments)</strong></li>
+                                        </ul>
+
+                                        <div class="header">Persons</div>
+                                        @for (var j = 0; j < Model.ElementAt(i).PassRequestDets.Count(); j++)
+                                        { 
+                                            <ul class="list-unstyled features">
+                                                <li>Name: <strong>@Html.DisplayFor(item => item.ElementAt(i).PassRequestDets.ElementAt(j).PersonName)</strong></li>
+                                                <li>NIC: <strong>@Html.DisplayFor(item => item.ElementAt(i).PassRequestDets.ElementAt(j).PersonNIC)</strong></li>
+                                            </ul>
+                                        }
+
+                                        <div class="header">Vehicles</div>
+                                        @for (var k = 0; k < Model.ElementAt(i).PassReqVehicles.Count(); k++)
+                                        { 
+                                            <ul class="list-unstyled features">
+                                                <li>Type: <strong>@Html.DisplayFor(item => item.ElementAt(i).PassReqVehicles.ElementAt(k).VehicleCode)</strong></li>
+                                                <li>Number: <strong>@Html.DisplayFor(item => item.ElementAt(i).PassReqVehicles.ElementAt(k).VehicleNo)</strong></li>
+                                            </ul>
+                                        }
+
+                                        <div class="footer">
+                                            @if (Roles.IsUserInRole("Client User"))
+                                            {
+                                                <a href="@Url.Action("Client", "Payment", new { ReqNo = TempData["ReqNo" + i] })" class="btn btn-default" style="margin-bottom:5px">
+                                                    <i class="icon-money"></i>
+                                                    <span>Proceed to Payment</span></a>
+                                            }
+                                            @if (Roles.IsUserInRole("Pass Office"))
+                                            {
+                                                <a href="@Url.Action("Create", "Payment", new { ReqNo = TempData["ReqNo" + i] })" class="btn btn-default" style="margin-bottom:5px">
+                                                    <i class="icon-money"></i>
+                                                    <span>Proceed to Payment</span></a>
+                                            }
+                                        </div>
+                                    </div>
+                                    <br />
+                                </div>                            
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

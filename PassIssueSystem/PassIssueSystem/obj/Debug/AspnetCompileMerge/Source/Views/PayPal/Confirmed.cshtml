@@ -1,0 +1,41 @@
+﻿@model PayPal.Models.ConfirmedViewData
+@{
+    ViewBag.Title = "Confirmed";
+}
+
+<div class="col-xs-12">
+    <div class="row">
+    </div>
+</div>
+<div class="col-sm-12">
+    <div class='row'>
+        <div class='col-sm-12'>
+            <div class='box bordered-box fb-border'>
+                <div class='box-header fb-background'>
+                    <div class='title'>
+                        <i class='icon-money'></i>
+                        Confirm Your Payment?
+                    </div>
+                    <div class='actions'>
+                        <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class='col-md-10 col-md-offset-2'>
+                        <br />
+                        <form action="/paypal/capture" method="post">
+                            <input type="hidden" name="authorizationId" value="@Model.AuthorizationId" />
+                            <button class="btn btn-success btn-lg" type="submit">Submit</button>
+                        </form>
+                        <br />
+                        <form action="/paypal/void" method="post">
+                            <input type="hidden" name="authorizationId" value="@Model.AuthorizationId" />
+                            <button class="btn btn-warning btn-lg" type="submit">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

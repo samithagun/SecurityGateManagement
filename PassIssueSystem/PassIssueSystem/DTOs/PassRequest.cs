@@ -18,12 +18,12 @@
 
         [Required]
         [Display(Name = "Required From")]
-        [DataType(DataType.Date)]
+        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public System.DateTime RequiredFrom { get; set; }
 
         [Required]
         [Display(Name = "Required To")]
-        [DataType(DataType.Date)]
+        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public System.DateTime RequiredTo { get; set; }
 
         [Required]
